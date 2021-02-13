@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN"
+   "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<!-- 
+
+     This file controls the NEXT SECTION (not NEXT PAGE) BUTTON TO ALLOW
+     READER TO SKIP TO NEXT CHAPTER
+	 
+-->	 
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+    <head>
+        <meta name="dtb:uid" content="015ffaec-9340-42f8-b163-a0c5ab7d0611"/>
+        <meta name="dtb:depth" content="2"/>
+        <meta name="dtb:totalPageCount" content="0"/>
+        <meta name="dtb:maxPageNumber" content="0"/>
+    </head>
+    <docTitle>
+        <text>Gramma Vi's Fabulous Friends, Fabulous Food: Recipes Guaranteed to Win Even More Friends</text>
+    </docTitle>
+    <navMap>
+	
+	        <!-- COMMENT THIS ONE OUT BEFORE FINAL PUBLICATION !!!!!!!!!!!!!!!! -->
+	        <navPoint id="Test" playOrder="1">
+                <navLabel>
+                    <text>Test</text>
+                </navLabel>
+                <content src="Text/testsymbols.xhtml"/>
+            </navPoint>
+	
+			 <navPoint id="title.x" playOrder="2">
+                <navLabel>
+                    <text>Title Page</text>
+                </navLabel>
+                <content src="Text/title.xhtml"/>
+            </navPoint>
+             <navPoint id="danke.x" playOrder="3">
+                <navLabel>
+                    <text>Acknowledgements, Contact</text>
+                </navLabel>
+                <content src="Text/danke.xhtml"/>
+            </navPoint>
+            <navPoint id="toc.x" playOrder="4">
+                <navLabel>
+                    <text>Table of Contents</text>
+                </navLabel>
+                <content src="Text/toc.xhtml"/>
+            </navPoint>
+			<navPoint id="Introduction" playOrder="5">
+                <navLabel>
+                    <text>Introduction</text>
+                </navLabel>
+                <content src="Text/introduction.xhtml"/>
+            </navPoint>
+                        
+          
+			<navPoint id="BranMuffin" playOrder="6">
+                <navLabel>
+                    <text>Best Bran Muffins</text>
+                </navLabel>
+                <content src="Text/branmuffin/branmuffin.xhtml"/>
+            </navPoint>
+			
+			<navPoint id="Smoothie" playOrder="7">
+                <navLabel>
+                    <text>Smoothie</text>
+                </navLabel>
+                <content src="Text/smoothie/smoothie.xhtml"/>
+            </navPoint>
+			
+            <navPoint id="Easy Vegetables" playOrder="8">
+                <navLabel>
+                    <text>Easy Vegetables</text>
+                </navLabel>
+                <content src="Text/vegetables/vegetables.xhtml"/>
+            </navPoint>
+			
+			 <navPoint id="CokeCake" playOrder="9">
+                <navLabel>
+                    <text>To-Die-For Coke Cake</text>
+                </navLabel>
+                <content src="Text/cokecake/cokecake.xhtml"/>
+            </navPoint>
+			 <navPoint id="Taters" playOrder="10">
+                <navLabel>
+                    <text>Scalloped Potatoes</text>
+                </navLabel>
+                <content src="Text/taters/taters.xhtml"/>
+            </navPoint>
+             <navPoint id="Veggs" playOrder="11">
+                <navLabel>
+                    <text>Vegan Eggs</text>
+                </navLabel>
+                <content src="Text/veggs/veggs.xhtml"/>
+            </navPoint>
+			 <navPoint id="Divinity" playOrder="12">
+                <navLabel>
+                    <text>Divinity</text>
+                </navLabel>
+                <content src="Text/divinity/divinity.xhtml"/>
+            </navPoint>
+             <navPoint id="Rice" playOrder="13">
+                <navLabel>
+                    <text>Rice</text>
+                </navLabel>
+                <content src="Text/rice/rice.xhtml"/>
+            </navPoint>
+            <navPoint id="TaterSalad" playOrder="14">
+                <navLabel>
+                    <text>Oh-That's-What-Makes-That-Crunch Potato Salad</text>
+                </navLabel>
+                <content src="Text/tatersalad/tatersalad.xhtml"/>
+            </navPoint>            
+			<navPoint id="Template" playOrder="15">
+                <navLabel>
+                    <text>Template</text>
+                </navLabel>
+                <content src="Text/template/template.xhtml"/>
+            </navPoint>
+			
+			
+            
+    </navMap>
+</ncx>

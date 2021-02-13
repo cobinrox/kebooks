@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookID" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:title>Gramma Vi's Heads Like These! Cookbook</dc:title>
+	    <dc:language>en</dc:language>
+        <dc:rights>All rights reserved</dc:rights>
+        <dc:creator opf:role="aut"></dc:creator>
+        <dc:publisher>Clowngineering</dc:publisher>
+		<meta name="cover" content="cover.j" />
+		<dc:date>2021-10-31</dc:date>
+		<!-- http://www.famkruithof.net/uuid/uuidgen -->
+        <dc:identifier id="BookID" opf:scheme="UUID">66503e10-1ce9-11e4-8c21-0800200c9a66</dc:identifier>
+        <meta name="" content=""/>
+    </metadata>
+    <manifest>
+        <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+        
+
+        <item id="page-template.xpgt" href="Styles/page-template.xpgt" media-type="application/vnd.adobe-page-template+xml"/>
+        <item id="stylesheet.css" href="Styles/stylesheet.css" media-type="text/css"/>
+        <item id="btable.css" href="Styles/btable.css" media-type="text/css"/>
+		<item id="cover.j" href="Images/cover.jpg" media-type="image/jpeg"/>
+		<item id="cover.x" media-type= "application/xhtml+xml" href="cover.xhtml"></item>
+        <item id="toc.x" href="Text/toc.xhtml" media-type="application/xhtml+xml"/>
+        <item id="title.x" href="Text/title.xhtml" media-type="application/xhtml+xml"/>
+        <item id="danke.x" href="Text/danke.xhtml" media-type="application/xhtml+xml"/>
+		
+		
+		<item id="test.x" href="Text/testsymbols.xhtml" media-type="application/xhtml+xml"/>
+
+        <item id="introduction.x" href="Text/introduction.xhtml" media-type="application/xhtml+xml"/>
+        <item id="heads1.jpg" href="Images/heads1.jpg" media-type="image/jpeg"/>
+        <item id="heads2.jpg" href="Images/heads2.jpg" media-type="image/jpeg"/>
+        <item id="cokemixer.jpg" href="Images/cokemixer.jpg" media-type="image/jpeg"/>
+        <item id="veganbunnies.jpg" href="Images/veganbunnies.jpg" media-type="image/jpeg"/>
+
+
+        <item id="tips.x" href="Text/tips.xhtml" media-type="application/xhtml+xml"/>
+		<item id="canopener.jpg" href="Images/canopener.jpg" media-type="image/jpeg"/>
+        <item id="vegsteamer.jpg" href="Images/vegsteamer.jpg" media-type="image/jpeg"/>
+        <item id="eggcooker.jpg" href="Images/eggcooker.jpg" media-type="image/jpeg"/>
+
+        <item id="cokecake.x" href="Text/cokecake/cokecake.xhtml" media-type="application/xhtml+xml"/>
+        <item id="cokecake.jpg" href="Images/cokecake.jpg" media-type="image/jpeg"/>
+        <item id="cokecakebach.jpg" href="Images/cokecakebach.jpg" media-type="image/jpeg"/>
+        <item id="cokecake_ing.x" href="Text/cokecake/cokecake_ing.xhtml" media-type="application/xhtml+xml"/>
+        <item id="cokecake_inst.x" href="Text/cokecake/cokecake_inst.xhtml" media-type="application/xhtml+xml"/>
+
+		
+		<item id="smoothie.x" href="Text/smoothie/smoothie.xhtml" media-type="application/xhtml+xml"/>
+        <item id="smoothie0.jpg" href="Images/smoothie0.jpg" media-type="image/jpeg"/>
+		<item id="smoothie_ing.x" href="Text/smoothie/smoothie_ing.xhtml" media-type="application/xhtml+xml"/>
+		<item id="smoothie_inst.x" href="Text/smoothie/smoothie_inst.xhtml" media-type="application/xhtml+xml"/>
+		<item id="smoothieb.jpg" href="Images/smoothieblender.jpg" media-type="image/jpeg"/>
+		<item id="smoothiebig.jpg" href="Images/smoothiebig.jpg" media-type="image/jpeg"/>
+
+
+		<item id="vegetables.x" href="Text/vegetables/vegetables.xhtml" media-type="application/xhtml+xml"/>
+        <item id="vegetables.jpg" href="Images/vegetables.jpg" media-type="image/jpeg"/>
+		<item id="vegetables_ing.x" href="Text/vegetables/vegetables_ing.xhtml" media-type="application/xhtml+xml"/>
+        <item id="vegetables_norpro.jpg" href="Images/norpro.jpg" media-type="image/jpeg"/>
+        <item id="vegbags2.jpg" href="Images/vegbags2.jpg" media-type="image/jpeg"/>
+
+		<item id="vegetables_inst.x" href="Text/vegetables/vegetables_inst.xhtml" media-type="application/xhtml+xml"/>
+
+        <item id="branmuffin.x" href="Text/branmuffin/branmuffin.xhtml" media-type="application/xhtml+xml"/>
+		<item id="branmuffin_ing.x" href="Text/branmuffin/branmuffin_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="branmuffin_inst.x" href="Text/branmuffin/branmuffin_inst.xhtml" media-type="application/xhtml+xml"/>
+
+		<item id="taters.x" href="Text/taters/taters.xhtml" media-type="application/xhtml+xml"/>
+		<item id="taters_ing.x" href="Text/taters/taters_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="taters_inst.x" href="Text/taters/taters_inst.xhtml" media-type="application/xhtml+xml"/>
+        <item id="taters.jpg" href="Images/scalpedtaters.jpg" media-type="image/jpeg"/>
+        <item id="odebowl.jpg" href="Images/odebowl.jpg" media-type="image/jpeg"/>
+        <item id="scalped.jpg" href="Images/small/scalped.jpg" media-type="image/jpeg"/>
+
+        <item id="veggs.x" href="Text/veggs/veggs.xhtml" media-type="application/xhtml+xml"/>
+		<item id="veggs_ing.x" href="Text/veggs/veggs_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="veggs_inst.x" href="Text/veggs/veggs_inst.xhtml" media-type="application/xhtml+xml"/>
+        <item id="veggs.jpg" href="Images/veggs.jpg" media-type="image/jpeg"/>
+        <item id="veggsing.jpg" href="Images/veggsing.jpg" media-type="image/jpeg"/>
+        <item id="veggsmix.jpg" href="Images/veggsmix.jpg" media-type="image/jpeg"/>
+
+        <item id="divinity.x" href="Text/divinity/divinity.xhtml" media-type="application/xhtml+xml"/>
+		<item id="divinity_ing.x" href="Text/divinity/divinity_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="divinity_inst.x" href="Text/divinity/divinity_inst.xhtml" media-type="application/xhtml+xml"/>
+        <item id="divinity.jpg" href="Images/divinity_recipe.jpg" media-type="image/jpeg"/>
+
+        <item id="rice.x" href="Text/rice/rice.xhtml" media-type="application/xhtml+xml"/>
+		<item id="rice_ing.x" href="Text/rice/rice_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="rice_inst.x" href="Text/rice/rice_inst.xhtml" media-type="application/xhtml+xml"/>
+
+        <item id="tatersalad.x" href="Text/tatersalad/tatersalad.xhtml" media-type="application/xhtml+xml"/>
+		<item id="tatersalad_ing.x" href="Text/tatersalad/tatersalad_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="tatersalad_inst.x" href="Text/tatersalad/tatersalad_inst.xhtml" media-type="application/xhtml+xml"/>
+		<item id="tatersalad.jpg" href="Images/potatosalad.jpg" media-type="image/jpeg"/>
+
+        <item id="leslopnia.x"      href="Text/leslopnia/description.xhtml" media-type="application/xhtml+xml"/>
+		<item id="leslopnia_ing.x"  href="Text/leslopnia/ingredients.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="leslopnia_inst.x" href="Text/leslopnia/instructions.xhtml" media-type="application/xhtml+xml"/>
+		<item id="leslopnia.jpg"    href="Text/leslopnia/product.jpg" media-type="image/jpeg"/>
+        
+        
+        <item id="template.x" href="Text/template/template.xhtml" media-type="application/xhtml+xml"/>
+		<item id="template_ing.x" href="Text/template/template_ing.xhtml" media-type="application/xhtml+xml"/>
+    	<item id="template_inst.x" href="Text/template/template_inst.xhtml" media-type="application/xhtml+xml"/>
+
+        <item id="onion.jpg" href="Images/onion.jpg" media-type="image/jpeg"/>
+
+        <item id="excitement.jpg" href="Images/small/excitement.jpg" media-type="image/jpeg"/>
+        <item id="excitement2.jpg" href="Images/excitement.jpg" media-type="image/jpeg"/>
+        <item id="danger.jpg" href="Images/small/danger.jpg" media-type="image/jpeg"/>
+        <item id="danger2.jpg" href="Images/danger.jpg" media-type="image/jpeg"/>
+        <item id="healthy.jpg" href="Images/small/healthy.jpg" media-type="image/jpeg"/>
+        <item id="healthy2.jpg" href="Images/healthy.jpg" media-type="image/jpeg"/>
+        <item id="vegan.jpg" href="Images/small/vegan.jpg" media-type="image/jpeg"/>
+        <item id="puck.jpg" href="Images/small/puck.jpg" media-type="image/jpeg"/>
+        <item id="puck2.jpg" href="Images/puck.jpg" media-type="image/jpeg"/>
+        <item id="watch2.jpg" href="Images/watch.jpg" media-type="image/jpeg"/>
+        <item id="watch.jpg" href="Images/small/watch.jpg" media-type="image/jpeg"/>
+
+        
+    </manifest>
+    <spine toc="ncx">
+	<!-- This section must contain the order of the chapters and individual pages -->
+		<itemref idref="cover.x"/>
+		<!-- COMMENT OUT TEST.X ENTRY BEFORE FINAL PUBLICATION !!!!!!!!!!!!!!!!!!!!!!!! -->
+        <itemref idref="test.x"/>
+
+        <itemref idref="title.x"/>
+        <itemref idref="danke.x"/>
+
+		<itemref idref="toc.x"/>
+        <itemref idref="introduction.x"/>
+		<itemref idref="tips.x"/>
+
+        <itemref idref="branmuffin.x"/>
+        <itemref idref="branmuffin_ing.x"/>
+        <itemref idref="branmuffin_inst.x"/>
+		
+		<itemref idref="smoothie.x"/>
+        <itemref idref="smoothie_ing.x"/>
+        <itemref idref="smoothie_inst.x"/>
+        
+        <itemref idref="vegetables.x"/>
+        <itemref idref="vegetables_ing.x"/>
+        <itemref idref="vegetables_inst.x"/>
+		
+		<itemref idref="cokecake.x"/>
+        <itemref idref="cokecake_ing.x"/>
+        <itemref idref="cokecake_inst.x"/>
+
+		<itemref idref="taters.x"/>
+        <itemref idref="taters_ing.x"/>
+        <itemref idref="taters_inst.x"/>
+        
+        <itemref idref="veggs.x"/>
+        <itemref idref="veggs_ing.x"/>
+        <itemref idref="veggs_inst.x"/>
+        
+        <itemref idref="divinity.x"/>
+        <itemref idref="divinity_ing.x"/>
+        <itemref idref="divinity_inst.x"/>
+        
+        <itemref idref="rice.x"/>
+        <itemref idref="rice_ing.x"/>
+        <itemref idref="rice_inst.x"/>
+        
+        <itemref idref="tatersalad.x"/>
+        <itemref idref="tatersalad_ing.x"/>
+        <itemref idref="tatersalad_inst.x"/>
+        
+        <itemref idref="leslopnia.x"/>
+        <itemref idref="leslopnia_ing.x"/>
+        <itemref idref="leslopnia_inst.x"/>
+
+        
+         <itemref idref="template.x"/>
+        <itemref idref="template_ing.x"/>
+        <itemref idref="template_inst.x"/>
+
+    </spine>
+	
+	<guide>
+		<reference type="cover" title="Cover Page" href="Images/cover.jpg"/>
+		<reference type="toc" title="Table of Contents" href="Text/toc.xhtml#toc"/>
+		<reference type="text" title="Beginning" href="cover.xhtml"/>
+		<!-- this you get for free
+		<reference type="location" title="Location" href=""/>
+		-->
+	</guide>
+
+</package>

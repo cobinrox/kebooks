@@ -1,0 +1,5 @@
+1. Put onion picture on float left
+2. Move sample icons table to stand-alone table or make icons smaller
+2. Move Tips-N-Gadges to Gramma Vi's Approved Fab Food Contraptions
+3. Create Chap2 Hints n Tips
+5. Change table font

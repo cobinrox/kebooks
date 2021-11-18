@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.1" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -6,75 +6,77 @@
 <head>
   <title>Introduction</title>
   <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
-  <link rel="stylesheet" href="../Styles/bwtable.css" type="text/css" />
 
   <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../Styles/page-template.xpgt" />
 </head>
 
 <body>
 <div>
-<h1>Introduction</h1>
+<h1>INTRODUCTION</h1>
 <p>
 This book is for git users, and specifically those who are baffled by it.  It has taken me years before I could grasp enough of git to be comfortable with it. I consider myself the epitome of the Gitiot.  If you struggle with git and desipite following instructions from your colleagues, articles, and tutorials yet are still confounded, then welcome.
 </p>
-<!-- <p>
-If you are just starting out with git but have a an idea what it is used for, if you have actually worked with it but still struggle with it, if you are an expert and would like to see how non-experts' thinking patterns work, or, if you are a software manager and need to grok the basics, this book is for you.  It is not a comprehensive discussion of git, however.  It shows you some of the information about git that should help you grasp the jist and get you comfortable with it and be able to reproduce your workflow with it.
-</p>
-<h3>
-So why is git so hard to learn for some of us?
-</h3>
+
 <p>
+If you are just starting out with git but have a an idea what it is used for, if you have actually worked with it but still struggle with it, if you are an expert and would like to see how non-experts' thinking patterns work, or, if you are a software manager and need to grok the basics, this book is for you.  It is not a comprehensive discussion of git, however.  It shows you some of the information about git that should help you grasp the jist and the very important information that is skimmed over in other books,  and get you comfortable with it and be able to reproduce your workflow with it.
+</p>
+<h4>
+So why is git so hard to learn for some of us?
+</h4>
+
 <ul>
-<li><b>Vague overloading of terms.</b>  One of my favorite example of this is when someone or some article talks about "merging your changes into the master branch".  Don't worry, we'll go over what a master branch is if you are unfamiliar with it, but the statement should actually be "be sure to merge master into your branch".  This type of imprecise language can really cause some (ahem) to go totally off track.  Imagine if you were new to driving and someone said "be sure to drive on the right side of the street".  So you proceed to keep to the right side of the street.  But suppose you are in London.  That would not go over well.  What you later learn is that the person meant "be sure to drive on the correct side of the street".</li> 
-<li><b>Other high-quality Integrated Development Environments (IDEs).</b>  Certain IDEs can intuitively hide version control very nicely, to the point that you can forget about how it works under the hood.  IntelliJ, for example, has a robust plugin for use with Subversion (SVN).  It can automatically make local historical changes you make to your project and you can easily go back in time and swap out files easily.  This is one reason why some (ahem) get lost in git because it seems to be overridden with minnutia of commands just to do simple things like looking at a file you changed a few days ago which is very easy and intuitive in IntelliJ.</li>
+<li><b>Vague use of terms.</b>  One of my favorite example of this is when someone or some article talks about "merging your changes into the master branch".  Don't worry, we'll go over what a master branch is if you are unfamiliar with it, but the statement should actually be "be sure to merge master into your branch".  This type of imprecise language can really cause some (ahem) to go totally off track.  Imagine if you were new to driving and someone said "be sure to drive on the right side of the street".  So you proceed to keep to the right side of the street.  But suppose you are in London.  That would not go over well.  What you later learn is that the person meant "be sure to drive on the correct side of the street".</li> 
+<li><b>Other high-quality Integrated Development Environments (IDEs).</b>  Certain IDEs can intuitively hide version control very nicely, to the point that you can forget about how it works under the hood.  IntelliJ, for example, has a robust plugin for use with Subversion (SVN).  It can automatically keep track of local changes you make to your project and you can easily go back in time and swap out files easily.  This is one reason why some (ahem) get lost in git because it seems to be overridden with minnutia of commands just to do simple things like looking at a file you changed a few days ago, which is very easy and intuitive in IntelliJ.</li>
 <li><b>Complex workflow.</b>  A major roadblock to getting git is understanding the git version control workflow, specifically the "feature branch" workflow.  Combine this complexity with vague statements like "push your changes into master" can cause some (ahem) to imagine a free-for-all dumping of changes into a master repository.  We'll cover what the workflow is and how it works for reals.</li>
-<li><b>Unfamiliarity with terminal commands.</b>  Face it, not everyone knows how to traverse a directory in a command terminal, let alone list a set of branches and then know how to scroll to a second page in the list output.  Enough said </li>
-<li><b>Poorly implemented User eXperience (UX) implementations in IDEs.</b> This is related to overloading of terms, but some IDEs with integrated git capabilities use poorly-chosen commands that either do not line up with git procedures, or manage to hide information about what it is doing in the background.  The latter can be useful if it is done with a proper UX, but throwing in vague and confusing terms just causes more confusion for the gitiot. </li>
+<li><b>Unfamiliarity with terminal commands.</b>  Face it, not everyone knows how to traverse a directory in a command terminal, let alone list a set of branches and then know how to scroll to a second page in the list output.  Enough said</li>
+<li><b>Poorly implemented User eXperience (UX) implementations in IDEs.</b> This is related to overloading of terms, but some IDEs with integrated git capabilities use poorly-chosen commands that either do not line up with git procedures, or manage to hide information about what it is doing in the background.  The latter can be useful if it is done with a proper UX, but throwing in vague and confusing terms just causes more confusion for the gitiot.</li>
 <li><b>Sheer number of states.</b> It's been said that the typical human mind can juggle about a maximum of seven items at any one time.  Some of us (ahem) are far below that curve, so trying to keep in mind all of the states and which commands to use is overwhelming.</li>
+<li><b>Different Git implementations</b>There are several Git repository implementations, two of the most well-known being Github and Gitlab.  Github uses "pull request", Gitlab uses the expression "merge request" to signify a request to merge a branch into another.  Gitlab, on the other hand, uses the expression "pull request" to denote that type of action. So when someone talks about Git, you have to be sure that you know which implementation she/he is referring to.</li>
 </ul>
-<h3>What you'll see.</h3>
+
+<h4>What you'll see.</h4>
 <p>
 The concepts in this book are based on a culmination of my ah-ha moments in working with git, from watching others use (or misuse or misunderstand) git, and observations of too many cooks trying to explain the git workflow to skeptics and those who have learned the art of raising an eyebrow.
+</p>
 <ul>
 <li>Unique diagrams to help visualize git architecture and workflows</li>
 <li>Precise definitions</li>
 <li>Real-world things you need to know</li>
 <li>Real-world scenarios you might encounter</li>
 </ul>
-</p>
-<h3>
+ 
+<h4>
 What you won't see.
-</h3>
-<p>
+</h4>
+ 
 <ul>
 <li><b>Maps of the London subway.</b>  The traditional git books use the branching timeline idiom to attempt to show how git branching works.  These maps become a jumble if the user is not yet versed in the separation of the local and remote repositories.  Plus I'm personlly sick of seeing them: they all look alike and the simpler maps are obvious to the point of being pedantic, whereas the more complex are illegible and make my eyes googlie.</li>
 <li><b>The phrase "be sure to push your changes to master".</b>  This is a very sloppy phrase along the lines of "be sure to drive on the right side of the street".</li>
 </ul>
-</p>
+ 
 <h3>
 How to use/traverse this book.
 </h3>
-<p>
+ 
 <ul>
 <li><b>What is Git?</b>  This is the obligatory marketing spiel about how great git is.  Skip this chapter if you already know what git is and what it is used for.</li>
-<li><b>The Feature Workflow or <i>This Is Why We Branch</i>.</b> Believe it or not, this may be the most important chapter. If you are confused by the phrase "be sure to merge with master", or if you are a software manager, you'll probably want to look through this chapter.</li>
-
 <li><b>Architecture Chapter.</b> Skip this chapter if you are already comfortable with the ledger/index, working, staging, commit, and remote terms.  Otherwise skim through this and refer back to it as you move through other chapters. Unfortunately, you do need to know these items to help you understand git.</li>
+<li><b>The Feature Workflow.</b> This may be the most important chapter. If you are confused by the phrase "be sure to merge with master", or if you are a software manager, you'll probably want to look through this chapter.</li>
 <li><b>Implementing Workflow.</b></li>
 <li><b>Git Cheat Sheet</b></li>
 <li><b>Appendix A: Setting up Github account</b></li>
 <li><b>Appendix B: Git States, or No Wonder I Can't Understand This</b></li>
 </ul>
-</p>
+ 
 
 <h3>
 What you should bring to the table.  
 </h3>
-<p>
+ 
 Readers should have the following skills at the least.
 <ul>
 <li><b>Knowledge of common Information Technology (IT) terms</b></li>
-<li>Familiarity with common IT/computer tasks</li>
+<li>Familiarity with common IT/computer tasks
 
   <ul>
   <li>How to use a mouse</li>
@@ -86,12 +88,11 @@ Readers should have the following skills at the least.
   <li>Understand the difference between single quotes, double quotes, and the gravisan quotes</li>
   <li>Know how to display hidden files and show file extensions</li>
   </ul>
-
+</li>
 <li>Some familiarity with version control</li>
 <li>Have a git account at your work or home.  This is not actually necessary, but you should have an idea of how to access git for your situation</li>
 </ul>
-</p>
--->
+ 
 </div>
 </body>
 </html>

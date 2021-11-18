@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Branching Workflow</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<h1>BRANCHING WORKFLOW</h1>
+<p>
+This is probably the most boring chapter, but also the most important.  In today's market, you need to understand the Branching workflow, whether you agree that it is a good idea or not.  If you don't understand the Branching workflow, you may stumble when trying to understand Git.</p>
+<!--div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " width="375" height="500" style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div-->
+<p>
+A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the constitution is being edited by three different developers.</p>
+  
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div>
+
+<p>As the software industry matures, though, more sophisticated strategies have been adopted.  The Branching Workflow is one such evolution and is unlikey to go away.
+And just as Security+ certification is a necessary evil in your career, understanding the Branching Workflow is crucial at this time in history.  You just gotta learn it.</p>
+<p>In the Branching Workflow, users (developers) make and push up global changes not to a "master" code repository (like the Preamble document in the previous figure), but up to their own <i>branch</i>.  This (usually) ensures isolation (no need for locking files) but also still serves as a save repository for code changes (provided individual users pushes up his/her code branch frequently).  Finally, when a developer is finished with his code, his branch is <i>merged</i>, usually by an independent party, int the true master branch.  In the Preamble document example above, this would mean that each developer creates a <i>branch</i> (a copy of the master) and works in isolation on that branch to update the file.  So Amy updates her interpretation of the Preamble, Bill updates his, and Dexter his: They do not lock any files nor push thier changes straight into the master repository. So taking the Preamble example, we would something <i>conceptually</i> like this:</p>
+
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Start of an ultra-simple Branching Workflow.</i></div>
+
+<p>At any time,  the developer could ask the team lead or a trusted gargoyle to <i>merge</i> their branch into the actual master.  Hopefully the figure below shows the concept.  The astute (awake) reader should recoil in horror and think "What??"  </p>
+
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn3.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Individual branches are merged into the master copy (simplified).</i></div>
+
+
+
+ 
+</div>
+</body>
+</html>

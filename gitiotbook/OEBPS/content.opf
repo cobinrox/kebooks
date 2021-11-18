@@ -31,13 +31,9 @@
         <item id="introduction.x" href="Text/introduction.xhtml" media-type="application/xhtml+xml"/>
         <item id="whatis.x" href="Text/whatis.xhtml" media-type="application/xhtml+xml"/>
 
-        <item id="aaa.x" href="Text/aaa.xhtml" media-type="aaa/xhtml+xml"/>
         <item id="architecture.x" href="Text/architecture.xhtml" media-type="application/xhtml+xml"/>
 
-        <item id="template.x" href="Text/template/template.xhtml" media-type="application/xhtml+xml"/>
-		<item id="template_ing.x" href="Text/template/template_ing.xhtml" media-type="application/xhtml+xml"/>
-    	<item id="template_inst.x" href="Text/template/template_inst.xhtml" media-type="application/xhtml+xml"/>
-
+        
     
         
     </manifest>
@@ -56,10 +52,7 @@
 
         <itemref idref="architecture.x"/>
         
-         <itemref idref="template.x"/>
-        <itemref idref="template_ing.x"/>
-        <itemref idref="template_inst.x"/>
-
+       
     </spine>
 	
 	<guide>

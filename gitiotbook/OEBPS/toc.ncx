@@ -51,73 +51,8 @@
                 </navLabel>
                 <content src="Text/introduction.xhtml"/>
             </navPoint>
-                        
-          
-			<navPoint id="BranMuffin" playOrder="6">
-                <navLabel>
-                    <text>Best Bran Muffins</text>
-                </navLabel>
-                <content src="Text/branmuffin/branmuffin.xhtml"/>
-            </navPoint>
-			
-			<navPoint id="Smoothie" playOrder="7">
-                <navLabel>
-                    <text>Smoothie</text>
-                </navLabel>
-                <content src="Text/smoothie/smoothie.xhtml"/>
-            </navPoint>
-			
-            <navPoint id="Easy Vegetables" playOrder="8">
-                <navLabel>
-                    <text>Easy Vegetables</text>
-                </navLabel>
-                <content src="Text/vegetables/vegetables.xhtml"/>
-            </navPoint>
-			
-			 <navPoint id="CokeCake" playOrder="9">
-                <navLabel>
-                    <text>To-Die-For Coke Cake</text>
-                </navLabel>
-                <content src="Text/cokecake/cokecake.xhtml"/>
-            </navPoint>
-			 <navPoint id="Taters" playOrder="10">
-                <navLabel>
-                    <text>Scalloped Potatoes</text>
-                </navLabel>
-                <content src="Text/taters/taters.xhtml"/>
-            </navPoint>
-             <navPoint id="Veggs" playOrder="11">
-                <navLabel>
-                    <text>Vegan Eggs</text>
-                </navLabel>
-                <content src="Text/veggs/veggs.xhtml"/>
-            </navPoint>
-			 <navPoint id="Divinity" playOrder="12">
-                <navLabel>
-                    <text>Divinity</text>
-                </navLabel>
-                <content src="Text/divinity/divinity.xhtml"/>
-            </navPoint>
-             <navPoint id="Rice" playOrder="13">
-                <navLabel>
-                    <text>Rice</text>
-                </navLabel>
-                <content src="Text/rice/rice.xhtml"/>
-            </navPoint>
-            <navPoint id="TaterSalad" playOrder="14">
-                <navLabel>
-                    <text>Oh-That's-What-Makes-That-Crunch Potato Salad</text>
-                </navLabel>
-                <content src="Text/tatersalad/tatersalad.xhtml"/>
-            </navPoint>            
-			<navPoint id="Template" playOrder="15">
-                <navLabel>
-                    <text>Template</text>
-                </navLabel>
-                <content src="Text/template/template.xhtml"/>
-            </navPoint>
-			
-			
+		
+					
             
     </navMap>
 </ncx>

@@ -14,25 +14,49 @@
 <div>
 <h1>BRANCHING WORKFLOW</h1>
 <p>
-This is probably the most boring chapter, but also the most important.  In today's market, you need to understand the Branching workflow, whether you agree that it is a good idea or not.  If you don't understand the Branching workflow, you may stumble when trying to understand Git.</p>
-<!--div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " width="375" height="500" style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div-->
+This is probably the most boring chapter, but also the most important.  In today's market, you need to understand the Branching workflow, whether you agree that it is a good idea or not.  If you don't understand the Branching workflow, you may stumble when trying to understand Git.
+If you are certain that you understand the nuances of a basic branching strategy, you may want to skip this chapter. But if the phrase "Did you merge your branch into the master?" seems perfectly fine to you, then you might want to browse through the sections herein.
+In fact, after reading through this chapter, it is hoped that you will be able to answer the following questions (no this is not a test, but it is important):
+  <ol>
+    <li>What if developer A's changes breaks the changes that developer B made last week?</li><!-- you cannot merge into the master until you have merged the master into your branch yourself locally on your machine and have unmangled any collisions; b) you need to make sure unit tests still work after merging master into your branch locally-->
+    <li></li>
+  </ol>
+</p>  
 <p>
-A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the constitution is being edited by three different developers.</p>
-  
+  This chapter brings you up to speed with the best-practice Branching Worflow with the following sub-sections:
+  <ul>
+  <li>The Wild West Simplified Traditional Workflow</li>
+  <li>The Wild West Simplified Branching Workflow</li>
+  <li>The Preferred (Safe) Branching Workflow</li>
+  <li>The Industry-Standard (Multiple-Layer) Branching Workflow</li>
+  </ul>
+</p>
+<!--div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " width="375" height="500" style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div-->
+<h3>The Wild West Simplified Traditional Workflow</h3>
+<p>
+A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers.</p> 
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div>
 
+<h3>The Wild West (Simplified) Branching Workflow</h3>
 <p>As the software industry matures, though, more sophisticated strategies have been adopted.  The Branching Workflow is one such evolution and is unlikey to go away.
 And just as Security+ certification is a necessary evil in your career, understanding the Branching Workflow is crucial at this time in history.  You just gotta learn it.</p>
-<p>In the Branching Workflow, users (developers) make and push up global changes not to a "master" code repository (like the Preamble document in the previous figure), but up to their own <i>branch</i>.  This (usually) ensures isolation (no need for locking files) but also still serves as a save repository for code changes (provided individual users pushes up his/her code branch frequently).  Finally, when a developer is finished with his code, his branch is <i>merged</i>, usually by an independent party, int the true master branch.  In the Preamble document example above, this would mean that each developer creates a <i>branch</i> (a copy of the master) and works in isolation on that branch to update the file.  So Amy updates her interpretation of the Preamble, Bill updates his, and Dexter his: They do not lock any files nor push thier changes straight into the master repository. So taking the Preamble example, we would something <i>conceptually</i> like this:</p>
+<p>In the Branching Workflow, users (developers) make and push up their changes not to a single "master" monolith repository (like the Preamble document in the previous figure), but up to their own <i>branches</i>.  This (usually) ensures isolation (no need for locking files) but also still serves as a safe repository for code changes (provided the individual users pushes up their code branch frequently).  In the Preamble document example above, this would mean that each developer creates a <i>branch</i> (a copy of the master) and works in isolation on that branch to update the file.  So Amy updates her interpretation of the Preamble, Bill updates his, and Dexter his: They do not lock any files nor push thier changes straight into the master copy. So taking the Preamble example, we would something <i>conceptually</i> like this:</p>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr1.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Start of an ultra-simple Branching Workflow.</i></div>
+<p>So far, this doesn't seem all that different from the traditional workflow.  The magic, however, comes when it is time for the developers to upload their changes and get them incorporated into the master.  The developers do not put thier changes directly into the master copy (master branch) and, instead, merely push up thier individual branches.  Finally, when a developer is finished with his code/change, his branch needs to be safely <i>merged</i> into the true master branch.</p>
+<p>At any time,  the developer could <i>merge</i> their branch into the actual master branch (athough in formal practice, preferably a team lead or other type of gargoyle like Greg would actually perform the official merge).  The figure below may help to show the concept, where developers' branches are merged into the master branch, by Greg, one-by-one. </p>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr3.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Individual branches are merged into the master copy (simplified).</i></div>
+<p>
+This is the simplest branching workflow, but the astute reader may recoil in horror and think "HOW IS THAT ANY BETTER THAN SVN??", for several reasons.   It is not safe in the sense that anyone could still over-write anyone else's change to the master branch.  For example, what if instead of just "bONes?", Dexter had also merged in the second phrase in his branch as "eAt" in place of the "to form" clause. The result, after all the merges, would read "We the people in order to eAt bONes?"  Imagine that instead of the Preamble to the Constitution, the master branch held software that controls the space station.</p>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr4.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed branching can lead to clashes and broken code.</i></div>
 
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Start of an ultra-simple Branching Workflow.</i></div>
-
-<p>At any time,  the developer could ask the team lead or a trusted gargoyle to <i>merge</i> their branch into the actual master.  Hopefully the figure below shows the concept.  The astute (awake) reader should recoil in horror and think "What??"  </p>
-
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn3.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Individual branches are merged into the master copy (simplified).</i></div>
+<p>
+But this is just the very simple incantation of the Branching Workflow! Read on for the next two concepts to bring the idea to legitimacy.
+</p>
 
 
+<h3>The Prefered (Safe) Branching Workflow</h3>
 
+<h3>The Industry-Standard (Multiple-Layer) Branching Workflow</h3>
  
 </div>
 </body>

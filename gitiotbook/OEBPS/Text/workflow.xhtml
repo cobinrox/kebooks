@@ -14,27 +14,30 @@
 <div>
 <h1>BRANCHING WORKFLOW</h1>
 <p>
-This is probably the most boring chapter, but also the most important.  In today's market, you need to understand the Branching workflow, whether you agree that it is a good idea or not.  If you don't understand the Branching workflow, you may stumble when trying to understand Git.
-If you are certain that you understand the nuances of a basic branching strategy, you may want to skip this chapter. But if the phrase "Did you merge your branch into the master?" seems perfectly fine to you, then you might want to browse through the sections herein.
+This is probably the most boring chapter, but also the most important.&ensp;In today's market, you need to understand the Branching workflow, whether you agree that it is a good idea or not.&ensp;If you don't understand the Branching workflow, you may stumble when trying to understand Git.&ensp;
+If you are certain that you understand the nuances of a basic branching strategy,&ensp;you may want to skip this chapter.&ensp;But if the phrase "Did you merge your branch into the master?" seems perfectly fine to you, then you might want to browse through the sections herein.&ensp;
 In fact, after reading through this chapter, it is hoped that you will be able to answer the following questions (no this is not a test, but it is important):
-  <ol>
-    <li>What if developer A's changes breaks the changes that developer B made last week?</li><!-- you cannot merge into the master until you have merged the master into your branch yourself locally on your machine and have unmangled any collisions; b) you need to make sure unit tests still work after merging master into your branch locally-->
+</p>
+<ol>
+    <li>What if developer A's changes breaks the changes that developer B made last week? (answer: you cannot merge into the master until you have merged the master into your branch yourself locally on your machine and have unmangled any collisions; b) you need to make sure unit tests still work after merging master into your branch locally</li>
     <li></li>
   </ol>
-</p>  
+  
+
 <p>
   This chapter brings you up to speed with the best-practice Branching Worflow with the following sub-sections:
+</p>
   <ul>
   <li>The Wild West Simplified Traditional Workflow</li>
   <li>The Wild West Simplified Branching Workflow</li>
   <li>The Preferred (Safe) Branching Workflow</li>
   <li>The Industry-Standard (Multiple-Layer) Branching Workflow</li>
   </ul>
-</p>
+
 <!--div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " width="375" height="500" style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div-->
 <h3>The Wild West Simplified Traditional Workflow</h3>
 <p>
-A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers.</p> 
+A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers. At the end of the day, the master copy has the contents "We the People in order to form bONes?"</p> 
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simple version control that most of us understand.</i></div>
 
 <h3>The Wild West (Simplified) Branching Workflow</h3>
@@ -46,7 +49,7 @@ And just as Security+ certification is a necessary evil in your career, understa
 <p>At any time,  the developer could <i>merge</i> their branch into the actual master branch (athough in formal practice, preferably a team lead or other type of gargoyle like Greg would actually perform the official merge).  The figure below may help to show the concept, where developers' branches are merged into the master branch, by Greg, one-by-one. </p>
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr3.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Individual branches are merged into the master copy (simplified).</i></div>
 <p>
-This is the simplest branching workflow, but the astute reader may recoil in horror and think "HOW IS THAT ANY BETTER THAN SVN??", for several reasons.   It is not safe in the sense that anyone could still over-write anyone else's change to the master branch.  For example, what if instead of just "bONes?", Dexter had also merged in the second phrase in his branch as "eAt" in place of the "to form" clause. The result, after all the merges, would read "We the people in order to eAt bONes?"  Imagine that instead of the Preamble to the Constitution, the master branch held software that controls the space station.</p>
+This is the simplest branching workflow, but the astute reader may recoil in horror and think "HOW IS THAT ANY BETTER THAN SVN??", for several reasons.   It is not safe in the sense that anyone could still over-write anyone else's change to the master branch.  For example, what if instead of just "bONes?", Dexter had also merged in the second phrase in his branch as "eAt" in place of the "to form" clause. The result, after all the merges, would read "We the people in order to eAt bONes?"  Imagine that instead of the Preamble to the Constitution, the master branch held software that controls the space station. Who would we hold responsible for the error: Bill (since his change didn't get into the final copy); Dexter (since his change stomped on Bill's change), or Greg (who is in charge of merging)?</p>
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr4.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed branching can lead to clashes and broken code.</i></div>
 
 <p>
@@ -54,7 +57,12 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
 </p>
 
 
-<h3>The Prefered (Safe) Branching Workflow</h3>
+<h3>The Prefered (Safe) Local Merge and Regression Test Branching Workflow</h3>
+<p>The flow in the previous simplified workflow (namely, that Dexter or any down-stream contributor can stomp on a previous user's contribution), is augmented with several controls:</p>
+<or>
+  <li>Anyone contributing must first do a local merge of the master branch into his own local branch. This ensures that he has the most-recent master copy.  In the previous scenario, before Dexter is even allowed to push his branch up, he must first download the most recent copy of the master (which now has "We the people in order to form") and then </li>
+  <li>That same someone must make sure that all previously-developed regression tests still work after his local merge has been completed.  This means that Greg would not</li>
+</or>
 
 <h3>The Industry-Standard (Multiple-Layer) Branching Workflow</h3>
  

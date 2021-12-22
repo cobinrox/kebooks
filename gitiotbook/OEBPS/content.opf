@@ -19,7 +19,6 @@
         <item id="page-template.xpgt" href="Styles/page-template.xpgt" media-type="application/vnd.adobe-page-template+xml"/>
         <item id="stylesheet.css" href="Styles/stylesheet.css" media-type="text/css"/>
         <item id="btable.css" href="Styles/btable.css" media-type="text/css"/>
-		<item id="cover.j" href="Images/cover.jpg" media-type="image/jpeg"/>
 		<item id="cover.x" media-type= "application/xhtml+xml" href="cover.xhtml"></item>
         <item id="toc.x" href="Text/toc.xhtml" media-type="application/xhtml+xml"/>
         <item id="title.x" href="Text/title.xhtml" media-type="application/xhtml+xml"/>
@@ -30,10 +29,18 @@
 
         <item id="introduction.x" href="Text/introduction.xhtml" media-type="application/xhtml+xml"/>
         <item id="whatis.x" href="Text/whatis.xhtml" media-type="application/xhtml+xml"/>
+        <item id="workflow.x" href="Text/workflow.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="architecture.x" href="Text/architecture.xhtml" media-type="application/xhtml+xml"/>
 
-        
+        <!-- Image files -->
+        <item id="cover.j" href="Images/cover.jpg" media-type="image/jpeg"/>
+        <item id="simplebr1.j" href="Images/simplebr1.jpg" media-type="image/jpeg"/>
+        <item id="simplebr2.j" href="Images/simplebr2.jpg" media-type="image/jpeg"/>
+        <item id="simplebr3.j" href="Images/simplebr3.jpg" media-type="image/jpeg"/>
+        <item id="simplebr4.j" href="Images/simplebr4.jpg" media-type="image/jpeg"/>
+        <item id="simplesvn.j" href="Images/simplesvn.jpg" media-type="image/jpeg"/>
+
     
         
     </manifest>
@@ -49,6 +56,7 @@
 		<itemref idref="toc.x"/>
         <itemref idref="introduction.x"/>
 		<itemref idref="whatis.x"/>
+		<itemref idref="workflow.x"/>
 
         <itemref idref="architecture.x"/>
         

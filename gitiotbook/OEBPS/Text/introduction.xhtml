@@ -14,15 +14,15 @@
 <div>
 <h1>INTRODUCTION</h1>
 <p>
-This book is for git users, and specifically those who are baffled by it.  It has taken me years before I could grasp enough of git to be comfortable with it. I consider myself the epitome of the Gitiot.  If you struggle with git and desipite following instructions from your colleagues, articles, and tutorials are still confounded, then welcome.
+This book is for git users, and specifically those who are baffled by it.  It has taken me a long time before I could grasp enough of git to be comfortable with it. I consider myself the epitome of the Gitiot.  If you struggle with git and, despite following instructions from your colleagues, articles, and tutorials are still confounded, then welcome.
 </p>
 
 <p>
 If you are just starting out with git but have a an idea what it is used for, if you have actually worked with it but still struggle with it, if you are an expert and would like to see how non-experts' thinking patterns work, or, if you are a software manager and need to grok the basics, this book is for you.  It is not a comprehensive discussion of git, however.  It shows you some of the information about git that should help you grasp the jist and the very important information that is skimmed over in other books,  and get you comfortable with it and be able to reproduce your workflow with it.
 </p>
-<h4>
+<h3>
 So why is git so hard to learn for some of us?
-</h4>
+</h3>
 
 <ul>
 <li><b>Vague use of terms.</b>  One of my favorite example of this is when someone or some article talks about "merging your changes into the master branch".  Don't worry, we'll go over what a master branch is if you are unfamiliar with it, but the statement should actually be "Be sure to merge master into your branch".  This type of imprecise language can really cause some (ahem) to go totally off track.  Imagine if you were new to driving and someone said "be sure to drive on the right side of the street".  So you proceed to keep to the right side of the street.  But suppose you are in London.  That would not go over well.  What you later learn is that the person meant "be sure to drive on the correct side of the street".</li> 
@@ -32,10 +32,11 @@ So why is git so hard to learn for some of us?
 <li><b>Poorly implemented User eXperience (UX) implementations in IDEs.</b> This is related to overloading of terms, but some IDEs with integrated git capabilities use poorly-chosen commands that either do not line up with git procedures, or manage to hide information about what it is doing in the background.  The latter can be useful if it is done with a proper UX, but throwing in vague and confusing terms just causes more confusion for the gitiot.</li>
 <li><b>Sheer number of states.</b> It's been said that the typical human mind can juggle about a maximum of seven items at any one time.  Some of us (ahem) are far below that curve, so trying to keep in mind all of the states and which commands to use is overwhelming.</li>
 <li><b>Different Git implementations</b>There are several Git repository implementations, two of the most well-known being Github and Gitlab.  Github uses "pull request", Gitlab uses the expression "merge request" to signify a request to merge a branch into another.  Gitlab, on the other hand, uses the expression "pull request" to denote that type of action. So when someone talks about Git, you have to be sure that you know which implementation she/he is referring to.</li>
-<li><b>Commit means commit.</b>  Except when using Git.  Many of us believe that the verb "commit" means that changes have been uploaded and pushed into the master copy of a document or code.  That's not how Git uses the term, however.</li>
+<li><b>Which commands are local and which are remote</b></li>
+<li><b>Commit means commit.</b>  Except when using Git.  Many of us believe that the verb "commit" means that changes have been uploaded and pushed into the master copy of a document or code.  Like two-phased commit.  Once the commit is committed, then you are good to move on.  But that's not how Git uses the term, however.</li>
 </ul>
 
-<h4>What you'll see.</h4>
+<h3>What you'll see.</h3>
 <p>
 The concepts in this book are based on a culmination of my ah-ha moments in working with git, from watching others use (or misuse or misunderstand) git, and observations of too many cooks trying to explain the git workflow to skeptics and to those who have learned the art of raising an eyebrow.  So here's what you'll see:
 </p>
@@ -46,9 +47,7 @@ The concepts in this book are based on a culmination of my ah-ha moments in work
 <li>Real-world scenarios you might encounter</li>
 </ul>
  
-<h4>
-What you won't see.
-</h4>
+<h3>What you won't see.</h3>
  
 <ul>
 <li><b>Maps of the London subway.</b>  The traditional git books use the branching timeline idiom to attempt to show how git branching works.  These maps become a jumble if the user is not yet versed in the separation of the local and remote repositories.  Plus I'm personlly sick of seeing them: they all look alike and the simpler maps are obvious to the point of being pedantic, whereas the more complex are illegible and make my eyes googlie.</li>
@@ -94,6 +93,12 @@ Readers should have the following skills at the least.
 <li>Have a git account at your work or home.  This is not actually necessary, but you should have an idea of how to access git for your situation</li>
 </ul>
  
+<h3>Terminology</h3>
+<p>Several terms in the book are preferred over others to increase understanding, avoid concusion, or simplify the text.  These terms that you'll see often include:</p>
+<ul>
+  <li>laptop.  This is used as a general term for a Git user or client's workstation.  It is assumed that the reader is most likely a client-side user, so they can be visualized as using a laptop.</li>
+  <li>they/their. These are used in place of the phrases "he or she" and "his or her", respectively to simplify the text.  Even though these are plural, it is hoped that their use will simplify some sentence structure.</li>
+</ul>
 </div>
 </body>
 </html>

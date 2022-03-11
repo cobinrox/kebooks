@@ -4,3 +4,4 @@ table, th, td {
    border-collapse: collapse;
    padding: 5px;
 }
+td { font-size: 0.8em; }

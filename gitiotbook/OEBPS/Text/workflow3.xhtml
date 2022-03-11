@@ -13,60 +13,7 @@
 
 <body>
 <div>
-<h1>BRANCHING WORKFLOWS</h1>
-<p>
-This is probably the most boring chapter, but also the most important.&ensp;In today's market, you need to understand the Branching workflows, whether you agree that they are a good idea or not.&ensp;If you don't understand the Branching workflow, you may stumble when trying to understand Git.&ensp;
-If you are certain that you understand the nuances of a basic branching strategy,&ensp;you may want to skip this chapter.&ensp;But if the phrase "Did you merge your branch into the master?" seems perfectly fine to you, then you might want to browse through the sections herein.&ensp;
-In fact, after reading through this chapter, it is hoped that you will be able to answer the following questions (no this is not a test, but it is important):
-</p>
-<ol>
-    <li>How do you prevent developer X's changes breaking the changes that developer Y made last week? (answer: Developer X cannot merge into the master remote repo until they have merged the master into your their branch themselves locally on their machine and a) have unmangled any collisions all locally; AND b) make sure unit tests still work after merging master into their branch locally</li>
-    <li></li>
-  </ol>
-  
 
-<p>
-  This chapter brings you up to speed with the quintessense of the idea of branching workflows, with the following sub-sections:
-</p>
-  <ul>
-  <li>The Wild West No-Branching Workflow</li>
-  <li>The Branching Workflow</li>
-  <li>The Simple but Safe Branching Workflow</li>
-  <li>The Branching-on-Steroids Branching Workflow</li>
-  </ul>
-
-<h3>Terms</h3>
-Before presenting the workflows, a few definition/terms are provided below.  Note that all of the definitions that are presented in each chapter are duplicated at the end of the book in a Glossary chapter.
-<table>
-  <tr>
-    <td><b>Term</b></td>
-    <td><b>Definition</b></td>
-  </tr>
-  <tr>
-    <td>Artifact</td>
-    <td>An item that is being version controlled, such as a file, source code, a document, etc.</td>
-  </tr>
-  <tr>
-    <td>Master Copy</td>
-    <td>An artifact that represents the most-recent or published value.  The master copy is stored on a remote repository and may also be backed up to a secondary off-line location.</td>
-  </tr>
-  <tr>
-    <td>Local Copy</td>
-    <td>An artifact that is stored on a user's machine/laptop.  It usually represents a copy of the master artifact and which a user works on.</td>
-  </tr>
-  <tr>
-    <td>Repository</td>
-    <td>This is where the artifacts are stored.  This is usually a file or version control service of some type</td>
-  </tr>
-  <tr>
-    <td>Remote Repository</td>
-    <td>The main repository where a project or company's files are officially stored.  This is usually a large file server running in the cloud or in an IT closet.  It is usually backed up nightly and may be backed up to an off-site location.</td>
-  </tr>
-  <tr>
-    <td>Local Repository</td>
-    <td>The artifacts that are stored on a user's laptop. </td>
-  </tr>
-</table>
 <h3>The Wild West No-Branching Workflow</h3>
 <p>
 A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers. At the end of the day, the master copy has the contents "We the People in order to form bONes?"</p> 
@@ -101,7 +48,7 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
 
 <h3>The Branching-on-Steroids Branching Workflow</h3>
  <p>Finally, for larger projects or companies, there is a multi-tiered version that you may encounter.  If you can understand the Safe Branching workflow, then this won't be too hard to break down.  This workflow is ismilar to the Simple but Safe Branch workflow except there are more branches that are created.  In fact a branch is created for each new <i>feature</i> rather than just for each developer.  Additionally an additional "layer" or layers of branches may be created to isoloate or buffer the feature branches further from the master branch.</p>
- <p>So, in our example, assume the developers are required to add the following lines (<i>features</i>) to the preamble:
+ <p>So, in our example, assume the developers are required to add the following lines (<i>features</i>) to the preamble:</p>
  <ul>
    <li>Establish justice (Feature A)</li>
    <li>Ensure domestic tranquility (Feature B)</li>
@@ -117,17 +64,17 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
  </ul>
  <p>So our branching looks basically like this</p>
  <div style="width:375 px; font-size:80%; text-align:center;">
-  <img src="../Images/corpbranch1.jpg" alt=" " style="padding-bottom:0.2em"/>
-  <i><b>Industry-Standard/Large Project Feature/Develop/Sprint Branch Strategy</b></i></br>
-  The Master/Main branch is protected via the Dev/Sprint branch. Developers create individual Feature branches and push into the Sprint/Dev branch which eventually is pushed into the Master/Main branch</i></div>
-</br>
+  <img src="../Images/corpbranch1.jpg" alt=" " style="padding-bottom:0.2em"/><br />
+  <i><b>Industry-Standard/Large Project Feature/Develop/Sprint Branch Strategy</b></i><br />
+  <i>The Master/Main branch is protected via the Dev/Sprint branch. Developers create individual Feature branches and push into the Sprint/Dev branch which eventually is pushed into the Master/Main branch</i></div>
+ 
 <p>The same rules apply as in the Simple-but-Safe workflow, namely that developers must first merge with the sprint/Dev branch locally and run any regresssion tests before uploading thier changes to the sprint/Dev branch.  (No one is allowed to push anything to the master branch except Greg, and then only at the end of the sprint.)</p>
 <p>So when a developer, say Amy, is finished with Feature A (and has ensured that she merged locally with the sprint/Dev branch and ran local tests), she can push up her changes to the sprint/Dev branch.  In some groups, she is required to request that Greg do the actual merge of her branch into the sprint/Dev branch.  Assume Greg merges in Amy's changes into the sprint/Dev branch, which results in:</p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/corpbranch2.jpg" alt=" " style="padding-bottom:0.2em"/<i>Sprint/Dev/Feature Branch workflow continuously merges individual feature branches into the sprint/Dev branch</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/corpbranch2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sprint/Dev/Feature Branch workflow continuously merges individual feature branches into the sprint/Dev branch</i></div>
 <p>Amy is now assigned another feature (e.g. Feature D) and begins a new branch based on the newly-updated and current Dev/Sprint branch.</p>
 <p> Eventually, Bill and Dexter will finish up their changes and, again, provided they have done a local merge with the Dev branch (which has changed on the remote repository with Amy's changes) and have run regression tests (again with Amy's changes), they can push their changes up to the Dev branch or have Greg do it.</p>
 <p>Once all the feature branches have been added to the Dev branch, a QA team can download and do a system-level test with the Dev branch.  Remember that everyone has been diligently doing clean local merges before uploading their own feature branches so a systgem test should go smoothly.  Then Greg can finally merge the Dev branch into the Master branch.  And the process continues again for the next sprint cycle.</p>
-</br>
+
 <h3>Branching Summary</h3>
 
 <p>This has been a whirlwind introduction to the branching worflow and the following glossary may help you to remember the terms as you progress through the rest of the book.</p>

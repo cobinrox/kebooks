@@ -18,6 +18,8 @@
 
         <item id="page-template.xpgt" href="Styles/page-template.xpgt" media-type="application/vnd.adobe-page-template+xml"/>
         <item id="stylesheet.css" href="Styles/stylesheet.css" media-type="text/css"/>
+        <item id="table.css" href="Styles/table.css" media-type="text/css"/>
+
         <item id="btable.css" href="Styles/btable.css" media-type="text/css"/>
 		<item id="cover.x" media-type= "application/xhtml+xml" href="cover.xhtml"></item>
         <item id="toc.x" href="Text/toc.xhtml" media-type="application/xhtml+xml"/>
@@ -29,7 +31,9 @@
 
         <item id="introduction.x" href="Text/introduction.xhtml" media-type="application/xhtml+xml"/>
         <item id="whatis.x" href="Text/whatis.xhtml" media-type="application/xhtml+xml"/>
-        <item id="workflow.x" href="Text/workflow.xhtml" media-type="application/xhtml+xml"/>
+        <item id="workflow1.x" href="Text/workflow1.xhtml" media-type="application/xhtml+xml"/>
+        <item id="workflow2.x" href="Text/workflow2.xhtml" media-type="application/xhtml+xml"/>
+        <item id="workflow3.x" href="Text/workflow3.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="architecture.x" href="Text/architecture.xhtml" media-type="application/xhtml+xml"/>
 
@@ -40,6 +44,15 @@
         <item id="simplebr3.j" href="Images/simplebr3.jpg" media-type="image/jpeg"/>
         <item id="simplebr4.j" href="Images/simplebr4.jpg" media-type="image/jpeg"/>
         <item id="simplesvn.j" href="Images/simplesvn.jpg" media-type="image/jpeg"/>
+
+        <item id="simplebutsafe.j" href="Images/simplebutsafe.jpg" media-type="image/jpeg"/>
+        <item id="corpbranch1.j" href="Images/corpbranch1.jpg" media-type="image/jpeg"/>  
+        <item id="corpbranch2.j" href="Images/corpbranch2.jpg" media-type="image/jpeg"/>
+
+
+        <item id="ghubweb.j" href="Images/ghubweb.jpg" media-type="image/jpeg"/>
+        <item id="ghubclient.j" href="Images/ghubclient.jpg" media-type="image/jpeg"/>
+        <item id="clientserver.j" href="Images/clientserver.jpg" media-type="image/jpeg"/>
 
     
         
@@ -56,7 +69,9 @@
 		<itemref idref="toc.x"/>
         <itemref idref="introduction.x"/>
 		<itemref idref="whatis.x"/>
-		<itemref idref="workflow.x"/>
+		<itemref idref="workflow1.x"/>
+		<itemref idref="workflow2.x"/>
+		<itemref idref="workflow3.x"/>
 
         <itemref idref="architecture.x"/>
         

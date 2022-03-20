@@ -6,9 +6,9 @@
 <head>
   <title>Branching Workflow</title>
   <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
-  <link rel="stylesheet" href="../Styles/table.css" type="text/css" />
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
 
-  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../Styles/page-template.xpgt" />
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
 </head>
 
 <body>
@@ -17,19 +17,19 @@
 <h3>The Wild West No-Branching Workflow</h3>
 <p>
 A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers. At the end of the day, the master copy has the contents "We the People in order to form bONes?"</p> 
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplesvn.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Wild west version control that most of us understand.</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplesvn.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Wild west version control that most of us understand.</i></div>
 
 <h3>The Simple Branching Workflow</h3>
 <p>As the software industry matures, though, more sophisticated strategies have been adopted.  The Branching Workflow is one such evolution and is unlikey to go away.
 And just as Security+ certification is a necessary evil in your career, understanding the Branching Workflow is crucial at this time in history.  You just gotta learn it.</p>
 <p>In the Branching Workflow, users (developers) make and push up their changes not to a single "master" monolith repository (like the preamble document in the previous figure), but up to their own <i>branches</i>.  This (usually) ensures isolation (no need for locking of files) but also still serves as a safe repository for code changes (provided the individual users pushes up their code branch frequently).  In the Preamble document example above, this would mean that each developer creates a <i>branch</i> (a copy of the master) and works in isolation on that branch to update the file.  So Amy updates her interpretation of the Preamble; Bill updates his; and Dexter his: They do not lock any files nor push thier changes straight into the master copy. So taking the Preamble example, we would see something <i>conceptually</i> like this:</p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr1.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Start of an ultra-simple Branching Workflow.</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebr1.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Start of an ultra-simple Branching Workflow.</i></div>
 <p>So far, this doesn't seem all that different from the traditional workflow.  The magic, however, comes when it is time for the developers to upload their changes and get them incorporated into the master.  The developers do not put thier changes directly into the master copy (master branch) and, instead, merely push up thier individual branches.  Finally, when a developer is finished with his code/change, his branch needs to be safely <i>merged</i> into the true master branch.</p>
 <p>At any time,  the developer could <i>merge</i> their branch into the actual master branch (athough in formal practice, preferably a team lead or other type of gargoyle like Greg would actually perform the official merge).  The figure below may help to show the concept, where developers' branches are merged into the master branch, by Greg, one-by-one. </p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Individual branches are merged into the master copy (simplified).</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebr2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Individual branches are merged into the master copy (simplified).</i></div>
 <p>
 This is the simplest branching workflow, but the astute reader may recoil in horror and think "HOW IS THAT ANY BETTER THAN SVN??", for several reasons.   It is not safe in the sense that anyone could still over-write anyone else's change to the master branch.  For example, what if instead of just "bONes?", Dexter had also merged in the second phrase in his branch as "eAt" in place of the "to form" clause. The result, after all the merges, would read "We the people in order to eAt bONes?"  Imagine that instead of the Preamble to the Constitution, the master branch held software that controls the space station. Who would we hold responsible for the error? Would it be: Bill (since his change didn't get into the final copy); Dexter (since his change stomped on Bill's change), or Greg (who is in charge of merging)?</p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebr4.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed branching can lead to clashes and broken code.</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebr4.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed branching can lead to clashes and broken code.</i></div>
 
 <p>
 But this is just the very simple incantation of the Branching Workflow! Read on for the next two concepts to bring the idea to legitimacy.
@@ -43,7 +43,7 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
   <li>That same someone must make sure that all previously-developed regression tests still work after his local merge has been completed.  This means that neither Bill nor Greg would be at fault: It is Dexter who failed running the local regression tests before uploading his branch.</li>
 </ul>
 <p>Let's see the flow in this scenario, using the Simple but Safe Workflow</p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/simplebutsafe.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed but Safe: Developers are responsible for merging and deconflicting locally before attempting any sort of upload to the master.</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebutsafe.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed but Safe: Developers are responsible for merging and deconflicting locally before attempting any sort of upload to the master.</i></div>
 
 
 <h3>The Branching-on-Steroids Branching Workflow</h3>
@@ -64,13 +64,13 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
  </ul>
  <p>So our branching looks basically like this</p>
  <div style="width:375 px; font-size:80%; text-align:center;">
-  <img src="../Images/corpbranch1.jpg" alt=" " style="padding-bottom:0.2em"/><br />
+  <img src="../../Images/corpbranch1.jpg" alt=" " style="padding-bottom:0.2em"/><br />
   <i><b>Industry-Standard/Large Project Feature/Develop/Sprint Branch Strategy</b></i><br />
   <i>The Master/Main branch is protected via the Dev/Sprint branch. Developers create individual Feature branches and push into the Sprint/Dev branch which eventually is pushed into the Master/Main branch</i></div>
  
 <p>The same rules apply as in the Simple-but-Safe workflow, namely that developers must first merge with the sprint/Dev branch locally and run any regresssion tests before uploading thier changes to the sprint/Dev branch.  (No one is allowed to push anything to the master branch except Greg, and then only at the end of the sprint.)</p>
 <p>So when a developer, say Amy, is finished with Feature A (and has ensured that she merged locally with the sprint/Dev branch and ran local tests), she can push up her changes to the sprint/Dev branch.  In some groups, she is required to request that Greg do the actual merge of her branch into the sprint/Dev branch.  Assume Greg merges in Amy's changes into the sprint/Dev branch, which results in:</p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/corpbranch2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sprint/Dev/Feature Branch workflow continuously merges individual feature branches into the sprint/Dev branch</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/corpbranch2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sprint/Dev/Feature Branch workflow continuously merges individual feature branches into the sprint/Dev branch</i></div>
 <p>Amy is now assigned another feature (e.g. Feature D) and begins a new branch based on the newly-updated and current Dev/Sprint branch.</p>
 <p> Eventually, Bill and Dexter will finish up their changes and, again, provided they have done a local merge with the Dev branch (which has changed on the remote repository with Amy's changes) and have run regression tests (again with Amy's changes), they can push their changes up to the Dev branch or have Greg do it.</p>
 <p>Once all the feature branches have been added to the Dev branch, a QA team can download and do a system-level test with the Dev branch.  Remember that everyone has been diligently doing clean local merges before uploading their own feature branches so a systgem test should go smoothly.  Then Greg can finally merge the Dev branch into the Master branch.  And the process continues again for the next sprint cycle.</p>

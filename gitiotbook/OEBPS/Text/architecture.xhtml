@@ -14,15 +14,20 @@
 <body>
 <div>
 <h1>Architecture</h1>
-<h3>Aside: A Worthy Yet Tragic Analogy</h3>
+<h3>Goals for this Chapter</h3>
+<p>By the end of this chapter, you should be able to answer the following questions confidently</p>
+<ul>
+  <li>If a user, Dave,  says that he has committed his changes to his branch and you then download the his branch from the remote repo, why aren't you seeing any of Dave's changes??</li>
+  <li>If a user, Jill, commits her changes to a common branch, but then wants to "undo" the changes, can she do so without affecting other users who may be depending on that branch?</li>
+</ul>
+<h3>An Aside: A Worthy Yet Tragic Analogy</h3>
 <i>Skip this <i>subsection</i> if you are 100% comfortable with all of the git local and remote commands and you know which commands are only local and which are only remote.  And if you understand that last sentence.</i>
 
-<p>This chapter shows a high-level conceptual architectural view of Git.  But before we get too far into the architecture, I am going to go way out on a limb and give you an analogy that is both useful and tragic: Think of Git like a public library with its card catalog.  The library and card catalog combined provide the version control of assets.  There are master copies of artifacts that you can check out.  If you need War and Peace, you look up the book via the card catalog, find its Dewy decimal number,  find the physical book in on of the library's stacks, and then check it out and you can bring it home.  Now, if your dog chews on it at home or your kid (or your Grandma Vi) spills peanut butter and jelly on some of the pages and then you return the book to the library, it is checked back in and now someone else can checkout the book (albeit now with some chewed up pages and peanut butter adornment).</p>
-<p>Go a little deeper into the analogy: Suppose that a new artifact has been added to the library, like a new book, "Git for Gitiots".  The card catalog of the library must be updated with that new book, yes?</p>
-<p>Now go yet even further into the analogy: Suppose that instead of just an individual book to bring home, you bring the <i>entire</i> contents of the library home. (This is an analogy, remember, not a quantum thought exercise.) You now can read whatever book you want and if you spill peanut butter on any of the books, its all in your library in your house, so who cares?</p>
-<p>And now a step further: Your friend tells you about this new book that just came out  called "Words to Sleep By" and that it's available at "the library" and that you should read it.  Now what? Obviously your copy of the library at your house does not just magically have this new book: the book is only available at the "real" library.  In truth, the analogy here starts to breaks down.  But if you keep in mind that a library of artifacts is summarized in a card catalog, and you have a copy of the library and card catalog that is independently owned by you in your own house, you should be well on your way to getting git.</p>
-<p>[FOOTNOTE 1] This is actually my biggest aha moment.  Once I realized which Git commands pertained only to my local repo vs. which pertained to the remote, master repo, Git started to sort of kind of make some sense.</p>
-<p>Bottom Line: Although not a perfect analogy, you can try to think of Git as having a card catalog that keeps track of artifacts.  If a new artifact is added, the card catalog has to be updated too.  The card catalog is actually the most important concept in this analogy.</p>
+<p><i>This chapter shows a high-level conceptual architectural view of Git.  But before we get too far into the architecture, I am going to go way out on a limb and give you an analogy that is both useful and tragic: Think of Git like a public library with its card catalog.  The library and card catalog combined provide the version control of assets.  There are master copies of artifacts that you can check out.  If you need War and Peace, you look up the book via the card catalog, find its Dewy decimal number,  find the physical book in on of the library's stacks, and then check it out and you can bring it home.  Now, if your dog chews on it at home or your kid (or your Grandma Vi) spills peanut butter and jelly on some of the pages and then you return the book to the library, it is checked back in and now someone else can checkout the book (albeit now with some chewed up pages and peanut butter adornment).</i></p>
+<p><i>Go a little deeper into the analogy: Suppose that a new artifact has been added to the library, like a new book, "Git for Gitiots".  The card catalog of the library must be updated with that new book, yes?</i></p>
+<p<i>Now go yet even further into the analogy: Suppose that instead of just an individual book to bring home, you bring the <i>entire</i> contents of the library home. (This is an analogy, remember, not a quantum thought exercise.) You now can read whatever book you want and if you spill peanut butter on any of the books, its all in your library in your house, so who cares?</i></p>
+<p><i>And now a step further: Your friend tells you about this new book that just came out  called "Words to Sleep By" and that it's available at "the library" and that you should read it.  Now what? Obviously your copy of the library at your house does not just magically have this new book: the book is only available at the "real" library.  In truth, the analogy here starts to breaks down.  But if you keep in mind that a library of artifacts is summarized in a card catalog, and you have a copy of the library and card catalog that is independently owned by you in your own house, you should be well on your way to getting git.</i></p>
+<p><i>Bottom Line: Although not a perfect analogy, you can try to think of Git as having a card catalog that keeps track of artifacts.  If a new artifact is added, the card catalog has to be updated too.  The card catalog is actually the most important concept in this analogy.</i></p>
 
 <h3>Terms</h3>
 Important definition/terms are provided below.  Note that all of the definitions that are presented in each chapter are duplicated at the end of the book in a Glossary chapter.
@@ -46,7 +51,7 @@ Important definition/terms are provided below.  Note that all of the definitions
   </tr>
   <tr>
     <td>Master or Main Branch</td>
-    <td>Top of the branch tree.  The master (or main, depending on which and how the Git server is configured) branch is the set of artifacts that are usually guarded and which sub-branches are merged into.</td>
+    <td>Top of the branch tree.  The master (or main, depending on which and how the Git server is configured) branch is the set of artifacts that are usually guarded and which sub-branches are created from and then, eventually, merged into.</td>
   </tr>
   <tr>
     <td>Repository or Repo or Project</td>
@@ -54,22 +59,22 @@ Important definition/terms are provided below.  Note that all of the definitions
   </tr>
   <tr>
     <td>Remote Repository</td>
-    <td>Storage of a project/set of artifacts usually on a large file server running in the cloud or in an IT closet.  It is usually backed up nightly and may be backed up to an off-site location.</td>
+    <td>Storage of a project/set of artifacts usually on a large file server running in the cloud or in an IT closet. It represents the "principal", or "ground-truth" version of artifacts. It is usually backed up nightly and may be backed up to an off-site location.  It also is usually accessible through a web browser and usually requires administrator care and feeding to update security patches, increase disk space, etc./td>
   </tr>
   <tr>
     <td>Local Repository</td>
-    <td>Storage of a project/set of artifacts that are stored on a user's laptop. On a client laptop, the repo is stored as a directory with a special ".git" entry inside of it. </td>
+    <td>Storage of a project/set of artifacts that are stored on a user's laptop. On a client laptop, the repo is stored as a directory with a special ".git" subdirectory inside of it. </td>
   </tr>
 </table>
 
 
 <h3>Client/Server Architecture</h3>
 <p>First, consider  Git as a client/server system but note that it can be run as just a client with no knowdledge or interation with a server.</p>
-<p>The server side is, as you probably have guessed, an implementation of GitLab, GitHub, Bitbucket, or some other similar service that is normally installed on a beefy machine, is administered often, and whose contents are backed up off site.</p>
+<p>The server side is, as you probably have guessed, an implementation of GitLab, GitHub, Bitbucket, or some other similar service that is normally installed on the "cloud", installed on a beefy machine, is administered often, and whose contents are backed up off site.  It represents the "ground-truth" of a project.</p>
 <p>The client side is a smaller installation that resides on your workstation/laptop.  You use the client Git application to access the server's (or other servers') Git service.  The client side can also actually be used to interact with another client, but that is out of the scope of the use cases in this book.</p>
 <p>There are normally two repositories to consider for any one project (or two libraries, if you think of the library analogy) in Git (and actually most version control systems) that are involved:</p>
 <ol>
-  <li><p>The server-side, remote, backed-up, and yea-verily-THIS-is-the-right-stuff-repository-and-this-is-where-your-boss-or-professor-will-get-the-most-recent-crap-that-is-available</p>
+  <li><p>The server-side, remote, backed-up, and yea-verily-THIS-is-the-right-stuff-repository-of-ground-truth-and-this-is-where-your-boss-or-professor-will-get-the-most-recent-crap-that-is-available</p>
   <div style="width:100 px; font-size:50%; text-align:center;"><img src="../Images/ghubweb.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sample remote repo/project on a remote Git server (GitHub, in this case) viewed through the site's web page</i></div>
   </li>
   <li><p>The client-side, local to your workstation and this-is-MY-crap-on-my-own-machine-so-I-can-do-whatever-I-want-with-it-repository.</p>
@@ -80,15 +85,77 @@ Important definition/terms are provided below.  Note that all of the definitions
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/clientserver.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Git is a client/server system with local and remote repos.</i></div>
 <p><i>(For those who read the first subsection: the two repositories represent the "real" library with its card catalog and the "copy" of the libraray and its card catalog that you have at your house.)</i></p>
 <p>On the server, many repos can actually exist, representing different projects.  For example, a GitLab server may host a repo for a Java project, another repo for a Python project, and yet another repo for a documentation project.</p>
-<p>On the client, there can likewise be many repos, but each is stored as a <i>directory</i> on the client. So, for example, on your local machine, your repos could consist of a directory for a Java project, another directory for a Python project, and yet another for the documentation project.  And, on your machine, your local repos are considered Git repos if they contain the special ".git" subdirectory.  If you remove this subdirectory from a project, then that project is no longer considered a Git repo: it's just a directory.  If you take an existing directory somewhere on your local machine and add a ".git" subdirectory (with some special contents that we will describe a little further on), then voila: That directory is now considered a local Git repo. </p>
-<p>While the remote repository is usually created by and guarded by a project owner, administrator, or gargoyle, the local repo is yours and yours alone.  <i>The remote repo has <b>NO</b> knowledge of your local repo.</i>  This is emphasized to assure you that if you accidentally delete the files in your local repo or get them totally bolluxed up, the remote repo will not know about nor care about it.  </p>
+<p>On the client, there can likewise be many repos, but each is stored as a <i>directory</i> on the client. So, for example, on your local machine, your repos could consist of a directory for a Java project, another directory for a Python project, and yet another for the documentation project.  And, on your machine, your local repos are considered Git repos if they contain the special ".git" subdirectory.  If you remove this subdirectory from a project, then that project is no longer considered a Git repo: it's just a directory.  If you take an existing directory somewhere on your local machine and add a ".git" subdirectory (with some special contents that we will describe a little further on), then voila: That directory is now considered a <i>local</i> Git <i>repo</i>. </p>
+<p>While the <i>remote</i> repository is usually created by and guarded by a project owner, administrator, or gargoyle, the <i>local</i> repo is yours and yours alone.  <i>The remote repo has <b>NO</b> knowledge of your local repo.</i>  This is emphasized to assure you that if you accidentally delete the files in your local repo or get them totally bolluxed up, the remote repo will not know about nor care about it.  </p>
 
 
-<h3>Local Repo Archetecture/Concept</h3>
+<h3>Local Repo Archetecture/Concept (or: Beware of Commitments)</h3>
 <p>This subsection takes a closer look at Git on your laptop, or the local repo.  On your local repo, Git uses a nominal architecture conceptualized as in the following figure.  Note again this is a conceptual illustration.  The diagram may help to visualize why Git has so many states and commands.  If you have a well-behaved and trust-worthy IDE that effectively hides the Git commands from you, you may still be interested in this figure in case you ever have to run Git in the wild, i.e., withouut the safety blanket of an IDE. </p>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/arch/gitarc.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Git, LOCAL architecture on your laptop on left, with REMOTE repo shown on right.</i></div>
+<p>When you download a project from the cloud/server, the result on your laptop is a directory (working directory) with the contects of the project, but the directory also has a hidden subdirectory named ".git".  As with many IT programs, the .git subdirectory contains information (or a <i>ledger</i>) that the Git client uses to help keep track of changes on your laptop.  (You can think of this ".git" subdirectory as the local card catalog based on the analogy made in the start of this chapter.)</p>
+<p>Within your local repo, as you make changes, the "hidden" ledger within the ".git" subdirectory keeps track of the changes that your make.  You can think of this action <i>similar</i> to change logs of a relational database that is updated as local database changes are made (before a final two-phased commit) though that may be a stretch, not to mention confusing due to the overloading of the term "commit".  In any event, the .git subdirectory and ledger is monitoring changes to the local repo (directory) as you create, delete, and make changes to files in the repo.</p>
+<p>Once you have made changes to the contents in the repo, the changes must go through the following states in order to upload those changes to "the cloud"/remote repo.</p>
+<ol type="1">
+  <li>File must be added to the local <b>Staging Area</b> by using the Git <b>add</b> command</li>
+  <li>File must be moved to the local <b>Committed Area</b> by using the Git <b>commit</b> commad</li>
+  <li>File can now be moved to the remote repo/server by using the Git <b>push</b> command</li>
+</ol>
+<p>Make sure that you understand the above state changes: you cannot do a <i>commit</i> until you have <i>staged</i> a file, and, even when you do a <i>commit</i>, the file is <b><i>not</i></b> moved to the remote repo.  <i>Commit</i> in Git does not mean commit as you may be used to when using other SVN tools.</p>
+<p>The states on the local repo are similar to a two-phased commit concept, but remember that this pertains only to your local repo: it takes a <i>push</i> to put the change up on the remote.  So, you could perhaps think of Git as a three-phase commit!</p>
+<p>The following figure shows how these <i>primary</i> states interact in a nominal state diagram.  The term <i>primary</i> is emphasized because, in reality, there are dozens of actual states that can be represented.  See Appendix B for a real-world state diagram of Git in the wild.</p>
 
+<div style="width:500 px; font-size:80%; text-align:center;"><img src="../Images/arch/simplestates.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>"Simplifed" Git ledger states, emphasis on local repo.</i></div>
+<div></br></div>
+<div>
+<table class="center">
+  <tr> 
+    <th>Change is on Remote</th>
+    <th>Change is Committed Locally</th>
+    <th>Change is Staged Locally</th>
+    <th>Change is Changed Locally</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>  
+</table>
+</div>
 
-
+<h4>EXAMPLE!</h4>
+<p>Assumming that you have Git installed on your laptop, create a clean directory, change to that directory, and run the following commands in a terminal: (If you do not yet have a GitHub account, then follow along figuratively)</p>
+<pre>
+  git clone https://github.com/sepsinod2/sandbox.git
+  cd sandbox
+  ls -al  (or dir /a if on a Windows machine)
+</pre>
+<p>The results will look similar to that below.</p>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/archegclone.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>A local Git repo has the ".git" subdirectory</i></div>
 
 </div>
 </body>

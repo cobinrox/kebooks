@@ -57,6 +57,8 @@
         <item id="archegclone.j" href="Images/archegclone.jpg" media-type="image/jpeg"/>
         <item id="gitarc.j" href="Images/arch/gitarc.jpg" media-type="image/jpeg"/>
         <item id="simplestates.j" href="Images/arch/simplestates.jpg" media-type="image/jpeg"/>
+        <item id="busystates.j" href="Images/arch/busystates.jpg" media-type="image/jpeg"/>
+        <item id="libcat.j" href="Images/arch/libcat.jpg" media-type="image/jpeg"/>
 
         <item id="ghubssh1.j" href="Images/ghubssh/ghubssh1.jpg" media-type="image/jpeg"/>
         <item id="ghubssh2.j" href="Images/ghubssh/ghubssh2.jpg" media-type="image/jpeg"/>

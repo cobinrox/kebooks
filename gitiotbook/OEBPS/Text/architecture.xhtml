@@ -15,22 +15,25 @@
 <div>
 <h1>Architecture</h1>
 <h3>Goals for this Chapter</h3>
-<p>By the end of this chapter, you should be able to answer the following questions confidently</p>
+<p>By the end of this chapter, you should be able to answer the following questions confidently.  (These are real-life scenarios that are based on true events, by the way.)</p>
 <ul>
-  <li>If a user, Dave,  says that he has committed his changes to his branch and you then download the his branch from the remote repo, why aren't you seeing any of Dave's changes??</li>
-  <li>If a user, Jill, commits her changes to a common branch, but then wants to "undo" the changes, can she do so without affecting other users who may be depending on that branch?</li>
+  <li>On your laptop, what phases do your file changes go through?</li>
+  <li>What Git command pushes your changes on your local repo up to the remote repo?</li>
 </ul>
 <h3>An Aside: A Worthy Yet Tragic Analogy</h3>
 <i>Skip this <i>subsection</i> if you are 100% comfortable with all of the git local and remote commands and you know which commands are only local and which are only remote.  And if you understand that last sentence.</i>
 
-<p><i>This chapter shows a high-level conceptual architectural view of Git.  But before we get too far into the architecture, I am going to go way out on a limb and give you an analogy that is both useful and tragic: Think of Git like a public library with its card catalog.  The library and card catalog combined provide the version control of assets.  There are master copies of artifacts that you can check out.  If you need War and Peace, you look up the book via the card catalog, find its Dewy decimal number,  find the physical book in on of the library's stacks, and then check it out and you can bring it home.  Now, if your dog chews on it at home or your kid (or your Grandma Vi) spills peanut butter and jelly on some of the pages and then you return the book to the library, it is checked back in and now someone else can checkout the book (albeit now with some chewed up pages and peanut butter adornment).</i></p>
-<p><i>Go a little deeper into the analogy: Suppose that a new artifact has been added to the library, like a new book, "Git for Gitiots".  The card catalog of the library must be updated with that new book, yes?</i></p>
-<p<i>Now go yet even further into the analogy: Suppose that instead of just an individual book to bring home, you bring the <i>entire</i> contents of the library home. (This is an analogy, remember, not a quantum thought exercise.) You now can read whatever book you want and if you spill peanut butter on any of the books, its all in your library in your house, so who cares?</i></p>
+<p><i>This chapter shows a high-level conceptual architectural view of Git.  But before we get too far into the architecture, I am going to go way out on a limb and give you an analogy that is both useful and tragic: Think of Git like a public library with its card catalog.</i></p>
+<div style="text-align:center;"><img src="../Images/arch/libcat.jpg" alt=" " width="550" style="padding-bottom:0.2em"/></br><i>A library of books and its card catalog can be an analogy for a Git repo, whether the repo is a principle library, maintained by a city, or is a local library that you have in your house.</i></div>
+
+<p><i>  The library and card catalog combined provide the version control of assets.  There are master copies of artifacts that you can check out.  If you need War and Peace, you look up the book via the card catalog, find its Dewy decimal number,  find the physical book in on of the library's stacks, and then check it out and you can bring it home.  Now, if your dog chews on it at home or your kid (or your Grandma Vi) spills peanut butter and jelly on some of the pages and then you return the book to the library, it is checked back in and now someone else can checkout the book (albeit now with some chewed up pages and peanut butter adornment).</i></p>
+<p><i>Go a little deeper into the analogy: Suppose that a new artifact has been added to the library, like a new book, "Git for Gitiots".  The card catalog of the library must be updated with that new book.  Likewise, if the community decided to remove a book from the library, for example, they want to remove "The Poor Man's James Bond", they would remove the book, but also remove it from the listing in the card catalog.</i></p>
+<p><i>Now go yet even further into the analogy: Suppose that instead of just an individual book to bring home, you bring the <i>entire</i> contents of the library home. (This is an analogy, remember, not a quantum thought exercise.) You now can read whatever book you want and if you spill peanut butter on any of the books, its all in your library in your house, so who cares?</i></p>
 <p><i>And now a step further: Your friend tells you about this new book that just came out  called "Words to Sleep By" and that it's available at "the library" and that you should read it.  Now what? Obviously your copy of the library at your house does not just magically have this new book: the book is only available at the "real" library.  In truth, the analogy here starts to breaks down.  But if you keep in mind that a library of artifacts is summarized in a card catalog, and you have a copy of the library and card catalog that is independently owned by you in your own house, you should be well on your way to getting git.</i></p>
 <p><i>Bottom Line: Although not a perfect analogy, you can try to think of Git as having a card catalog that keeps track of artifacts.  If a new artifact is added, the card catalog has to be updated too.  The card catalog is actually the most important concept in this analogy.</i></p>
 
 <h3>Terms</h3>
-Important definition/terms are provided below.  Note that all of the definitions that are presented in each chapter are duplicated at the end of the book in a Glossary chapter.
+<p>Important definition/terms are provided below.  Note that all of the definitions that are presented in each chapter are duplicated at the end of the book in a Glossary chapter.</p>
 <table>
   <tr>
     <td><b>Term</b></td>
@@ -59,23 +62,63 @@ Important definition/terms are provided below.  Note that all of the definitions
   </tr>
   <tr>
     <td>Remote Repository</td>
-    <td>Storage of a project/set of artifacts usually on a large file server running in the cloud or in an IT closet. It represents the "principal", or "ground-truth" version of artifacts. It is usually backed up nightly and may be backed up to an off-site location.  It also is usually accessible through a web browser and usually requires administrator care and feeding to update security patches, increase disk space, etc./td>
+    <td>Storage of a project/set of artifacts usually on a large file server running in the cloud or in an IT closet. It represents the "principal", or "ground-truth" version of artifacts. It is usually backed up nightly and may be backed up to an off-site location.  It also is usually accessible through a web browser and usually requires administrator care and feeding to update security patches, increase disk space, etc.</td>
   </tr>
   <tr>
     <td>Local Repository</td>
     <td>Storage of a project/set of artifacts that are stored on a user's laptop. On a client laptop, the repo is stored as a directory with a special ".git" subdirectory inside of it. </td>
   </tr>
+  <tr>
+    <td>Ledger</td>
+    <td>Conceptual list of changes/history of the repo.  Your local repo keeps track of changes that you make locally, the remote ledger keeps track of changes that other teammembers have contributed to the remote repo.</td>
+  </tr>
+  <tr>
+    <td>Changed/Staged/Committed</td>
+    <td>States or areas on your laptop within the local repo that file changes go through.</td>
+  </tr>
+  <tr>
+    <td>Pushed</td>
+    <td>State when a change is moved up from a local repo to the remote, principal repo.</td>
+  </tr>
+  <tr>
+    <td>Registered</td>
+    <td>Indicates that a file is officially part of a Git repo, whether that repo is a local repo or a remote repo.  In the library analogy, <i>registered</i> would mean that the artifact can be found in the card catalog.</td>
+  </tr>
+  <tr>
+    <td>Git Commands</td>
+    <td>The following Git commands are described briefly here to help understand the architecture/mechansims used by Git.  We will describe these commands in more detail in later chapters, but the jist of the commands need to be understood here.</td>
+  </tr>
+  <tr>
+    <td>git init</td>
+    <td>Run on your laptop, this establishes the current directory as a Git repo.  It creates the hidden ".git" subdirectory where Git on your laptop keeps track of the changes that you make.</td>
+  </tr>
+  <tr>
+    <td>git add [filename(s)]</td>
+    <td>Run on your laptop, this tells the local Git repo that the file that you "add" (or, technically, the change that you made to a file) should be registered with Git.  The file (change to a file) is then moved to a "staging" area.  More detail about this will be presented below.</td>
+  </tr>
+  <tr>
+    <td>git commit</td>
+    <td>Not what you think it is.  This is merely a step that is taken to move a file along its states needed to eventually get the file/file's changes up to a remote/principal repo.</td>
+  </tr>
+  <tr>
+    <td>git push</td>
+    <td>Pushes the items from the commit area up to the remote/principal repo.  This is what traditional SVN systems consider to be a commit.</td>
+  </tr>
+  <tr>
+    <td> git clone</td>
+    <td>Downloads a project from a remote repo down to your laptop.</td>
+  </tr>
 </table>
 
 
 <h3>Client/Server Architecture</h3>
-<p>First, consider  Git as a client/server system but note that it can be run as just a client with no knowdledge or interation with a server.</p>
+<p>First, consider  Git as a client/server system but note that it can be run as just a client with no knowdledge or interaction with a server.</p>
 <p>The server side is, as you probably have guessed, an implementation of GitLab, GitHub, Bitbucket, or some other similar service that is normally installed on the "cloud", installed on a beefy machine, is administered often, and whose contents are backed up off site.  It represents the "ground-truth" of a project.</p>
-<p>The client side is a smaller installation that resides on your workstation/laptop.  You use the client Git application to access the server's (or other servers') Git service.  The client side can also actually be used to interact with another client, but that is out of the scope of the use cases in this book.</p>
-<p>There are normally two repositories to consider for any one project (or two libraries, if you think of the library analogy) in Git (and actually most version control systems) that are involved:</p>
+<p>The client side is a smaller installation that resides on your workstation/laptop.  Normally you use the client Git application to access the server's (or other servers') Git service.  The client side can also actually be used just by itself to keep track of versioning of files that you only ever intend to keep locally (for example, say you are writing a book and just keep the updates to the book yourself, not inteacting at all with a server). The client can also be set up to interact with another client, but that is out of the scope of the use cases in this book.</p>
+<p>There are normally two repositories to consider for any one project (or two libraries, if y ou think of the library analogy) in Git (and actually most version control systems) that are involved:</p>
 <ol>
   <li><p>The server-side, remote, backed-up, and yea-verily-THIS-is-the-right-stuff-repository-of-ground-truth-and-this-is-where-your-boss-or-professor-will-get-the-most-recent-crap-that-is-available</p>
-  <div style="width:100 px; font-size:50%; text-align:center;"><img src="../Images/ghubweb.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sample remote repo/project on a remote Git server (GitHub, in this case) viewed through the site's web page</i></div>
+  <div style="font-size:50%; text-align:center;"><img src="../Images/ghubweb.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sample remote repo/project on a remote Git server (GitHub, in this case) viewed through the site's web page</i></div>
   </li>
   <li><p>The client-side, local to your workstation and this-is-MY-crap-on-my-own-machine-so-I-can-do-whatever-I-want-with-it-repository.</p>
   <div style="width:100 px; font-size:50%; text-align:center;"><img src="../Images/ghubclient.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sample view of local repo/project via Git command line on a client</i></div>
@@ -90,63 +133,105 @@ Important definition/terms are provided below.  Note that all of the definitions
 
 
 <h3>Local Repo Archetecture/Concept (or: Beware of Commitments)</h3>
-<p>This subsection takes a closer look at Git on your laptop, or the local repo.  On your local repo, Git uses a nominal architecture conceptualized as in the following figure.  Note again this is a conceptual illustration.  The diagram may help to visualize why Git has so many states and commands.  If you have a well-behaved and trust-worthy IDE that effectively hides the Git commands from you, you may still be interested in this figure in case you ever have to run Git in the wild, i.e., withouut the safety blanket of an IDE. </p>
+<p>This subsection takes a closer look at Git on your laptop, or the local repo.  On your local repo, Git uses a nominal architecture conceptualized in the following figure.  Note again this is a conceptual illustration.  The diagram may help to visualize why Git has so many states and commands.  If you have a well-behaved and trust-worthy IDE that effectively hides the Git commands from you, you may still be interested in this figure in case you ever have to run Git in the wild, i.e., without the safety blanket of an IDE. </p>
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/arch/gitarc.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Git, LOCAL architecture on your laptop on left, with REMOTE repo shown on right.</i></div>
 <p>When you download a project from the cloud/server, the result on your laptop is a directory (working directory) with the contects of the project, but the directory also has a hidden subdirectory named ".git".  As with many IT programs, the .git subdirectory contains information (or a <i>ledger</i>) that the Git client uses to help keep track of changes on your laptop.  (You can think of this ".git" subdirectory as the local card catalog based on the analogy made in the start of this chapter.)</p>
 <p>Within your local repo, as you make changes, the "hidden" ledger within the ".git" subdirectory keeps track of the changes that your make.  You can think of this action <i>similar</i> to change logs of a relational database that is updated as local database changes are made (before a final two-phased commit) though that may be a stretch, not to mention confusing due to the overloading of the term "commit".  In any event, the .git subdirectory and ledger is monitoring changes to the local repo (directory) as you create, delete, and make changes to files in the repo.</p>
 <p>Once you have made changes to the contents in the repo, the changes must go through the following states in order to upload those changes to "the cloud"/remote repo.</p>
-<ol type="1">
+<ol>
   <li>File must be added to the local <b>Staging Area</b> by using the Git <b>add</b> command</li>
   <li>File must be moved to the local <b>Committed Area</b> by using the Git <b>commit</b> commad</li>
   <li>File can now be moved to the remote repo/server by using the Git <b>push</b> command</li>
 </ol>
-<p>Make sure that you understand the above state changes: you cannot do a <i>commit</i> until you have <i>staged</i> a file, and, even when you do a <i>commit</i>, the file is <b><i>not</i></b> moved to the remote repo.  <i>Commit</i> in Git does not mean commit as you may be used to when using other SVN tools.</p>
+<p>Make sure that you understand the above state changes: you cannot do a <i>commit</i> until you have <i>staged</i> a file, and, even when you do a <i>commit</i>, the file is <b><i>not</i></b> moved to the remote repo until you do a <b>push</b> to the remote/principal repo.  <i>Commit</i> in Git does not mean commit as you may be used to when using other SVN tools. To get a change up to the remote repo, a Git push command is required.</p>
 <p>The states on the local repo are similar to a two-phased commit concept, but remember that this pertains only to your local repo: it takes a <i>push</i> to put the change up on the remote.  So, you could perhaps think of Git as a three-phase commit!</p>
-<p>The following figure shows how these <i>primary</i> states interact in a nominal state diagram.  The term <i>primary</i> is emphasized because, in reality, there are dozens of actual states that can be represented.  See Appendix B for a real-world state diagram of Git in the wild.</p>
+<p>The following figure and boolean table show how these <i>primary</i> states interact in a nominal state diagram.  The term <i>primary</i> is emphasized because, in reality, there are dozens of actual states that can be represented.  See Appendix B for a real-world state diagram of Git in the wild.</p>
+<p>In the boolean table, the columns represent the following conditions</p>
+<ul>
 
-<div style="width:500 px; font-size:80%; text-align:center;"><img src="../Images/arch/simplestates.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>"Simplifed" Git ledger states, emphasis on local repo.</i></div>
-<div></br></div>
+  <li><b>L</b> = <b>Location</b>: an asset/asset changes are (1) or are not (0) up on the remote</li>
+  <li><b>R</b> = <b>Registered</b>: an asset is (1) or is not (0) "registered"</li>
+  <li><b>M</b> = <b>CoMmitted</b>: an asset/asset changes have been (1) or have not been (0) co<b>M</b>mitted to the (local) commit area</li>
+  <li><b>S</b> = <b>Staged</b>: an asset/asset changes have been (1) or have not been (0) added to the (local) staging area.  (Technically, if this column is true [1], then a file has undergone a change and the LC column would also be true.  However, we are omitting this distinction to keep things simple.)</li>
+  <li><b>C</b> = <b>Changed</b>: an asset has been (1) or has not been (0) changed locally</li>
+
+</ul>
+<div style="width:250 px; font-size:80%; text-align:center;"><img src="../Images/arch/simplestates.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>"Simplifed" Git states.</i></div>
+</br>
 <div>
 <table class="center">
   <tr> 
-    <th>Change is on Remote</th>
-    <th>Change is Committed Locally</th>
-    <th>Change is Staged Locally</th>
-    <th>Change is Changed Locally</th>
+    <th>L</th>
+    <th>R</th>
+    <th>C</th>
+    <th>S</th>
+    <th>C</th>
+    <th>State Summary</th>
   </tr>
   <tr>
     <td>0</td>
     <td>0</td>
     <td>0</td>
     <td>0</td>
+    <td>0</td>
+    <td>A user has created a brand-new, local repo.  Example terminal commands that a user could execute to get into this state: mkdir projectX; git init</td>
   </tr>
   <tr>
+    <td>0</td>
     <td>0</td>
     <td>0</td>
     <td>0</td>
     <td>1</td>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>0</td>
-    <td>1</td>
-    <td>0</td>
+    <td>The user has made a change to a file. Example terminal command: echo "Hello" > greeting.txt</td>
   </tr>
   <tr>
     <td>0</td>
     <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
+    <td>The user has "staged" the changed file. Note that the "Registered" column is also set at this time. This means that the file is registered (just like being added to your local copy of a card catalog). Additionally, note that the "Changed" column has been cleared, even though, technically, the file is still changed on your laptop.  Clearing this column helps in reducing the number of possible states and represents the actual logic that Git uses as files are modified and move through the staging and commit areas. Example terminal command: git add greeting.txt</td>
   </tr>
   <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>The user has "committed" the changed file. Once again, note now that both the "Registered" and "Changed" columns have been cleared.  Example terminal command: git commit</td>
+  </tr>
+  <tr>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
     <td>0</td>
+    <td>The user has "pushed" the project/changes up to the remote Git server and the file/file's changes now reside up on the remote server/repo. Example terminal command: git push.  Technically, the user would have to also prep the remote repo if the project did not yet exist up on the remote server, but for simplification, we are omitting some details.</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>A user "clones" the project down to his or her laptop.</td>
   </tr>  
 </table>
 </div>
 
+<p>Until a file (technically, a commit) is <b>pushed</b>, any changes are local only.  No one on the network is aware of the changes.  Your changes are local only and you have not affected the remote, principal repo.</p>
+<p>If you wish to make your changes available to others on the team, then you need to push the changes up to the remote.  Others on the team can then download those changes to their laptops/local repos.</p>
+<p>Taking the information from the Branching Workflow Chapter, the user making changes should first do merge in any changes that may reside in the remote repo on the branch before actually pushing up to the remote.  Taking one of the examples from that chapter, Bill, before pushing his changes to the remote repo, must first download and merge in any of the most-recent changes that may have been made on the branch. For example if Dexter had previously pushed up a change, Bill wants to make sure that he gets Dexter's changes into his (Bill's) files before pushing everything back up to the remote repo.  We'll go over this in more detail (and slow motion) in the next chapter, but for now be aware that Bill's local changes must go through these three key states: Unchanged and not staged, Staged, and Committed.  Once committed, he may then push up to the remote repo.</p>
+
+<h3>Ledger Concept</h3>
+<p>We still need to go one step further, however.  Suppose that a teammate, say, Dave has committed locally and then has pushed changes up to the remote repo.  If another teammate, say, Julie, needs to get Dave's changes, how would she go about it?  First, Julie must update her "ledger" (or card catalog) on her local machine, using the Git "fetch" command. (We will cover this in more detail in the next chapter, but for now, concentrate on the architecture surrounding this scenario.)</p>
+
+<h3>Chapter Questions</h3>
+<p>We can now revisit the questions posed at the beginning of the chapter.</p>
+<ul>
+  <li>If a user, Dave,  says that he has committed his changes to his branch and you then download his branch from the remote repo, why aren't you seeing any of Dave's changes?  This is actually somewhat of a trick question.  If Dave commits a change, the change still only resides on his local repo/laptop.  Only until Dave does a push up to the remote can you then be able to see his changes.</li>
+  <li>If a user, Jill, commits her changes to a common branch, but then wants to "undo" the changes, can she do so without affecting other users who may be depending on that branch?</li>
+</ul>
 <h4>EXAMPLE!</h4>
 <p>Assumming that you have Git installed on your laptop, create a clean directory, change to that directory, and run the following commands in a terminal: (If you do not yet have a GitHub account, then follow along figuratively)</p>
 <pre>
@@ -156,7 +241,7 @@ Important definition/terms are provided below.  Note that all of the definitions
 </pre>
 <p>The results will look similar to that below.</p>
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/archegclone.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>A local Git repo has the ".git" subdirectory</i></div>
-
+</div>
 </div>
 </body>
 </html>

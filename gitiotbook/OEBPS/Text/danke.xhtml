@@ -4,33 +4,48 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Danke</title>
+  <title>Exercises</title>
   <link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" />
   <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../Styles/page-template.xpgt" />
 </head>
 
 <body>
-
-<div class="center">
-<br />
-<br />
-<h2 id="Danke">Acknowledgements</h2>
-<br />
-<br />
-<div class="center">
-<p><em></em></p>
-</div>
-<p>Cody Croletto</p>
-<p>Dex<b>T</b>eR (for illustrations)</p>
-<p>Taylor Peterson</p>
-<p>Ryan Reasoner</p>
-<p>Antonia Sisneros</p>
-<p>Randell Truelson</p>
-<p></p>
-<p></p>
-
-
-</div>
-
+  <p>This section will walk, in slow motion, a typical Git scenario, one that you may encounter in your job.  The scenario set up is:</p>
+  <ul>
+    <li>A "sprint/dev" branch called "develop" has already been created by a gargoyle and is available on your company's remote "Constitution" repo, which is stored in a Github server</li>
+    <li>You have been assigned the task of adding the phrase "Do ordain and establish this constitution" to the "Preamble.txt" artifact of the Constitution repo</li>
+    <li>You have VisualStudio Code and SourceTree installed on your laptop</li>
+    <li>You have installed Git (as a client) on your laptop</li>
+    <li>You have a login to the company's Git remote repo</li>
+  </ul>
+  <p>You would <i>normally</i> execute the following steps, based on Git <i>best practices></i> (see Best Practices chapter):</p>
+  <ol>
+    <li>Open a command-line terminal on your laptop</li>
+    <li>Create a "gitrepositorys" directory somewhere on your laptop:<pre>
+      mkdir myStupidGitrepositorys
+      </pre></li>
+    <li>Download the Constitution repo:<pre>
+      git clone https://github.com/sepsinod2/constitution.git
+      </pre></li>
+    <li>Change to the repo's local directory:<pre>
+      cd constitution
+    </pre></li>
+    <li>Checkout the <b>sprint/dev</b> branch:<pre>
+      git checkout dev
+    </pre></li>
+    <li>Create your own branch:<pre>
+      git branch -c 
+    </pre></li>
+  
+  </ol>
+  <p>Hub account, then follow along figuratively)</p>
+  <pre>
+    git clone https://github.com/sepsinod2/sandbox.git
+    cd sandbox
+    ls -al  (or dir /a if on a Windows machine)
+  </pre>
+  <p>The results will look similar to that below.</p>
+  <div style="width:375 px; font-size:80%; text-align:center;"><img src="../Images/arch/archegclone.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>A local Git repo has the ".git" subdirectory</i></div>
+ 
 </body>
 </html>

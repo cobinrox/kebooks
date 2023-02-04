@@ -35,10 +35,11 @@
         <item id="workflow2.x" href="Text/workflow/workflow2.xhtml" media-type="application/xhtml+xml"/>
         <item id="workflow3.x" href="Text/workflow/workflow3.xhtml" media-type="application/xhtml+xml"/>
 
-        <item id="architecture.x" href="Text/architecture.xhtml" media-type="application/xhtml+xml"/>
+        <item id="architecture.x" href="Text/architecture/architecture.xhtml" media-type="application/xhtml+xml"/>
 
         <!-- Image files -->
         <item id="cover.j" href="Images/cover.jpg" media-type="image/jpeg"/>
+        <item id="londongsub.j" href="Images/londonsub.jpg" media-type="image/jpeg"/>
         <item id="simplebr1.j" href="Images/simplebr1.jpg" media-type="image/jpeg"/>
         <item id="simplebr2.j" href="Images/simplebr2.jpg" media-type="image/jpeg"/>
         <item id="simplebr3.j" href="Images/simplebr3.jpg" media-type="image/jpeg"/>
@@ -50,15 +51,18 @@
         <item id="corpbranch2.j" href="Images/corpbranch2.jpg" media-type="image/jpeg"/>
 
 
-        <item id="ghubweb.j" href="Images/ghubweb.jpg" media-type="image/jpeg"/>
-        <item id="ghubclient.j" href="Images/ghubclient.jpg" media-type="image/jpeg"/>
-        <item id="clientserver.j" href="Images/clientserver.jpg" media-type="image/jpeg"/>
+        <item id="ghubweb.j" href="Images/arch/ghubweb.jpg" media-type="image/jpeg"/>
+        <item id="ghubclient.j" href="Images/arch/ghubclient.jpg" media-type="image/jpeg"/>
+        <item id="clientserver.j" href="Images/arch/clientserver.jpg" media-type="image/jpeg"/>
 
-        <item id="archegclone.j" href="Images/archegclone.jpg" media-type="image/jpeg"/>
+        <item id="archegclone.j" href="Images/arch/archegclone.jpg" media-type="image/jpeg"/>
         <item id="gitarc.j" href="Images/arch/gitarc.jpg" media-type="image/jpeg"/>
         <item id="simplestates.j" href="Images/arch/simplestates.jpg" media-type="image/jpeg"/>
         <item id="busystates.j" href="Images/arch/busystates.jpg" media-type="image/jpeg"/>
         <item id="libcat.j" href="Images/arch/libcat.jpg" media-type="image/jpeg"/>
+        <item id="threed.j" href="Images/arch/3d.jpg" media-type="image/jpeg"/>
+        <item id="ledgers.j" href="Images/arch/ledgers.jpg" media-type="image/jpeg"/>
+        <item id="seq.j" href="Images/arch/seq.jpg" media-type="image/jpeg"/>
 
         <item id="ghubssh1.j" href="Images/ghubssh/ghubssh1.jpg" media-type="image/jpeg"/>
         <item id="ghubssh2.j" href="Images/ghubssh/ghubssh2.jpg" media-type="image/jpeg"/>

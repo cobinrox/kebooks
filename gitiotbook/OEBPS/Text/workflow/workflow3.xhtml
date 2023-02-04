@@ -16,8 +16,9 @@
 
 <h3>The Wild West No-Branching Workflow</h3>
 <p>
-A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers. At the end of the day, the master copy has the contents "We the People in order to form bONes?"</p> 
+A traditional workflow, when it comes to version control, is usually simple but effective: Lock any files you need to change and <i><b>the last one in wins!!!</b></i> We can kind of see this, conceptually, in the figure below, where the Preamble to the Constitution is being edited by three different developers. At the end of the day, the master copy has the contents "We the People in order to form bONes?"</p>
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplesvn.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Wild west version control that most of us understand.</i></div>
+<p>Though probably not ideal, the Wild West Workflow can work in small offices or with small teams.</p>
 
 <h3>The Simple Branching Workflow</h3>
 <p>As the software industry matures, though, more sophisticated strategies have been adopted.  The Branching Workflow is one such evolution and is unlikey to go away.
@@ -39,15 +40,15 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
 <h3>The Simple but Safe Branching Workflow</h3>
 <p>In this workflow, the Simple but Safe Workflow, we take the basic Simple Branching Workflow (where Dexter or any down-stream contributor can stomp on a previous user's contribution), and augment it with several controls:</p>
 <ul>
-  <li>Anyone contributing must first do a local merge of the master branch into his own local branch. This ensures that he has the most-recent master copy.  In the previous scenario, before Dexter is even allowed to push his branch up, he must first download the most recent copy of the master (which now has "We the people in order to form") and then </li>
+  <li>Anyone contributing must first do a <i>local merge</i> of the master branch into his <i>own</i> local branch/copy. This ensures that he has the most-recent master copy.  In the previous scenario, before Dexter is even allowed to push his branch up, he must first download the most recent copy of the master (which now has "We the people in order to form") and then: </li>
   <li>That same someone must make sure that all previously-developed regression tests still work after his local merge has been completed.  This means that neither Bill nor Greg would be at fault: It is Dexter who failed running the local regression tests before uploading his branch.</li>
 </ul>
 <p>Let's see the flow in this scenario, using the Simple but Safe Workflow</p>
-<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebutsafe.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed but Safe: Developers are responsible for merging and deconflicting locally before attempting any sort of upload to the master.</i></div>
+<div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebutsafe.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed but Safe: Developers are responsible for merging and deconflicting <b>locally</b> before attempting any sort of upload to the master.</i></div>
 
 
 <h3>The Branching-on-Steroids Branching Workflow</h3>
- <p>Finally, for larger projects or companies, there is a multi-tiered version that you may encounter.  If you can understand the Safe Branching workflow, then this won't be too hard to break down.  This workflow is ismilar to the Simple but Safe Branch workflow except there are more branches that are created.  In fact a branch is created for each new <i>feature</i> rather than just for each developer.  Additionally an additional "layer" or layers of branches may be created to isoloate or buffer the feature branches further from the master branch.</p>
+ <p>Finally, for larger projects or companies, there is a multi-tiered version that you may encounter.  If you can understand the Safe Branching workflow, then this won't be too hard to break down.  This workflow is is similar to the Simple but Safe Branch workflow except there are more branches that are created.  In fact a branch is created for each new <i>feature</i> rather than just for each developer.  And an additional "layer" or layers of branches may be created to isoloate or buffer the feature branches further from the master branch.</p>
  <p>So, in our example, assume the developers are required to add the following lines (<i>features</i>) to the preamble:</p>
  <ul>
    <li>Establish justice (Feature A)</li>

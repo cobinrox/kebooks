@@ -47,8 +47,8 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/simplebutsafe.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplifed but Safe: Developers are responsible for merging and deconflicting <b>locally</b> before attempting any sort of upload to the master.</i></div>
 
 
-<h3>The Branching-on-Steroids Branching Workflow</h3>
- <p>Finally, for larger projects or companies, there is a multi-tiered version that you may encounter.  If you can understand the Safe Branching workflow, then this won't be too hard to break down.  This workflow is is similar to the Simple but Safe Branch workflow except there are more branches that are created.  In fact a branch is created for each new <i>feature</i> rather than just for each developer.  And an additional "layer" or layers of branches may be created to isoloate or buffer the feature branches further from the master branch.</p>
+<h3>The Branching-on-Steroids Branching Workflow, AKA "Feature Branching"</h3>
+ <p>Finally, for larger projects or companies, there is a multi-tiered version that you may encounter.  If you can understand the Safe Branching workflow, then this won't be too hard to break down.  This workflow is is similar to the Simple Branch workflow except there are more branches that are created.  In fact a branch is created for each new <i>feature</i> rather than just for each developer.  And an additional "layer" or layers of branches may be created to isoloate or buffer the feature branches further from the master branch.</p>
  <p>So, in our example, assume the developers are required to add the following lines (<i>features</i>) to the preamble:</p>
  <ul>
    <li>Establish justice (Feature A)</li>
@@ -74,7 +74,7 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
 <div style="width:375 px; font-size:80%; text-align:center;"><img src="../../Images/corpbranch2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Sprint/Dev/Feature Branch workflow continuously merges individual feature branches into the sprint/Dev branch</i></div>
 <p>Amy is now assigned another feature (e.g. Feature D) and begins a new branch based on the newly-updated and current Dev/Sprint branch.</p>
 <p> Eventually, Bill and Dexter will finish up their changes and, again, provided they have done a local merge with the Dev branch (which has changed on the remote repository with Amy's changes) and have run regression tests (again with Amy's changes), they can push their changes up to the Dev branch or have Greg do it.</p>
-<p>Once all the feature branches have been added to the Dev branch, a QA team can download and do a system-level test with the Dev branch.  Remember that everyone has been diligently doing clean local merges before uploading their own feature branches so a systgem test should go smoothly.  Then Greg can finally merge the Dev branch into the Master branch.  And the process continues again for the next sprint cycle.</p>
+<p>Once all the feature branches have been added to the Dev branch, a QA team can download and do a system-level test with the Dev branch.  Remember that everyone has been diligently doing clean local merges before uploading their own feature branches so a system test should go smoothly.  Then Greg can finally merge the Dev branch into the Master branch.  And the process continues again for the next sprint cycle.</p>
 
 <h3>Branching Summary</h3>
 
@@ -86,29 +86,33 @@ But this is just the very simple incantation of the Branching Workflow! Read on 
   </tr>
   <tr>
     <td>Branch</td>
-    <td>What, haven't you been paying attention?  A branch is</td>
+    <td>What, haven't you been paying attention?  A branch is a copy of the master (or at least a parent of some sort) that an individual works on.</td>
+  </tr>
+  <tr>
+    <td>Parent/Master Branch</td>
+    <td>Describes the branch from which a developer's branch is created.  Master is reserved for the ultimate copy, while parent can also mean a sub-branch such as a feature or sprint branch.</td>
   </tr>
   <tr> 
     <td>Simple Branching</td>
-    <td>Each person creates a branch and works only on that branch.</td>
+    <td>Each person creates a branch and works only on that branch. Each person uploads the branch, when finished, to the master.  This can result in conflicts if not monitored closely.</td>
   </tr>
   <tr>
     <td>Simple but Safe</td>
-    <td>Each person creates a branch and merges his branch with the master branch locally and runs regression tests locally before uploading his branch</td>
+    <td>Each person creates a branch and merges it with the master branch, <i>locally</i>, and then runs regression tests <i>locally</i> before uploading the branch.</td>
   </tr>
   <tr>
-    <td>Multi-Layer Branching</td>
-    <td>A buffer branch is used as the working master branch during a sprint.  Only at the end of the sprint is the working master branch merged into the </td>
-  </tr>
-  <tr>
-    <td>Simple but Safe</td>
-    <td>kdkdkdkdjd djdkjd djdkjd djkdjd djdkjdkjd djdkjdkjdkjdkdkdkdkdjdk djdkjdk</td>
-  </tr>
-  <tr>
-    <td>Simple but Safe</td>
-    <td>kdkdkdkdjd djdkjd djdkjd djkdjd djdkjdkjd djdkjdkjdkjdkdkdkdkdjdk djdkjdk</td>
+    <td>Multi-Layer/Feature Branching</td>
+    <td>A buffer branch is used as the working top-level branch during a sprint/time period. Developers push thier feature branches into the sprint/buffer branch. Only at the end of the sprint is the working branch merged into the </td>
   </tr>
 </table>
+<p>
+  You should now be able to answer the question that was posed at the beginning of this chapter.
+</p>
+<ul>
+ <li>Question: How do you prevent developer X's changes breaking the changes that developer Y made last week? </li>
+ <li>Answer: Developer X cannot merge into the upstream parent remote repo until a) merging the master/parent into their branch themselves <i>locally</i> on their machine; b) unmangling any collisions locally; AND b) make sure unit tests still work after merging the master/parent into their branch locally.  Each of the previous failsafes will help curtail final end-of-sprint branch merging conflicts.</li>
+</ul>
+</p>
 </div>
 </body>
 </html>

@@ -1,1 +1,1 @@
-"C:\Users\name\AppData\Local\Amazon\Kindle Previewer\KindlePreviewer.exe"
+"C:\Users\name\AppData\Local\Amazon\Kindle Previewer 3\Kindle Previewer 3.exe"

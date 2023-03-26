@@ -25,7 +25,8 @@
         <item id="toc.x" href="Text/toc.xhtml" media-type="application/xhtml+xml"/>
         <item id="title.x" href="Text/title.xhtml" media-type="application/xhtml+xml"/>
         <item id="danke.x" href="Text/danke.xhtml" media-type="application/xhtml+xml"/>
-		
+		<item id="trademarks.x" href="Text/trademarks.xhtml" media-type="application/xhtml+xml"/>
+
 		
 		<item id="test.x" href="Text/testsymbols.xhtml" media-type="application/xhtml+xml"/>
 
@@ -36,6 +37,7 @@
         <item id="workflow3.x" href="Text/workflow/workflow3.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="architecture.x" href="Text/architecture/architecture.xhtml" media-type="application/xhtml+xml"/>
+        <item id="installtools.x" href="Text/installtools.xhtml" media-type="application/xhtml+xml"/>
 
         <!-- Image files -->
         <item id="cover.j" href="Images/cover.jpg" media-type="image/jpeg"/>
@@ -50,14 +52,19 @@
         <item id="corpbranch1.j" href="Images/corpbranch1.jpg" media-type="image/jpeg"/>  
         <item id="corpbranch2.j" href="Images/corpbranch2.jpg" media-type="image/jpeg"/>
 
+        <item id="highlevelarchbig.j" href="Images/arch/highlevelarchbig.jpg" media-type="image/jpeg"/>
 
+        <item id="highlevelarch.j" href="Images/arch/highlevelarch.jpg" media-type="image/jpeg"/>
+        <item id="highlevelrepo.j" href="Images/arch/highlevelrepo.jpg" media-type="image/jpeg"/>
         <item id="ghubweb.j" href="Images/arch/ghubweb.jpg" media-type="image/jpeg"/>
         <item id="ghubclient.j" href="Images/arch/ghubclient.jpg" media-type="image/jpeg"/>
         <item id="clientserver.j" href="Images/arch/clientserver.jpg" media-type="image/jpeg"/>
 
         <item id="archegclone.j" href="Images/arch/archegclone.jpg" media-type="image/jpeg"/>
         <item id="gitarc.j" href="Images/arch/gitarc.jpg" media-type="image/jpeg"/>
-        <item id="simplestates.j" href="Images/arch/simplestates.jpg" media-type="image/jpeg"/>
+        <item id="simplestateslg.j" href="Images/arch/simplestateslg.jpg" media-type="image/jpeg"/>
+        <item id="simplestatessm.j" href="Images/arch/simplestatessm.jpg" media-type="image/jpeg"/>
+
         <item id="busystates.j" href="Images/arch/busystates.jpg" media-type="image/jpeg"/>
         <item id="libcat.j" href="Images/arch/libcat.jpg" media-type="image/jpeg"/>
         <item id="threed.j" href="Images/arch/3d.jpg" media-type="image/jpeg"/>
@@ -69,6 +76,8 @@
         <item id="ghubssh3.j" href="Images/ghubssh/ghubssh3.jpg" media-type="image/jpeg"/>
         <item id="ghubssh4.j" href="Images/ghubssh/ghubssh4.jpg" media-type="image/jpeg"/>
         <item id="ghubssh5.j" href="Images/ghubssh/ghubssh5.jpg" media-type="image/jpeg"/>
+       
+        <item id="danger.j" href="Images/small/danger.jpg" media-type="image/jpeg"/>
 
     
         

@@ -21,7 +21,9 @@
         <item id="table.css" href="Styles/table.css" media-type="text/css"/>
 
         <item id="btable.css" href="Styles/btable.css" media-type="text/css"/>
-		<item id="cover.x" media-type= "application/xhtml+xml" href="cover.xhtml"></item>
+		<item id="cover.x" media-type= "application/xhtml+xml" href="cover.xhtml"/>
+        <item id="quote.x" href="Text/quote.xhtml" media-type="application/xhtml+xml"/>
+
         <item id="toc.x" href="Text/toc.xhtml" media-type="application/xhtml+xml"/>
         <item id="title.x" href="Text/title.xhtml" media-type="application/xhtml+xml"/>
         <item id="danke.x" href="Text/danke.xhtml" media-type="application/xhtml+xml"/>

@@ -13,17 +13,150 @@
 
 <body>
 <div>
-<h1>Install Tools</h1>
-<p>This chapter walks you through downloading several useful tools to your laptop: Git, VSCode, and SourceTree.  Since web sites often change</p>  
-<ol>
-  <li>Download Git to your laptop from git-scm.com</li>
-  <li>Local Repo Exercise: get familiar with basic local Git commands and the helper tools</li>
-  <li>Remote Repo Account: create an account on a remote repository</li>
-  <li>Use Case 1: Downloading From Remote Repo</li>
-  
- 
-</ol>
+  <p>This chapter details the steps needed to set up a GitHub account and start working with a real remote repo.  You should run these steps in order. It is assumed that you are familiar with the basic commands that are presented in the steps.  If you are not, then please consult your favorite chat bot.</p>
+  <h3>1. Install Git on your laptop</h3>
+  <ol>
+    <li> Install the Git executable from git-scm.com using the installation procedures for your operating system.</li>
+    <li>Once installed, open a command line terminal and enter the <i><b>git --version</b></i> command to ensure it was installed properly and can be found from the command line. For example, on a Windows laptop, this command may look similar to:
+      <pre><span class="inner-pre" style="font-size: 10px">
+        C:\Users\name\sheetmet&gt;git --version
+        git version 2.10.2.windows.1
+        
+        C:\Users\name\sheetmet&gt;  
+      </span></pre>
+    </li>
+  </ol>
+  <h3>2. (Optional) Check for and create an ssh key on your laptop if you do not have an ssh key</h3>
+    <ol>
+      <li>Navigate to your users/yourName directory on your laptop (or /home/yourName, depending on your operating system), and look for a directory called <i><b>.ssh</b></i>.  If you are using FileManager or some other graphical file manager, be sure that it has its "show hidden files" option turned on.  On the command line, use <i><b>dir -a</b></i> if you are on a Windows laptop, or use <i><b>ls -al</b></i> if on a Mac/Linux. If you do not have that directory, then create it in the <i><b>/users/yourName</b></i> (or <i><b>/home/yourName</b></i> if on Linux).  For example, in Windows, under the user "sheetmet", creating the directory may look similar to this:<br/>
+        <pre><span class="inner-pre" style="font-size: 10px">
+          C:\Users\sheetmet&gt;mkdir .ssh
 
+          C:\Users\sheetmet&gt;dir -a
+           Directory of C:\Users\sheetmet
+          
+          03/28/2023  04:02 PM    &lt;DIR&gt;          .
+          03/28/2023  04:02 PM    &lt;DIR&gt;          ..
+          03/28/2023  04:02 PM    &lt;DIR&gt;          .ssh
+                         0 File(s)              0 bytes
+                         4 Dir(s)  169,744,896,000 bytes free
+                        </span></pre></li>
+      <li>Change to the <i><b>.ssh</b></i> directory and display the contents of the directory, look for a file called <i><b>"id_rsa.pub"</b></i>.</li>
+      <li>If that file exists, then you are done, skip to the next section.</li>
+      <li>If the file does not exist, then you need to create one using the <i><b>sshkey</b></i> generation command for your operating system.  For example, creating an ssh key on a Windows laptop under the user sheetmet may look similar to this: (If prompted for a passphrase, you can skip that for now unless you know what you are doing.)
+      <pre><span class="inner-pre" style="font-size: 10px">
+        C:\Users\sheetmet\ssh&gt;ssh-keygen
+        Generating public/private rsa key pair.
+        Enter file in which to save the key (C:\Users\sheetmet/.ssh/id_rsa):
+        Enter passphrase (empty for no passphrase):
+        Enter same passphrase again:
+        Your identification has been saved in C:\Users\sheetmet/.ssh/id_rsa.
+        Your public key has been saved in C:\Users\sheetmet/.ssh/id_rsa.pub.
+        C:\Users\sheetmet\.ssh&gt;dir
+        
+        03/29/2023  04:14 PM    &lt;DIR&gt;          .
+        03/29/2023  04:14 PM    &lt;DIR&gt;          ..
+        03/29/2023  04:14 PM             2,610 id_rsa
+        03/29/2023  04:14 PM               575 id_rsa.pub
+                       2 File(s)         
+                       2 Dir(s)
+      </span></pre></li>
+    </ol>
+  <h3>3. Create GitHub Account</h3>
+  <ol>
+    <li>In a browser, go to github.com.</li>
+    <li>Click on Sign Up.</li>
+    <li>Provide email at prompt.</li>
+    <li>Provide a new password.</li>
+    <li>Provide a username.</li>
+    <li>Acknowledge security, and prove you are a human.</li>
+    <li>Click create account.</li>
+    <li>In another browser tab or however you get your email, go check your email for a new message from GitHub.  Open that message and copy the code that is provided to the system clipboard.</li>
+    <li>Back on the GitHub browser/page, paste the code into the prompt.</li>
+    <li>Provide additional information (team member size, etc.).</li>
+    <li>Choose the Continue for Free option.</li>
+  </ol>
+  <h3>4. (Optional) Add/copy your ssh public key to GitHub</h3>
+    <ol>
+    <li>On your laptop, navigate to the users/name/.ssh directory for your operating system.</li>
+    <li>Copy the entire <i>contents</i> (not the file itself) of the <i><b>id_rsa.pub</b></i> file to the system clipboard. Copy the entire contents, including the "ssh-rsa" prefix at the start of the file. For example, under the sheetmet user on a Windows laptop, dumping the contents the public key file may look similar to this:
+    <pre><span class="inner-pre" style="font-size: 10px">
+      C:\Users\sheetmet\.ssh&gt;dir -a
+      Directory of C:\Users\name\.ssh   
+     03/29/2023  04:14 PM    &lt;DIR&gt;          .
+     03/29/2023  04:14 PM    &lt;DIR&gt;          ..
+     03/29/2023  04:14 PM             2,610 id_rsa
+     03/29/2023  04:14 PM               575 id_rsa.pub
+                        9 File(s)         18,008 bytes
+                    2 Dir(s)  169,571,266,560 bytes free
+     
+     C:\Users\sheetmet\.ssh&gt;more id_rsa.pub
+     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDA0p4FrSQnV01WfX2fLz
+     abtIEziEA++twGUthleZb+WnSgrGSw1CoVL
+     +RNskvgtjTOA0vCUAI1NaXy296Vt
+     .
+     .
+     .
+     TzoM= sheetmet@DESKTOP-H236520
+     
+     C:\Users\sheetmet\.ssh&gt;
+    </span></pre></li>
+    <li>On the GitHub site, click on the avatar/icon for your account in the upper right corner and choose Settings.</li>
+    <li>Under the Settings page, click on the SSH and GPG keys option.</li>
+    <li>Click on the New SSH key button.</li>
+    <li>Enter a title to indicate that this key is from your laptop, e.g. "work_laptop".</li>
+    <li>Click in the Key text field and paste the contents of the clipboard.</li>
+    <li>Click the Add SSH key button.</li>
+    <li>You should now be able to use SSH cloning for this GitHub account and from this laptop.  Note that if you try to access GitHub from a different laptop, you will have to copy an SSH key from the latter to GitHub in the same manner.</li>
+  </ol>
+
+<h3>5. Create a new repo on GitHub</h3>
+    <ol>
+    <li>On the GitHub site, click Create Repository.</li>
+    <li>For now, enter a Repo name of something innocuous, e.g., mytestrepo.</li>
+    <li>Add a description.</li>
+    <li><b>Important!</b> Choose option to add a <i><b>readme</b></i> file.</li>
+    <li>Click Create Repository, your new repository will be displayed.</li>
+    <li>Click the Code button, it should present at least three <i><b>Clone</b></i> options: <i><b>https</b></i>; <i><b>ssh</b></i>; and <i><b>Github CLI</b></i>.</li>
+    <li>If you previously had uploaded your SSH key for this account to GitHub, choose the SSH option and copy the address that is given/displayed into the clipboard.  </li>
+    <li>Otherwise, if you did NOT upload your SSH key to GitHub, then choose the HTTPS option and copy the address that is displayed into the clipboard.</li>
+    <li>Note that this is the address of your repository on GitHub.  You, or anyone else can use the SSH address to clone your repository if they have a GitHub account (and registered key), or using the HTTPS address if they do not have an account or SSH key up on GitHub.</li>
+    </ol>
+
+<h3>6. Clone repository from GitHub to your laptop</h3>
+  <ol>
+    <li>Open a command line terminal on your laptop.</li>
+    <li>(Optional) Create a new directory called "gitprojects", then change to that directory.  For example, on a Windows machine with the user sheetmet, this may look similar to:
+      <pre><span class="inner-pre" style="font-size: 10px">
+        C:\Users\sheetmet&gt;mkdir gitprojects
+        C:\Users\sheetmet&gt;cd gitprojects
+      </span></pre>
+    This is just a buffer directory to hold multiple Git repositories that you might want to download in the future.  The "buffer" directory is totally optional, but does help when you are working multiple projects and may need to download multiple, different, Git repositories.
+    </li>
+    <li>Enter the git SSH-clone or HTTPS-clone command, depending on whether you created and copied your SSH key up to GitHub.  And paste in the address that you copied from GitHub above.  For example, on a Windows machine, the commands would look similar to one of the commands below.  Note that there is a syntax difference between the two commands. For example, your command might look similar to one of these:<br/>
+    <pre>
+      C:\Users\sheetmetaldoc\gitprojects  git clone https://github.com/sheetmetaldoc/mytestrepo.git
+      C:\Users\sheetmetaldoc\gitprojects  git clone git@github.com:aaaqatester/mytestrepo.git
+    </pre>
+  </li>
+  <li>This will download your repository, giving it a directory with the same name as the repository.</li>
+  <li>Change to the new directory, in this case <i>mytestrepo</i>. Display the contents of the directory, <i>making sure to show hidden files</i> (use <i><b>dir -a</b></i> if on Windows, or <i><b>ls -al</b></i> if on Linux/Mac).  If you are viewing files using a graphical file manager, be sure you have its "show hidden files" option on. You should see a listing similar to this:<br/>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\sheetmetaldoc\gitprojects cd mytestrepo
+    C:\Users\name\sheetmet\gitprojects\mytestrepo dir
+    Directory of C:\Users\name\sheetmet\gitprojects\mytestrepo
+
+    03/28/2023  03:45 PM    DIR          .
+    03/28/2023  03:45 PM    DIR          ..
+    03/28/2023  03:45 PM    DIR          .git
+      03/28/2023  03:45 PM            12 README.md
+               1 File(s)             12 bytes
+               2 Dir(s)  169,749,721,088 bytes free
+  </span></pre>
+  </li>
+  <li><b>IMPORTANT!</b> Note the new <i><b>.git</b></i> subdiectory that appears.  By having that <i><b>.git</b></i> subdirectory, this makes the <i>mytestrepo</i> directory a true Git repository.  You can import <i>mytestrepo</i> as a Git repository in other Git-aware tools on your laptop.  You can also think of the contents of <i><b>.git</b></i> subdirectory as the library "ledger" that was discussed back in the architecture chapter.  Everytime you make a (local) change within the <i>mytestrepo</i> directory, the <i><b>.git</b></i> subdirectory ("ledger") is updated automatically in the background by the Git executable running on your laptop.</li>
+  <li>You now have a pristine copy of your remote repo on your laptop.</li>
+  </ol>
 </div>
 </body>
 </html>

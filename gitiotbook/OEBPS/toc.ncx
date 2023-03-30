@@ -39,12 +39,14 @@
                 </navLabel>
                 <content src="Text/danke.xhtml"/>
             </navPoint>
+
             <navPoint id="toc.x" playOrder="4">
                 <navLabel>
                     <text>Table of Contents</text>
                 </navLabel>
                 <content src="Text/toc.xhtml"/>
             </navPoint>
+                       
 			<navPoint id="Introduction" playOrder="5">
                 <navLabel>
                     <text>Introduction</text>

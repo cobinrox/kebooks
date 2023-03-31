@@ -196,3 +196,11 @@ ul.center{
 text-align:left;
 display: inline-block; 
 }
+.chapter-header {
+    page-break-before: always;
+ }
+ @page {
+    @top-center {
+      content: chapter;
+    }
+  }

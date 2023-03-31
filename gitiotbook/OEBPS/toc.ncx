@@ -19,27 +19,25 @@
     </docTitle>
     <navMap>
 	
-	        <!-- COMMENT THIS ONE OUT BEFORE FINAL PUBLICATION !!!!!!!!!!!!!!!! -->
-	        <navPoint id="Test" playOrder="1">
-                <navLabel>
-                    <text>Test</text>
-                </navLabel>
-                <content src="Text/testsymbols.xhtml"/>
-            </navPoint>
-	
-			 <navPoint id="title.x" playOrder="2">
+	        
+			 <navPoint id="title.x" playOrder="1">
                 <navLabel>
                     <text>Title Page</text>
                 </navLabel>
                 <content src="Text/title.xhtml"/>
             </navPoint>
-             <navPoint id="danke.x" playOrder="3">
+             <navPoint id="quote.x" playOrder="2">
                 <navLabel>
-                    <text>Acknowledgements, Contact</text>
+                    <text>Quote</text>
+                </navLabel>
+                <content src="Text/quote.xhtml"/>
+            </navPoint>
+            <navPoint id="danke.x" playOrder="3">
+                <navLabel>
+                    <text>Acknowledgements</text>
                 </navLabel>
                 <content src="Text/danke.xhtml"/>
             </navPoint>
-
             <navPoint id="toc.x" playOrder="4">
                 <navLabel>
                     <text>Table of Contents</text>

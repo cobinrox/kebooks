@@ -1,0 +1,6 @@
+1. draw in drawio
+2. Copy paste into powerpoint
+3. export as 300pt jpg
+4. open with photoshop
+5. use image, trim
+6. save

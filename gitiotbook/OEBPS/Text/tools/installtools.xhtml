@@ -20,21 +20,21 @@
     <li> Install the Git executable from git-scm.com using the installation procedures for your operating system.</li>
     <li>Once installed, open a command line terminal and enter the <i><b>git --version</b></i> command to ensure it was installed properly and can be found from the command line. For example, on a Windows laptop, this command may look similar to:
       <pre><span class="inner-pre" style="font-size: 10px">
-        C:\Users\name\sheetmet&gt;git --version
+        C:\Users\jsmith&gt;git --version
         git version 2.10.2.windows.1
         
-        C:\Users\name\sheetmet&gt;  
+        C:\Users\jsmith&gt;  
       </span></pre>
     </li>
   </ol>
   <h3>2. (Optional) Check for and create an ssh keyy</h3>
     <ol>
-      <li>Navigate to your users/yourName directory on your laptop (or /home/yourName, depending on your operating system), and look for a directory called <i><b>.ssh</b></i>.  If you are using FileManager or some other graphical file manager, be sure that it has its "show hidden files" option turned on.  On the command line, use <i><b>dir -a</b></i> if you are on a Windows laptop, or use <i><b>ls -al</b></i> if on a Mac/Linux. If you do not have that directory, then create it in the <i><b>/users/yourName</b></i> (or <i><b>/home/yourName</b></i> if on Linux).  For example, in Windows, under the user "sheetmet", creating the directory may look similar to this:<br/>
+      <li>Navigate to your users/yourName directory on your laptop (or /home/yourName, depending on your operating system), and look for a directory called <i><b>.ssh</b></i>.  If you are using FileManager or some other graphical file manager, be sure that it has its "show hidden files" option turned on.  On the command line, use <i><b>dir -a</b></i> if you are on a Windows laptop, or use <i><b>ls -al</b></i> if on a Mac/Linux. If you do not have that directory, then create it in the <i><b>/users/yourName</b></i> (or <i><b>/home/yourName</b></i> if on Linux).  For example, in Windows, under the user "jsmith", creating the directory may look similar to this:<br/>
         <pre><span class="inner-pre" style="font-size: 10px">
-          C:\Users\sheetmet&gt;mkdir .ssh
+          C:\Users\jsmith&gt;mkdir .ssh
 
-          C:\Users\sheetmet&gt;dir -a
-           Directory of C:\Users\sheetmet
+          C:\Users\jsmith&gt;dir -a
+           Directory of C:\Users\jsmith
           
           03/28/2023  04:02 PM    &lt;DIR&gt;          .
           03/28/2023  04:02 PM    &lt;DIR&gt;          ..
@@ -44,16 +44,16 @@
                         </span></pre></li>
       <li>Change to the <i><b>.ssh</b></i> directory and display the contents of the directory, look for a file called <i><b>"id_rsa.pub"</b></i>.</li>
       <li>If that file exists, then you are done, skip to the next section.</li>
-      <li>If the file does not exist, then you need to create one using the <i><b>sshkey</b></i> generation command for your operating system.  For example, creating an ssh key on a Windows laptop under the user sheetmet may look similar to this: (If prompted for a passphrase, you can skip that for now unless you know what you are doing.)
+      <li>If the file does not exist, then you need to create one using the <i><b>sshkey</b></i> generation command for your operating system.  For example, creating an ssh key on a Windows laptop under the user jsmith may look similar to this: (If prompted for a passphrase, you can skip that for now unless you know what you are doing.)
       <pre><span class="inner-pre" style="font-size: 10px">
-        C:\Users\sheetmet\ssh&gt;ssh-keygen
+        C:\Users\jsmith\ssh&gt;ssh-keygen
         Generating public/private rsa key pair.
-        Enter file in which to save the key (C:\Users\sheetmet/.ssh/id_rsa):
+        Enter file in which to save the key (C:\Users\jsmith/.ssh/id_rsa):
         Enter passphrase (empty for no passphrase):
         Enter same passphrase again:
-        Your identification has been saved in C:\Users\sheetmet/.ssh/id_rsa.
-        Your public key has been saved in C:\Users\sheetmet/.ssh/id_rsa.pub.
-        C:\Users\sheetmet\.ssh&gt;dir
+        Your identification has been saved in C:\Users\jsmith/.ssh/id_rsa.
+        Your public key has been saved in C:\Users\jsmith/.ssh/id_rsa.pub.
+        C:\Users\jsmith\.ssh&gt;dir
         
         03/29/2023  04:14 PM    &lt;DIR&gt;          .
         03/29/2023  04:14 PM    &lt;DIR&gt;          ..
@@ -80,9 +80,9 @@
   <h3>4. (Optional) Add/copy your ssh public key to GitHub</h3>
     <ol>
     <li>On your laptop, navigate to the users/name/.ssh directory for your operating system.</li>
-    <li>Copy the entire <i>contents</i> (not the file itself) of the <i><b>id_rsa.pub</b></i> file to the system clipboard. Copy the entire contents, including the "ssh-rsa" prefix at the start of the file. For example, under the sheetmet user on a Windows laptop, dumping the contents the public key file may look similar to this:
+    <li>Copy the entire <i>contents</i> (not the file itself) of the <i><b>id_rsa.pub</b></i> file to the system clipboard. Copy the entire contents, including the "ssh-rsa" prefix at the start of the file. For example, under the jsmith user on a Windows laptop, dumping the contents the public key file may look similar to this:
     <pre><span class="inner-pre" style="font-size: 10px">
-      C:\Users\sheetmet\.ssh&gt;dir -a
+      C:\Users\jsmith\.ssh&gt;dir -a
       Directory of C:\Users\name\.ssh   
      03/29/2023  04:14 PM    &lt;DIR&gt;          .
      03/29/2023  04:14 PM    &lt;DIR&gt;          ..
@@ -91,16 +91,16 @@
                         9 File(s)         18,008 bytes
                     2 Dir(s)  169,571,266,560 bytes free
      
-     C:\Users\sheetmet\.ssh&gt;more id_rsa.pub
+     C:\Users\jsmith\.ssh&gt;more id_rsa.pub
      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDA0p4FrSQnV01WfX2fLz
      abtIEziEA++twGUthleZb+WnSgrGSw1CoVL
      +RNskvgtjTOA0vCUAI1NaXy296Vt
      .
      .
      .
-     TzoM= sheetmet@DESKTOP-H236520
+     TzoM= jsmith@DESKTOP-H236520
      
-     C:\Users\sheetmet\.ssh&gt;
+     C:\Users\jsmith\.ssh&gt;
     </span></pre></li>
     <li>On the GitHub site, click on the avatar/icon for your account in the upper right corner and choose Settings.</li>
     <li>Under the Settings page, click on the SSH and GPG keys option.</li>
@@ -127,25 +127,25 @@
 <h3>6. Clone repository from GitHub to your laptop</h3>
   <ol>
     <li>Open a command line terminal on your laptop.</li>
-    <li>(Optional) Create a new directory called "gitprojects", then change to that directory.  For example, on a Windows machine with the user sheetmet, this may look similar to:
+    <li>(Optional) Create a new directory called "gitprojects", then change to that directory.  For example, on a Windows machine with the user jsmith, this may look similar to:
       <pre><span class="inner-pre" style="font-size: 10px">
-        C:\Users\sheetmet&gt;mkdir gitprojects
-        C:\Users\sheetmet&gt;cd gitprojects
+        C:\Users\jsmith&gt;mkdir gitprojects
+        C:\Users\jsmith&gt;cd gitprojects
       </span></pre>
     This is just a buffer directory to hold multiple Git repositories that you might want to download in the future.  The "buffer" directory is totally optional, but does help when you are working multiple projects and may need to download multiple, different, Git repositories.
     </li>
     <li>Enter the git SSH-clone or HTTPS-clone command, depending on whether you created and copied your SSH key up to GitHub.  And paste in the address that you copied from GitHub above.  For example, on a Windows machine, the commands would look similar to one of the commands below.  Note that there is a syntax difference between the two commands. For example, your command might look similar to one of these:<br/>
     <pre><span class="inner-pre" style="font-size: 9px">
-      C:\Users\sheetmetaldoc\gitprojects  git clone https://github.com/sheetmetaldoc/mytestrepo.git
-      C:\Users\sheetmetaldoc\gitprojects  git clone git@github.com:aaaqatester/mytestrepo.git
+      C:\Users\jsmith\gitprojects  git clone https://github.com/jsmith/mytestrepo.git
+      C:\Users\jsmith\gitprojects  git clone git@github.com:aaaqatester/mytestrepo.git
     </span></pre>
   </li>
   <li>This will download your repository, giving it a directory with the same name as the repository.</li>
   <li>Change to the new directory, in this case <i>mytestrepo</i>. Display the contents of the directory, <i>making sure to show hidden files</i> (use <i><b>dir -a</b></i> if on Windows, or <i><b>ls -al</b></i> if on Linux/Mac).  If you are viewing files using a graphical file manager, be sure you have its "show hidden files" option on. You should see a listing similar to this:<br/>
   <pre><span class="inner-pre" style="font-size: 10px">
-    C:\Users\sheetmetaldoc\gitprojects cd mytestrepo
-    C:\Users\name\sheetmet\gitprojects\mytestrepo dir
-    Directory of C:\Users\name\sheetmet\gitprojects\mytestrepo
+    C:\Users\jsmith\gitprojects cd mytestrepo
+    C:\Users\name\jsmith\gitprojects\mytestrepo dir
+    Directory of C:\Users\name\jsmith\gitprojects\mytestrepo
 
     03/28/2023  03:45 PM    DIR          .
     03/28/2023  03:45 PM    DIR          ..

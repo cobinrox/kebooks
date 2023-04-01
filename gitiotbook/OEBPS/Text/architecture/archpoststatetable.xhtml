@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Architecture</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+
+<p>Until a file (technically, a commit) is <b>pushed</b>, any changes are local only.  No one on the network is aware of the changes.  Your changes are local only and you have not affected the remote, principal repo.</p>
+<p>If you wish to make your changes available to others on the team, then you need to push the changes up to the remote.  Others on the team can then download those changes to their laptops/local repos.</p>
+<p>The following sequence diagram again attempts to summarize the local and remote Git interaction</p>
+<div style="width:250 px; font-size:80%; text-align:center;"><img src="../../Images/arch/seq.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Simplified Git sequences between local and remote repositories.</i></div>
+
+<p>As with life, the previous illustration shows a <i>simplified</i> Git interaction between a single user (client) and the server.  The next chapter offers more real-world scenarios involving multiple actors, similar to what you might face in the real world.</p>
+
+<p>In summary, part of understanding the architecture is to recognize this concept of a ledger (or card catalog).  On both a local repo and the principal, remote repo, a ledger keeps track of changes made to that repo.  Again, you can think of the ledger, loosely, similar to a transaction log in a relational database.  <i>For the most part</i> these two ledgers are independent: changes on the local repo do not affect the remote repo, and vice versa.  However, the local remote can be <i>refreshed</i> with the ledger of the remote repo.  This is akin to downloading card catalog changes from a public library down to your local library.  When a user refreshes their local repo, they effectively can see what changes have been made to the remote.</p>
+<p>We still need to go one step further, however.  Suppose that a teammate, say, Dave has committed locally and then has pushed changes up to the remote repo.  If another teammate, say, Julie, needs to get Dave's changes, how would she go about it?  First, Julie must update her "ledger" (or card catalog) on her local machine, using the Git "fetch" command. (We will cover this in more detail in the next chapter, but for now, concentrate on the architecture surrounding this scenario.)</p>
+
+
+<h3>Chapter Questions</h3>
+<p>We can now revisit the questions posed at the beginning of the chapter.</p>
+  <ul>
+    <li>On your laptop, what phases do your file changes go through?
+      <ul>
+        <li>Unchanged to Staged to Committed to Pushed</li>
+      </ul>
+    </li>
+    <li>What Git command moves your changes that are on your local repo up to the remote repo?
+      <ul>
+        <li>Push</li>
+      </ul>
+    </li>
+    <li>Your colleague, George, says he has committed the fixes to a piece of software (or document).  Are the fixes safe if George or his computer is hit by a bus?
+      <ul>
+        <li>Not really because remember if George means "commit" in the Git sense, then the fixes are still on his laptop.  Unless he pushed his fixes up to the server, then they are not really safe.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

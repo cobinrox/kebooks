@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Architecture</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<table class="center">
+  <tr> 
+    <th>L</th>
+    <th>R</th>
+    <th>M</th>
+    <th>S</th>
+    <th>C</th>
+    <th>State Summary</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>A user has created a brand-new, local repo.  Example terminal commands that a user could execute to get into this state: mkdir repositoryX; Git init</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>The user has made a change to a file. Example terminal command: echo "Hello" > greeting.txt</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>The user has "staged" the changed file. Note that the "Registered" column is also set at this time. This means that the file is registered (just like being added to your local copy of a card catalog). Additionally, note that the "Changed" column has been cleared, even though, technically, the file is still changed on your laptop.  Clearing this column helps in reducing the number of possible states and represents the actual logic that Git uses as files are modified and move through the staging and commit areas. Example terminal command: Git add greeting.txt</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>The user has "committed" the changed file. Once again, note now that both the "Registered" and "Changed" columns have been cleared.  Example terminal command: Git commit</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>The user has "pushed" the repository/changes up to the remote Git server and the file/file's changes now reside up on the remote server/repo. Example terminal command: Git push.  Technically, the user would have to also prep the remote repo if the repository did not yet exist up on the remote server, but for simplification, we are omitting some details.</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>A user "clones" the repository down to his or her laptop.</td>
+  </tr>  
+</table>
+
+</div>
+</body>
+</html>

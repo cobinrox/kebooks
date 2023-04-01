@@ -13,6 +13,7 @@
 
 <body>
 <div>
+  <h1>Installation Steps</h1>
   <p>This chapter details the steps needed to set up a GitHub account and start working with a real remote repo.  You should run these steps in order. It is assumed that you are familiar with the basic commands that are presented in the steps.  If you are not, then please consult your favorite chat bot.</p>
   <h3>1. Install Git on your laptop</h3>
   <ol>
@@ -26,7 +27,7 @@
       </span></pre>
     </li>
   </ol>
-  <h3>2. (Optional) Check for and create an ssh key on your laptop if you do not have an ssh key</h3>
+  <h3>2. (Optional) Check for and create an ssh keyy</h3>
     <ol>
       <li>Navigate to your users/yourName directory on your laptop (or /home/yourName, depending on your operating system), and look for a directory called <i><b>.ssh</b></i>.  If you are using FileManager or some other graphical file manager, be sure that it has its "show hidden files" option turned on.  On the command line, use <i><b>dir -a</b></i> if you are on a Windows laptop, or use <i><b>ls -al</b></i> if on a Mac/Linux. If you do not have that directory, then create it in the <i><b>/users/yourName</b></i> (or <i><b>/home/yourName</b></i> if on Linux).  For example, in Windows, under the user "sheetmet", creating the directory may look similar to this:<br/>
         <pre><span class="inner-pre" style="font-size: 10px">
@@ -134,10 +135,10 @@
     This is just a buffer directory to hold multiple Git repositories that you might want to download in the future.  The "buffer" directory is totally optional, but does help when you are working multiple projects and may need to download multiple, different, Git repositories.
     </li>
     <li>Enter the git SSH-clone or HTTPS-clone command, depending on whether you created and copied your SSH key up to GitHub.  And paste in the address that you copied from GitHub above.  For example, on a Windows machine, the commands would look similar to one of the commands below.  Note that there is a syntax difference between the two commands. For example, your command might look similar to one of these:<br/>
-    <pre>
+    <pre><span class="inner-pre" style="font-size: 9px">
       C:\Users\sheetmetaldoc\gitprojects  git clone https://github.com/sheetmetaldoc/mytestrepo.git
       C:\Users\sheetmetaldoc\gitprojects  git clone git@github.com:aaaqatester/mytestrepo.git
-    </pre>
+    </span></pre>
   </li>
   <li>This will download your repository, giving it a directory with the same name as the repository.</li>
   <li>Change to the new directory, in this case <i>mytestrepo</i>. Display the contents of the directory, <i>making sure to show hidden files</i> (use <i><b>dir -a</b></i> if on Windows, or <i><b>ls -al</b></i> if on Linux/Mac).  If you are viewing files using a graphical file manager, be sure you have its "show hidden files" option on. You should see a listing similar to this:<br/>

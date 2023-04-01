@@ -12,18 +12,15 @@
 </head>
 
 <body>
-  <div class="chapter-header">
-    <h2>Scenarios</h2>
- </div>
 <div>
 <h1>Scenarios</h1>
 <p>This chapter shows common scenarios that may occur when working with Git at your job with multiple team members.  It takes the Branching Chapter and Architecture Chapter and melds them together.</p>
-<h3>Scenario 1: Clash (should I push or should I merge now)</h3>
+<h3>Scenario 1: The Clash (I can push but I should pull now)</h3>
 <div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/seq1.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>PROBLEM: Merge conflict due to Dexter's sneaky change to the remote repo</i></div>
 
 <p>This is the typical scenario that all of us see from time-to-time, whether using a branching workflow or not.  Basically, two individuals start with the same repo and branch.  One individual (Dexter) makes a change on his laptop and then pushes his changes up to the server repo.  Bill, in the mean time knows nothing about Dexter's change and so, when Bill tries to push <i>his</i> changes, there will be a merge conflict.</p>
 <p>But, you may, think, what if Bill and Dexter are working on separate, individual branches?  There will still be a problem because both of their changes need to be at some time merged into the master branch.</p>
-<p>The solution, therefore, is for Bill to first perform a "git pull" from the remote repo before trying to even think about pushing his changes.  This is the key concept that we hope you take from this book: always pull before you push.  You need to make sure you get all of the changes that may have been snuck into the master copy.  The following figure is an attempt to show this.</p>
+<p>The solution, therefore, is for Bill to first perform a "git pull" from the remote repo before trying to even think about pushing his changes.  This is the key concept that we hope you take from this book: always pull before you push.  You need to make sure you get all of the changes that may have been snuck into the master copy <i>on the remote repo</i>.  The following figure is an attempt to show this.</p>
 <div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/seq1b.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>SOLUTION: Bill needs to do a pull before he does his push</i></div>
 </div>
 </body>

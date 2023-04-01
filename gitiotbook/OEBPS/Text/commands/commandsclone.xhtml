@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Git Commands</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+  <p>In the remaining sub-sections, you can follow along on your laptop.  You can refer to Appendix A: Installing Git which will walk you through installing Git on your laptop, setting you up with a Git account on GitHub, and creating a dummy repo on GitHub.</p>
+
+  <h3>git clone</h3>
+  <p>This command copies an existing, remote repository from the remote server (e.g. from GitHub, GitLab, Bitbucket, etc.). The syntax of the command comes in two flavors, depending on whether you have registered a Secure Shell (SSH) key with the remote server.  The first example below shows the command used if you do not have an account or have not registered an SSH key on the Git server; the second example, which is preferred, shows the command if you do have a registered key on the Git server.</p>
+    <pre><span class="inner-pre" style="font-size: 10px">
+      git clone https://github.com/projectName/repoName.git
+      git clone git@github.com:projectName/repoName.git
+    </span></pre>
+  <p>The HTTPS version may be desired to first get your feet wet with Git, but the SSH version is preferred because it allows you to perform the Git commands that involve the remote server without having to provide your credentials each time.  Setting up and registering an SSH key is shown in Appendix A so you are encouraged to do so, especially in your work/employment environment.</p>
+  <p>When downloading the repo, a new directory is created with the name of the repo.  For example, if the name of the remote repo were "constitution", then after cloning the repo from the remote server, you will have a shiny new directory called "constitution".  The directory will contain the same files that are on the master branch on the remote repo.  Additionally, it will also have a special, hidden subdirectory called ".git".  As mentioned, this special directory can be thought of as a "ledger" that keeps track of local changes that you make. Each time you make a change to the local files, the "ledger" within the .git subdirectory will be updated. If this is the first time that you have cloned a repo, you should go ahead and display the contents of the repo directory and ensure that you see the .git subdirectory.  If you are using the command line to list the files, use the command "dir /a" (for Windows) or "ls -al" (for Mac/Linux).  If you are using a graphical file manager program to view files, then make sure that its option to "show hidden files" is on.</p>
+  
+  <h3><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git status</h3>
+  <p>This command gives you a high (very high) level summary of the basic status of the local repo.  This command is marked with a warning icon because it is insidious in its meaning.  If you have made changes to your local repo, it will kindly indicate that you have done so. It will tell you if you have made a local change but have not yet added that change to the staging area.  It will tell you if you have things in the staging area but you have not yet committed those changes to the commit area. If you have commited something it will remind you that you need to push it up to the remote. However, it will not tell you the status of your local repo compared to the version up on the remote.  In other words, if someone, say Dexter, had changed something on this branch up on the remote and then you execute the "git status" command, Dexter's changes will not be reflected and the status results will give you a false sense of security that your local repository is up to date, implying that it is up-to-date with the remote version.</p>
+  <p>Here is a typical use of the git status command:</p>
+    <pre><span class="inner-pre" style="font-size: 10px">
+     C:\Users\jsmith\raptor&gt;git status
+     On branch master
+     Your branch is ahead of 'origin/master' by 1 commit.
+     (use "git push" to publish your local commits)
+     nothing to commit, working tree clean
+    </span></pre>
+  <p>The results of the command indicate that you had made a change to your local repository and had staged and committed it, because it says "use git push to publish your local commits".  It also says "Your branch is ahead of origin/master by 1 commit.  But, again, what if someone else's change has been pushed into the branch up on the remote?  The status command is not going to let you know about that. The status command only has information about the <i>local</i> repo, it knows nothing about the remote repo.  That is why it is important to know the Git commands that take the remote repo into account.</p>
+  <p>In this example, Dexter's change is on the remote, but the local repo and its local ledger know nothing about it.  So git status is not as thorough as you may think.  Instead, you need to run the "git remote update" command (discussed below) in order to get your local ledger up-to-date with the remote ledger, thereby giving your local ledger new information about what is up on the remote.  That is very confusing but think about it like a card catalog that you have for your library in the basement.  Your card catalog (local ledger) must be updated with the same information as in the public library's (remote) card catalog in order to be 100% accurate.  We will revisit the status command after presenting the "remote update" command next.</p>
+ 
+  <h3>git remote update</h3>
+  <p>This command is your buddy.  It interacts with the remote repo's ledger and downloads the latest information about the remote repo down to and updates your local ledger.  Think of it like having a copy of a newspaper from three days ago that you had delivered to you.  Obviously, new things have been going on since the last three days, but your "git status" command will know nothing about the outside world.  That is where the "git remote update" command comes in.  It will update the ledger or table of contents of your newspaper (not the actual articles) with what is on the remote repo.  So, in the Dexter example, running "git remote update" will update your local ledger with new information about changes that have been made on the remote.  Again, this is like updating a ledger or table of contents, but does not actually download any file changes to your laptop.  That work is done by the "git pull" command, which will will discuss later on.</p>
+  <p>The syntax for this command is shown, where it is frist preceeded by a "git status", then the "git remote update", and then, finally, followed by another "git status".</p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\jsmith\raptor&gt; git status
+    On branch master
+    Your branch is ahead of 'origin/master' by 1 commit.
+      (use "git push" to publish your local commits)
+    nothing to commit, working tree clean
+    (in the above output, you may be thinking that you are ahead of the remote repo)
+
+    C:\Users\jsmith\raptor&gt; git remote update
+    Fetching origin
+    remote: Enumerating objects: 3, done.
+    remote: Counting objects: 100% (3/3), done.
+    remote: Compressing objects: 100% (3/3), done.
+    remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (3/3), done.
+    From https://github.com/cobinrox/raptor
+       4774a43..0efb138  master     -&gt; origin/master
+    (the above command actually connects with the remote to get the latest list of changes)
+
+    C:\Users\jsmith\raptorgit&gt; status
+    On branch master
+    Your branch and 'origin/master' have diverged,
+    and have 1 and 1 different commits each, respectively.
+      (use "git pull" to merge the remote branch into yours)
+    nothing to commit, working tree clean
+    (re-running the status command once again, now reflects that you are actually out of sync with the remote)
+  </span></pre>   
+  <p>Again, when using "git status", be cognizant of what it is <i>not</i> showing you <i>unless</i> you execute a "git remote update" first.  Other wise you may be lulled into a false sense of security in thinking that there were no changes made up on the remote that you need to worry about.</p> 
+
+  <h3><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git branch -a</h3>
+  This command lists all of the branches of a repository, <i>as far as the local ledger is aware</i>.  Its also marked with a warning because I've seen users use this command to list the branches of a given repo (on their laptop), but be unaware that there have been new branches added to the remote repo since the user had performed a clone.  Therefore, it is advised to run the "git remote update" command before running this command. Its syntax example is shown here:
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\name\gitprojects\raptor&gt;git branch -a
+    * master
+    remotes/origin/HEAD -&gt; origin/master
+    remotes/origin/master
+    remotes/origin/feature_change_gui_name
+    remotes/origin/feature_remove_dead_code
+  </span></pre>
+  <p>Again, don't be confused when a teammate tells you that there is a branch that you need to checkout (we'll get to that command next) but you cannot "see" the branch when you use the "git branch -a" command.  I saw this situation happen with a very confused QA tester who insisted that a developer's branch "is not there", insisting that the individual never pushed up the branch.  The problem was that the QA tester had cloned the repo several days earlier and the developer had since uploaded his fixes to a new branch which the QA tester did not see until he ran the "git remote update", followed by "git branch -a"</p>
+
+</div>
+</body>
+</html>

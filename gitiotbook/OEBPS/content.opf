@@ -38,7 +38,9 @@
         <item id="architecturestatetable.x" href="Text/architecture/architecturestatetable.xhtml" media-type="application/xhtml+xml"/>
         <item id="archpoststatetable.x" href="Text/architecture/archpoststatetable.xhtml" media-type="application/xhtml+xml"/>
 
-        <item id="commands.x" href="Text/commands/commands.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands0.x" href="Text/commands/commands0.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commandstable.x" href="Text/commands/commandstable.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commandsclone.x" href="Text/commands/commandsclone.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="scenario1.x" href="Text/scenarios/scenario1.xhtml" media-type="application/xhtml+xml"/>
 
@@ -81,6 +83,13 @@
         <item id="threed.j" href="Images/arch/3d.jpg" media-type="image/jpeg"/>
         <item id="ledgers.j" href="Images/arch/ledgers.jpg" media-type="image/jpeg"/>
         <item id="seq.j" href="Images/arch/seq.jpg" media-type="image/jpeg"/>
+
+        <item id="clone.j" href="Images/commands/clone.jpg" media-type="image/jpeg"/>
+        <item id="checkout.j" href="Images/commands/checkout.jpg" media-type="image/jpeg"/>
+        <item id="remoteupdate.j" href="Images/commands/remoteupdate.jpg" media-type="image/jpeg"/>
+        <item id="status.j" href="Images/commands/status.jpg" media-type="image/jpeg"/>
+
+
         <item id="seq1.j" href="Images/scenarios/seq1.jpg" media-type="image/jpeg"/>
         <item id="seq1b.j" href="Images/scenarios/seq1b.jpg" media-type="image/jpeg"/>
 
@@ -90,9 +99,7 @@
         <item id="ghubssh4.j" href="Images/ghubssh/ghubssh4.jpg" media-type="image/jpeg"/>
         <item id="ghubssh5.j" href="Images/ghubssh/ghubssh5.jpg" media-type="image/jpeg"/>
        
-        <item id="danger.j" href="Images/small/danger.jpg" media-type="image/jpeg"/>
-
-    
+   
         
     </manifest>
     <spine toc="ncx">
@@ -119,7 +126,9 @@
         <itemref idref="architecture.x"/>
         <itemref idref="architecturestatetable.x"/>
         <itemref idref="archpoststatetable.x"/>
-        <itemref idref="commands.x"/>
+        <itemref idref="commands0.x"/>
+        <itemref idref="commandstable.x"/>
+        <itemref idref="commandsclone.x"/>
 
         <itemref idref="scenario1.x"/>
         <itemref idref="installtools.x"/>

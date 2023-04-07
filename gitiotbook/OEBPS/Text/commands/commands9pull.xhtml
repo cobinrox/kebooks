@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>git pull</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+  <h3>git pull</h3>
+  <p><b>Syntax:</b></p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    git pull
+    git pull origin &lt;other_branch_name&gt;
+  </span></pre>
+  <!--
+    <div style="text-align:center;"><img src="../../Images/commands/push.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
+  -->
+    <h4>What it's supposed to do</h4>
+
+  <p>Pull down remote repo changes for the current branch (if using the first form of the syntax), or pull down most recent remote changes for the specified branch (if using the second form of the syntax) and merge the changes with your local branch.  It can also refuse to merge altogeher and may also merge as-best-as-it-can, depending on the state of your local repo.</p>
+  <p>"git pull" is a command you <i>normally</i> should do often because it keeps you up-to-date with changes that have been applied up on the remote repo.  For example, in a team environment, if you initially cloned the "develop" branch, then created your own "feature" branch, it is best practice to periodically (within reason and according to what you are doing) perform a "git pull" on the develop branch.  This brings down the most recent code for the specified branch that is up on the remote site down to your local repo and merges it into the current branch that you are working on.  New files that have been added to the remote repo will be added to your local repo, files that have been deleted from the remote repo will be deleted from your local repo, and files which have changed, will be merged automatically, usually. If Git detects a problem with an automerge, it will either abort the merging process and give you an error message, or will merge the changes that it can do, and then create a "merge conflict" inside of the offending file.</p>
+
+  <p>It automatically updates and merges changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the ammendments file, if George had added a new ammendment on the remote repo, and you as well had added your own ammendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict will arise for that file.  The ammendments file will be updated with both of the changes and a merge conflict message will be placed into the actual text of the file. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the ammendments file, and what the file actually looks like now in your remote repot.</p>
+  
+  <pre><span class="inner-pre" style="font-size: 10px">
+        
+    C:\Users\name\jsmith>git clone git@github.com:cobinrox/constitution.git
+    Cloning into 'constitution'...
+    Warning: the RSA host key for 'github.com' differs from the key for the IP address '140.82.112.3'
+    Offending key for IP in /c/Users/name/.ssh/known_hosts:10
+    Matching host key in /c/Users/name/.ssh/known_hosts:1
+    Are you sure you want to continue connecting (yes/no)? yes
+    remote: Enumerating objects: 29, done.
+    remote: Counting objects: 100% (29/29), done.
+    remote: Compressing objects: 100% (21/21), done.
+    remote: Total 29 (delta 7), reused 4 (delta 0), pack-reused 0
+    Receiving objects: 100% (29/29), 5.80 KiB | 0 bytes/s, done.
+    Resolving deltas: 100% (7/7), done.
+    
+    C:\Users\name\jsmith>cd constitution
+    
+    C:\Users\name\jsmith\constitution>dir
+     Volume in drive C is OS
+     Volume Serial Number is 1229-3C9E
+    
+     Directory of C:\Users\name\jsmith\constitution
+    
+    04/05/2023  06:40 PM    <DIR>          .
+    04/05/2023  06:40 PM    <DIR>          ..
+    04/05/2023  06:40 PM                54 ammendments.txt
+    04/05/2023  06:40 PM                28 preamble
+    04/05/2023  06:40 PM                14 README.md
+                   3 File(s)             96 bytes
+                   2 Dir(s)  171,580,715,008 bytes free
+    
+    C:\Users\name\jsmith\constitution>more ammendments.txt
+    First Ammendment: freedom of speech, assembly, press
+    
+    C:\Users\name\jsmith\constitution>echo "28. No Robo Calls" >> ammendments.txt
+    
+    C:\Users\name\jsmith\constitution>*** at this point someone updates ammendments.txt on the remote server ***
+    '***' is not recognized as an internal or external command,
+    operable program or batch file.
+    
+    C:\Users\name\jsmith\constitution>git pull origin main
+    Warning: the RSA host key for 'github.com' differs from the key for the IP address '140.82.114.4'
+    Offending key for IP in /c/Users/name/.ssh/known_hosts:11
+    Matching host key in /c/Users/name/.ssh/known_hosts:1
+    Are you sure you want to continue connecting (yes/no)? yes
+    remote: Enumerating objects: 5, done.
+    remote: Counting objects: 100% (5/5), done.
+    remote: Compressing objects: 100% (3/3), done.
+    remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (3/3), done.
+    From github.com:cobinrox/constitution
+     * branch            main       -> FETCH_HEAD
+       287f915..ec57b10  main       -> origin/main
+    Updating 287f915..ec57b10
+    error: Your local changes to the following files would be overwritten by merge:
+            ammendments.txt
+    Please commit your changes or stash them before you merge.
+    Aborting
+
+  </span></pre>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> What they forgot to mention</h4>
+    <p>Again, if you take a look at the output of the first "git status" command above, it says "nothing to commit, working tree clean".  It does not say "you have some things that you committed".  So there is warning number 1: you may forget to push because you forgot you had committed changes.  That's not a fault of the push command itself, but just a pitfall to be aware of.</p>
+    <p>Secondly, you should usually do a "git pull" before a push to be safe that you download and include any remote repo changes. Then re-test your code, especially regression tests before you do the "git push".  As part of a workflow, your team may, after having uploaded a change on a branch, have you create a "pull request" (not to be confused with a "git pull" on your laptop) which sends a message to the keeper of the develop/sprint/buffer or even master branch whose job it is to merge your branch into the parent.</p>
+    
+  
+
+    <h4>Undoing files that have been pushed</h4>
+    <p>This command will move the changed files back to the staged area.</p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+  git reset --soft HEAD~
+  </span></pre>
+  
+  </div>
+</body>
+</html>

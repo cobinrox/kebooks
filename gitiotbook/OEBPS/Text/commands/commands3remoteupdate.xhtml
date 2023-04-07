@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>git remote update</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+  <h3>git remote update</h3>
+  <p><b>Syntax:</b></p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    git remote update
+  </span></pre>
+  <div style="text-align:center;"><img src="../../Images/commands/remoteupdate.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>git remote update</i></div>
+  <h4>git remote update: What it's supposed to do</h4>
+
+  <p>This command is your buddy.  Sort of. It interacts with the remote repo's ledger and downloads the latest <i>information</i> about the remote repo down to and updates your local ledger.  Think of it like having a copy of a newspaper from three days ago that you had delivered to you.  Obviously, new things have been going on since the last three days, but your "git status" command will know nothing about the outside world.  That is where the "git remote update" command comes in.  It will update the ledger or table of contents of your newspaper (not the actual articles) with what is on the remote repo.  So, in the George example, running "git remote update" will update your local ledger with new information about changes that have been made on the remote.  Again, this is like updating a ledger or table of contents, but does not actually download any file changes to your laptop.  That work is done by the "git pull" command, which will will discuss a little later.</p>
+  <p>An example using this command is below, where, unbeknownst to the user, George has pushed up a change to the branch.  The user first runs "git status" which gives them a false sense of security that they seem to be "up-to-date", but then they run "git remote update" which updates the local repo's ledger/card catalog and then finishes with a final "git status" which shows where he really stands with respect to the remote repo.</p>
+  <h4>git remote update: Example use</h4>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\jsmit\constitution&gt;git status
+    On branch main
+    Your branch is up-to-date with 'origin/main'.
+    nothing to commit, working tree clean
+    
+    C:\Users\jsmit\constitution&gt;git remote update
+    Fetching origin
+    remote: Enumerating objects: 5, done.
+    remote: Counting objects: 100% (5/5), done.
+    remote: Compressing objects: 100% (2/2), done.
+    remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (3/3), done.
+    From github.com:cobinrox/constitution
+       8ce9602..36740b3  main       -&gt; origin/main
+    
+    C:\Users\jsmit\constitution&gt;git status
+    On branch main
+    Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+      (use "git pull" to update your local branch)
+    nothing to commit, working tree clean
+  </span></pre> 
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git remote update: What they forgot to mention</h4>
+  <p>This is a pretty useful command to actually go out and get a summary list of the changes that have been made up on the remote.  You can also use it to merely test if you have network connectivity up to the remote. </p>
+  <p>Again, when using "git status", be cognizant of what it is <i>not</i> showing you <i>unless</i> you execute a "git remote update" first.  Other wise you may be lulled into a false sense of security in thinking that there were no changes made up on the remote that you need to worry about.</p> 
+  <h4>git remote update: Bottomline</h4>
+  <ul>
+    <li>Gets most recent information about the remote repo</li>
+    <li>You can use this to test network connectivity to the Git server</li>
+  </ul>
+  </div>
+</body>
+</html>

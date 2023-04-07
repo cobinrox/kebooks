@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>git push</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+  <h3>git push</h3>
+  <p><b>Syntax:</b></p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    git push
+    git push -u origin new_branch_name
+  </span></pre>
+  <!--
+    <div style="text-align:center;"><img src="../../Images/commands/push.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
+  -->
+    <h4>What it's supposed to do</h4>
+
+  <p>Pushes your changes out of the commit area and up to the remote repo. If you had been making changes to an existing branch, i.e. one that exists on the remote repo to which other team members may have access, then you should first perform "git pull" to ensure that you have the most recent changes that may have been placed up on the repo since the time that you cloned it. If you are making changes on a new branch that you created locally, then use the second version of the command the first time you push it.</p>
+  <p>Thereafter, you should follow the same basic command/workflow on your branch: make local changes; stage the changes; commit the changes; perform a git pull; then do a git pull.  This will help ensure that your code is up on a safe server, which should be safer than your laptop.  It also allows other team members to download your branch if you happen to have a particularly useful update to it.</p>
+
+  <p>The following example shows taking three previously-made changes (a new file, deleting a file, and changing a file) and moving all three changes from the commit area to the remote repo. Since it is a brand new branch that was created locally, we know that it does not exist on the remote (remember the "git checkout" and "git checkout -b" only affects the local repo) and therefore do not have to do a "git pull" before pushing. </p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+        
+    C:\Users\jsmith\constitution&gt;git status
+        On branch my_new_branch
+        nothing to commit, working tree clean
+
+        git push --set-upstream origin my_new_branch
+        Counting objects: 4, done.
+        Delta compression using up to 4 threads.
+        Compressing objects: 100% (3/3), done.
+        Writing objects: 100% (4/4), 456 bytes | 0 bytes/s, done.
+        Total 4 (delta 0), reused 0 (delta 0)
+        remote:
+        remote: Create a pull request for 'my_new_branch' on GitHub by visiting:
+        remote:      https://github.com/cobinrox/constitution/pull/new/my_new_branch
+        remote:
+        To github.com:cobinrox/constitution.git
+        * [new branch]      my_new_branch -> my_new_branch
+        Branch my_new_branch set up to track remote branch my_new_branch from origin.
+
+  </span></pre>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> What they forgot to mention</h4>
+    <p>Again, if you take a look at the output of the first "git status" command above, it says "nothing to commit, working tree clean".  It does not say "you have some things that you committed".  So there is warning number 1: you may forget to push because you forgot you had committed changes.  That's not a fault of the push command itself, but just a pitfall to be aware of.</p>
+    <p>Secondly, you should usually do a "git pull" before a push to be safe that you download and include any remote repo changes. Then re-test your code, especially regression tests before you do the "git push".  As part of a workflow, your team may, after having uploaded a change on a branch, have you create a "pull request" (not to be confused with a "git pull" on your laptop) which sends a message to the keeper of the develop/sprint/buffer or even master branch whose job it is to merge your branch into the parent.</p>
+    
+  
+
+    <h4>Undoing files that have been pushed</h4>
+    <p>This command will move the changed files back to the staged area.</p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+  git reset --soft HEAD~
+  </span></pre>
+  
+  </div>
+</body>
+</html>

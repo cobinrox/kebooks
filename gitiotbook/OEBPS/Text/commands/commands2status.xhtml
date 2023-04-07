@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>git status</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+
+  <h3>git status</h3>
+  <h4>Syntax:</h4>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    git status
+  </span></pre>
+  <div style="text-align:center;"><img src="../../Images/commands/status.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>git status only shows local status</i></div>
+  <h4>git status: What it's supposed to do</h4>
+  <p>This command gives you a high (very high) level summary of the basic status of the local repo including local changes, changes that have been moved to the staging state, and changes that have been moved to the committed state.</p>
+  <h4>git status Example use</h4>
+  <pre><span class="inner-pre" style="font-size: 10px">
+
+  C:\Users\jsmith\constitution&gt;dir /a
+ 04/02/2023  07:22 AM    &lt;DIR&gt;          .
+ 04/02/2023  07:22 AM    &lt;DIR&gt;          ..
+ 04/02/2023  07:22 AM    &lt;DIR&gt;          .git
+ 04/02/2023  07:22 AM                 7 ammendments.txt
+ 04/02/2023  07:22 AM                15 preamble
+ 04/02/2023  07:22 AM                14 README.md
+ 04/02/2023  07:22 AM                24 sorting.js
+                4 File(s)             60 bytes
+                3 Dir(s)  177,400,340,480 bytes free
+ 
+C:\Users\jsmith\constitution&gt;git status
+ On branch main
+ Your branch is up-to-date with 'origin/main'.
+ nothing to commit, working tree clean
+ </span></pre>
+ <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/>git status: What they forgot to mention</h4>
+  <p>Take some caution with this command because it is insidious in its meaning.  If you have made changes to your local repo, it will kindly indicate that you have done so. It will tell you if you have made a local change but have not yet added that change to the staging area.  It will tell you if you have things in the staging area but you have not yet committed those changes to the commit area. If you have commited something it will remind you that you need to push it up to the remote. However, it will not tell you the status of your local repo compared to the version up on the remote.  In other words, if someone, say George, had changed something on this branch up on the remote and then you execute the "git status" command, George's changes will not be reflected and the status results will give you a false sense of security that your local repository is up to date, implying that it is up-to-date with the remote version.</p>
+  <p>In the following excerpt, a user had made a change to a file, had staged it, and had committed it.  The user then uses the "git status" command.</p>
+    <pre><span class="inner-pre" style="font-size: 10px">
+     C:\Users\jsmith\constitution&gt;git status
+     On branch master
+     Your branch is ahead of 'origin/master' by 1 commit.
+     (use "git push" to publish your local commits)
+     nothing to commit, working tree clean
+    </span></pre>
+  <p>The results of the command indicate that the user had made a change to the local repository and had staged and committed it, because it says "use git push to publish your local commits".  It also says "Your branch is ahead of origin/master by 1 commit."  But, again, what if someone else's change has been pushed into the branch up on the remote?  The status command is not going to let the user know about that. The status command only has information about the <i>local</i> repo, it knows nothing about the remote repo.  That is why it is important to recognize that certain Git commands do and certain commands do not take the remote repo into account.</p>
+  <p>In this example, George's change is on the remote, but the local repo and its local ledger know nothing about it.  So git status is not as helpful as you may think.  Instead, you need to run the "git remote update" command (discussed below) in order to get your local ledger up-to-date with the remote ledger, thereby giving your local ledger new information about what is up on the remote.  That is very confusing but think about it like a card catalog that you have for your library in the basement.  Your card catalog (local ledger) must be updated with the same information as in the public library's (remote) card catalog in order to be 100% accurate.  (And we are only talking about the card catalog here, <i>not</i> the actual books yet.) We will revisit the status command after presenting the "remote update" command next.</p>
+ 
+  <p>Another gotcha on "git status", though we haven't talked about the "git commit" command yet, after doing a "git commit", a "git status" will give you a similar same confusing message shown below:</p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\jsmith\constitution&gt;git commited
+       *** details of commit left out here ***
+    C:\Users\jsmith\constitution&gt;git status
+    On branch my_new_branch
+    Your branch is up-to-date with 'origin/my_new_branch'.
+    nothing to commit, working tree clean
+   </span></pre>
+  <p>Again this gives you the sense that your work has been committed, if you happen to remember that, or, may give you the easily-misunderstood-idea that you have already pushed up your changes to the remote.  The commit and push commands are discussed later, but I wanted to mention how "git status" can git you into trouble if you don't take heed with it.</p>
+  <h4>git status: Bottomline</h4>
+  <ul>
+    <li>Get in the habbit of running "git remote update" before running "git status"</li>
+   
+  </ul>
+</div>
+</body>
+</html>

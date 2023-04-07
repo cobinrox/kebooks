@@ -40,7 +40,16 @@
 
         <item id="commands0.x" href="Text/commands/commands0.xhtml" media-type="application/xhtml+xml"/>
         <item id="commandstable.x" href="Text/commands/commandstable.xhtml" media-type="application/xhtml+xml"/>
-        <item id="commandsclone.x" href="Text/commands/commandsclone.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands1clone.x" href="Text/commands/commands1clone.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands2status.x" href="Text/commands/commands2status.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands3remoteupdate.x" href="Text/commands/commands3remoteupdate.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands4branch.x" href="Text/commands/commands4branch.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands5checkout.x" href="Text/commands/commands5checkout.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands6localchanges.x" href="Text/commands/commands6localchanges.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands7add.x" href="Text/commands/commands7add.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands8commit.x" href="Text/commands/commands8commit.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands9pull.x" href="Text/commands/commands9pull.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands10push.x" href="Text/commands/commands10push.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="scenario1.x" href="Text/scenarios/scenario1.xhtml" media-type="application/xhtml+xml"/>
 
@@ -84,12 +93,16 @@
         <item id="ledgers.j" href="Images/arch/ledgers.jpg" media-type="image/jpeg"/>
         <item id="seq.j" href="Images/arch/seq.jpg" media-type="image/jpeg"/>
 
-        <item id="clone.j" href="Images/commands/clone.jpg" media-type="image/jpeg"/>
-        <item id="checkout.j" href="Images/commands/checkout.jpg" media-type="image/jpeg"/>
-        <item id="remoteupdate.j" href="Images/commands/remoteupdate.jpg" media-type="image/jpeg"/>
-        <item id="status.j" href="Images/commands/status.jpg" media-type="image/jpeg"/>
+        <item id="commandsadd.j" href="Images/commands/add.jpg" media-type="image/jpeg"/>
+        <item id="commandsclone.j" href="Images/commands/clone.jpg" media-type="image/jpeg"/>
+        <item id="commandscheckout.j" href="Images/commands/checkout.jpg" media-type="image/jpeg"/>
 
+        <item id="commandscommit.j" href="Images/commands/commit.jpg" media-type="image/jpeg"/>
 
+        <item id="commandsremoteupdate.j" href="Images/commands/remoteupdate.jpg" media-type="image/jpeg"/>
+        <item id="commandsstatus.j" href="Images/commands/status.jpg" media-type="image/jpeg"/>
+        <item id="commandslocalchanges.j" href="Images/commands/localchanges.jpg" media-type="image/jpeg"/>
+        
         <item id="seq1.j" href="Images/scenarios/seq1.jpg" media-type="image/jpeg"/>
         <item id="seq1b.j" href="Images/scenarios/seq1b.jpg" media-type="image/jpeg"/>
 
@@ -126,9 +139,19 @@
         <itemref idref="architecture.x"/>
         <itemref idref="architecturestatetable.x"/>
         <itemref idref="archpoststatetable.x"/>
+
         <itemref idref="commands0.x"/>
         <itemref idref="commandstable.x"/>
-        <itemref idref="commandsclone.x"/>
+        <itemref idref="commands1clone.x"/>
+        <itemref idref="commands2status.x"/>
+        <itemref idref="commands3remoteupdate.x"/>
+        <itemref idref="commands4branch.x"/>
+        <itemref idref="commands5checkout.x"/>
+        <itemref idref="commands6localchanges.x"/>
+        <itemref idref="commands7add.x"/>
+        <itemref idref="commands8commit.x"/>
+        <itemref idref="commands9pull.x"/>
+        <itemref idref="commands10push.x"/>
 
         <itemref idref="scenario1.x"/>
         <itemref idref="installtools.x"/>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>git branch</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+  <h3>git branch -a</h3>
+  <p><b>Syntax:</b></p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    git branch -a
+  </span></pre>
+  <h4>git branch: What it's supposed to do:</h4>
+  <p>This command lists all of the branches of a repository, <i>as far as the local repo/ledger is aware</i>.  An example of using this command is shown here:</p>
+  <h4>git branch: Example use</h4>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\name\constitution&gt;git branch -a
+    * main
+    remotes/origin/HEAD -&gt; origin/main
+    remotes/origin/amys_feature_change_gui_name
+    remotes/origin/bills_feature_remove_dead_code
+    remotes/origin/dexters_feature_add_comments
+    remotes/origin/main   
+  </span></pre>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git branch: What they forgot to mention</h4>
+  <p>I've seen users use this command to list the branches of a given repo (on their laptop), but be unaware that there have been new branches added to the remote repo since the user had performed a clone.  Therefore, it is advised to run the "git remote update" command before running this command. </p>
+  <p>Again, don't be confused when a teammate tells you that there is a branch that you need to checkout (we'll get to that command next) but you cannot "see" the branch when you use the "git branch -a" command.  I saw this situation happen with a very confused QA tester who insisted that a developer's branch "is not there", insisting that the individual never pushed up the branch.  The problem was that the QA tester had cloned the repo several days earlier and the developer had since uploaded his fixes to a new branch which the QA tester did not see until he ran the "git remote update", followed by "git branch -a"</p>
+  <h4>git branch: Bottomline</h4>
+  <ul>
+    <li>Get in the habbit of running "git remote update" before running "git branch -a"</li>
+   
+  </ul>
+</div>
+</body>
+</html>

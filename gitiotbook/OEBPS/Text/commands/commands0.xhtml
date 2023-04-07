@@ -14,9 +14,22 @@
 <body>
 <div>
   <h1>Git Commands</h1>
-  <p>This chapter demonstrates the basic workflow of using Git and its basic commands.  These are the common commands that you will normally be running in a multi-person team environment.</p>
+  <p>This chapter demonstrates the basic workflow of using Git and its basic commands.  These are the common commands that you will normally be running in a multi-person team environment, with a remote Git server hosting GitHub, Bitbucket, or something similar.</p>
+  <p>There are only a handful of commands that you normally run, and you will see them all the time, usually in the order summarized below.</p>
+  <ol>
+
+    <li><b>git clone</b> to download the remote repo that you've been assigned</li>
+    <li><b>git checkout/checkout -b</b> to get to the particular branch you've been assigned or to create a new branch for your</li>
+    <li>make your local changes</li>
+    <li><b>git add</b> move your changes to the staging area</li>
+    <li><b>git commit</b> move your changes to the committed area</li>
+    <li><b>git pull</b> optionally, but best practice to download any updates that were made up on the repo</li>
+    <li><b>git push</b> move your changes up to the remote repo</li>
+    <li>wash rinse, repeat: continue to make local changes, stage, commit, pull, and push your branch as you develop day-to-day</li>
+    <li>when your last change has been made for your work item or feature and pushed, request a "pull" on your branch, i.e. request that your branch be merged into the master (or the develop/sprint branch or whatever parent your branch is a child of)</li>
+  </ol>
   <p>The following table contains the basic Git commands that are discussed in this chapter, they are presented below in the basic order in which they are normally executed.</p>
-  <p>The "Local/Remote" column is used to distinguish Git commands that work or are affected only by the local repo, on your laptop, versus whether the command works in conjunction with the remote (server/cloud) repo. It is important to understand whether a Git command that you execute either affects or works in conjunction with the remote repo.  This is a can be a cause of confusion so it is worthwhile to consider this distinction when you run a Git command.  Commands that are particularly treacherous have the Local/Remote column marked in bold font to get your attention.</p>
+  <p>The "Local/Remote" column is used to distinguish Git commands that work or are affected only by the local repo, on your laptop, versus whether the command works in conjunction with the remote (server/cloud) repo. It is important to understand whether a Git command that you execute either affects or works in conjunction with the remote repo.  This is a can be a cause of confusion so it is worthwhile to consider this distinction when you run a Git command.  Commands that are particularly treacherous have the Local/Remote column marked in bold font to get your attention.  Note that if you are not working with a remote Git server and are merely stowing your repo locally and only locally, then these commands will not be so confusing, but the terminlogy becomes murky when introducing the real-world situations</p>
 
 </div>
 </body>

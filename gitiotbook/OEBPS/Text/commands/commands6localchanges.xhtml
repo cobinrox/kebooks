@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>making local changes</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+<body>
+<div>
+  <h3>Making local changes</h3>
+  <p>This is not a git command but this section emphasizes getting used to the local ledger/card catalog/.git directory concept which keeps track of your changes.</p>
+  <p><b>Syntax</b> n/a</p>
+
+  <div style="text-align:center;"><img src="../../Images/commands/localchanges.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>Local changes are logged in the .git directory</i></div>
+  <h4>What it's supposed to do</h4>
+  <p>When you make changes to your local repo, little monks in the background make notes about the changes that you've made, including when you create new files, delete existing files, and make changes to existing files in the repo. This is akin to how a relational database tracks changes in its change log.  These change logs or ledger information is stored within the hidden ".git" subdirectory.   In the example below, a develoer creates a file and makes a change to an existing file and then runs the "git status" command to display how the local ledger is keeping track of his changes.</p>
+  <h4>local changes Example</h4>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\jsmith\constitution&gt;git status
+    On branch my_new_branch
+    nothing to commit, working tree clean
+    
+    C:\Users\jsmith\constitution&gt;echo "pay bookie" &gt; deviant_acts.txt
+    C:\Users\jsmith\constitution&gt;echo "blackmail enemy Z" &gt;&gt; deviant_acts.txt
+    C:\Users\jsmith\constitution&gt;echo "28. No robo calls" &gt;&gt; ammendments.txt
+    C:\Users\jsmith\constitution&gt;del preamble
+    C:\Users\jsmith\constitution&gt;git status
+    On branch my_new_branch
+    Changes not staged for commit:
+      (use "git add/rm &lt;file&gt;..." to update what will be committed)
+      (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+            modified:   ammendments.txt
+            deleted:    preamble
+
+    Untracked files:
+      (use "git add &lt;file&gt;..." to include in what will be committed)
+            deviant_acts.txt
+    no changes added to commit (use "git add" and/or "git commit -a")
+  </span></pre>
+  <p>In the example, the user created a new file, added an entry in the ammendments file, and deleted the preamble file.</p>
+  <h4>local changes: What they dont tell you</h4>
+  <p>Although your changes are kept track of in the .git directory, the .git directory has some special file handling so you will not actually see those modifications, i.e., the date of the files in the .git directory won't actually change. So if you were to swtich over to the .git directory and look for the updates that were recorded, you would not be able to see any date changes therein. That can be confusing; for the most part you need to trust what is kept in the .git directory.</p>
+  <p>Another thing to keep in mind when thinking about local changes is whether or not your have moved those changes to the staged or committed area.  In Git-speak, the prior three are very distinct states: "a change", "a change that is staged"; and "a change that is committed", respectively.  So when someone talks about a "change" they made (locally), be aware of which of the three states that change could be in.  The "git status" command will help you identify where your changes are in the local Git flow.</p>
+  <h4>git checkout: Undoing Local Changes</h4>
+      <p>When "undoing" local changes, there are many variations on what that means, how it is interpreted, how it could be executed, and which may leave you with a state that you are not expecting. Just look on StackExchange for "undo local Git changes".  It will return "highly active" because of how "undo", "local", and "changes" are all interpreted. In this paragraph, we are speaking only of changes that you have made but have not staged or committed. To undo them, you can always delete each of the changes by hand, or start over with a fresh directory and re-clone the repository.  A simpler way to remove all of the local changes that you've made, including newly-added files (e.g. the new "deviant_acts.txt" file), changes made to exiting repo files (e.g. adding a 28th ammendment to the constitution), and deletion of repo files (e.g. deleting of the "preamble" file), <i>but which you have not yet staged</i> is to use:</p>
+    <pre><span class="inner-pre" style="font-size: 10px">
+    git clean -f
+    git checkout -- .
+    </span></pre>
+    <p>Note the double-dashes and dot in the last command.  You need to use this syntax.</p>
+</div>
+</body>
+</html>

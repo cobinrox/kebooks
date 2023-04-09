@@ -20,10 +20,10 @@
     git add .
   </span></pre>
     <div style="text-align:center;"><img src="../../Images/commands/add.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git add</i></div>
-    <h4>What it's supposed to do</h4>
+    <h4>git add: What it's supposed to do</h4>
 
   <p>Moves your changes into the "staging" state.  To stage (add) individual files one-by-one, you can use the first version of the syntax, to add all of your changes use the second version.</p>
-  <p>The following example shows taking three previously-made changes (a new file, deleting a file, and changing a file) and moving all three changes to the staging area: </p>
+  <p>The following example shows taking three previously-made changes (adding a new file, deleting an existing file, and changing an existing file) and moving all three changes to the staging area: </p>
   <pre><span class="inner-pre" style="font-size: 10px">
     C:\Users\jsmith\constitution&gt;git status
     On branch my_new_branch
@@ -48,7 +48,7 @@
         new file:   deviant_acts.txt
         deleted:    preamble
     </span></pre>
-    <h4>Undoing files that have been staged</h4>
+ <h4>git add: Undoing files that have been staged</h4>
     
   <pre><span class="inner-pre" style="font-size: 10px">
   git reset
@@ -72,7 +72,11 @@
     no changes added to commit (use "git add" and/or "git commit -a")
     </span></pre>
     <p>It is important to note that in this example, all of the staged changes were moved out of the staging area, but remember that actual changes were not reverted. In other words, the ammendments file still has the new 28th ammendment, the preamble file was deleted, and the deviant_acts.txt file is still in place.</p>
-
+    <h4>git add: Bottomline</h4>
+    <ul>
+      <li>Moves your local changes to the "staging" area/state</li>
+      <li>Moving your changes out of the staging area does not undo the changes, it just move them out of the staging area</li>
+    </ul>
   </div>
 </body>
 </html>

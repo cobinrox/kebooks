@@ -42,8 +42,8 @@ C:\Users\jsmith\constitution&gt;git status
  nothing to commit, working tree clean
  </span></pre>
  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/>git status: What they forgot to mention</h4>
-  <p>Take some caution with this command because it is insidious in its meaning.  If you have made changes to your local repo, it will kindly indicate that you have done so. It will tell you if you have made a local change but have not yet added that change to the staging area.  It will tell you if you have things in the staging area but you have not yet committed those changes to the commit area. If you have commited something it will remind you that you need to push it up to the remote. However, it will not tell you the status of your local repo compared to the version up on the remote.  In other words, if someone, say George, had changed something on this branch up on the remote and then you execute the "git status" command, George's changes will not be reflected and the status results will give you a false sense of security that your local repository is up to date, implying that it is up-to-date with the remote version.</p>
-  <p>In the following excerpt, a user had made a change to a file, had staged it, and had committed it.  The user then uses the "git status" command.</p>
+  <p>Take some caution with this command because it is insidious.  If you have made changes to your local repo, it will kindly indicate that you have done so. It will tell you if you have made a local change but have not yet added that change to the staging area.  It will tell you if you have things in the staging area but you have not yet committed those changes to the commit area. If you have commited something it will remind you that you need to push it up to the remote. However, it will not tell you the status of your local repo compared to the version up on the remote.  In other words, if someone, say George, had changed something on this branch up on the remote and then you execute the "git status" command, George's changes will not be reflected and the status results will give you a false sense of security that your local repository is "up to date", implying that it is up-to-date with the remote version.</p>
+  <p>In the following excerpt, a developer had made a change to a file on the local repo, had staged it, and had committed it.  The user then uses the "git status" command.</p>
     <pre><span class="inner-pre" style="font-size: 10px">
      C:\Users\jsmith\constitution&gt;git status
      On branch master
@@ -54,16 +54,18 @@ C:\Users\jsmith\constitution&gt;git status
   <p>The results of the command indicate that the user had made a change to the local repository and had staged and committed it, because it says "use git push to publish your local commits".  It also says "Your branch is ahead of origin/master by 1 commit."  But, again, what if someone else's change has been pushed into the branch up on the remote?  The status command is not going to let the user know about that. The status command only has information about the <i>local</i> repo, it knows nothing about the remote repo.  That is why it is important to recognize that certain Git commands do and certain commands do not take the remote repo into account.</p>
   <p>In this example, George's change is on the remote, but the local repo and its local ledger know nothing about it.  So git status is not as helpful as you may think.  Instead, you need to run the "git remote update" command (discussed below) in order to get your local ledger up-to-date with the remote ledger, thereby giving your local ledger new information about what is up on the remote.  That is very confusing but think about it like a card catalog that you have for your library in the basement.  Your card catalog (local ledger) must be updated with the same information as in the public library's (remote) card catalog in order to be 100% accurate.  (And we are only talking about the card catalog here, <i>not</i> the actual books yet.) We will revisit the status command after presenting the "remote update" command next.</p>
  
-  <p>Another gotcha on "git status", though we haven't talked about the "git commit" command yet, after doing a "git commit", a "git status" will give you a similar same confusing message shown below:</p>
+  <p>Another gotcha on "git status", though we haven't talked about the "git commit" command yet, after doing a "git commit" on a new branch that you created (and have not yet pushed up to the remote repo), a "git status" will give you a similar same confusing message shown below:</p>
   <pre><span class="inner-pre" style="font-size: 10px">
-    C:\Users\jsmith\constitution&gt;git commited
+    C:\Users\jsmith\constitution&gt;
+       *** details of creating a new, local branch not shown
+    C:\Users\jsmith\constitution&gt;git commit -m "some sample commit"
        *** details of commit left out here ***
     C:\Users\jsmith\constitution&gt;git status
     On branch my_new_branch
     Your branch is up-to-date with 'origin/my_new_branch'.
     nothing to commit, working tree clean
    </span></pre>
-  <p>Again this gives you the sense that your work has been committed, if you happen to remember that, or, may give you the easily-misunderstood-idea that you have already pushed up your changes to the remote.  The commit and push commands are discussed later, but I wanted to mention how "git status" can git you into trouble if you don't take heed with it.</p>
+  <p>Again this gives you the <i>sense</i> that your work has been committed, <i>if you happen to remember that you did do a commit</i>, or, may give you the easily-misunderstood-idea that you have already pushed up your new branch and changes to the remote.  The commit and push commands are discussed later, but I wanted to mention how "git status" can git you into trouble if you don't take heed with it.</p>
   <h4>git status: Bottomline</h4>
   <ul>
     <li>Get in the habbit of running "git remote update" before running "git status"</li>

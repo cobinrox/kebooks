@@ -16,7 +16,7 @@
   <h3>git commit</h3>
   <p><b>Syntax:</b></p>
   <pre><span class="inner-pre" style="font-size: 10px">
-    git commit -m "&lt;some description&gt;
+    git commit -m "&lt;some description&gt;""
   </span></pre>
     <div style="text-align:center;"><img src="../../Images/commands/commit.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
     <h4>What it's supposed to do</h4>
@@ -43,7 +43,7 @@
         On branch my_new_branch
         nothing to commit, working tree clean
   </span></pre>
-  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> What they forgot to mention</h4>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git commit: What they forgot to mention</h4>
     <p>You can probably see the possible issues in the preceeding example: After a commit, the "git status" command shows "nothing to commit, working tree clean", which may lead you to forget that you had even committed anything, let alone changed anything to the branch. If you don't believe this can happen to you because you have a perfect memory, then don't worry about it.  But, if like me, you can't remember every keystroke you've ever made, especially on a Friday at 4:30 and the network is down, then this is something to keep in mind when you do a "git status": don't get lulled into a false sense of security thinking "Oh, I haven't made any changes to this branch."</p>
     <p>To display what is in the committed area but has not yet been pushed, you can use this command:</p>
     <pre><span class="inner-pre" style="font-size: 10px">
@@ -65,7 +65,7 @@
     preamble
     </span></pre>
 
-    <h4>Undoing files that have been committed</h4>
+    <h4>git commit: Undoing files that have been committed</h4>
     <p>This command will move the changed files back to the staged area.</p>
   <pre><span class="inner-pre" style="font-size: 10px">
   git reset --soft HEAD~

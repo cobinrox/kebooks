@@ -19,7 +19,7 @@
     git branch -a
   </span></pre>
   <h4>git branch: What it's supposed to do:</h4>
-  <p>This command lists all of the branches of a repository, <i>as far as the local repo/ledger is aware</i>.  An example of using this command is shown here:</p>
+  <p>This command lists all of the branches of a repository, <i>as far as the local repo/ledger is aware</i>.  It lists the remote branches that it knows about and any branches that you yourself have either created locally or have checked out (the checkout command is discussed in the next section). An example of using this command is shown here:</p>
   <h4>git branch: Example use</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
     C:\Users\name\constitution&gt;git branch -a
@@ -29,6 +29,20 @@
     remotes/origin/bills_feature_remove_dead_code
     remotes/origin/dexters_feature_add_comments
     remotes/origin/main   
+  </span></pre>
+  <p>In the above example, all of the remote branches (prefixed with "remote/origin") that the local repo is aware of are listed, and the "main" branch is the current branch that the user is on.  In the example below, the user had checked out several branches locally and are displayed (again, we'll go over checkout in the next section).</p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\name\jsmith\constitution&gt;git branch -a
+      dexters_feature_add_comments
+      main
+    * my_new_branch
+      remotes/origin/HEAD -&gt; origin/main
+      remotes/origin/amys_feature_change_gui_name
+      remotes/origin/bills_feature_remove_dead_code
+      remotes/origin/dexters_feature_add_comments
+      remotes/origin/main
+      remotes/origin/my_new_branch
+      remotes/origin/test_ok_to_delete
   </span></pre>
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git branch: What they forgot to mention</h4>
   <p>I've seen users use this command to list the branches of a given repo (on their laptop), but be unaware that there have been new branches added to the remote repo since the user had performed a clone.  Therefore, it is advised to run the "git remote update" command before running this command. </p>

@@ -19,24 +19,61 @@
     git pull
     git pull origin &lt;other_branch_name&gt;
   </span></pre>
-  <!--
-    <div style="text-align:center;"><img src="../../Images/commands/push.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
-  -->
+    <div style="text-align:center;"><img src="../../Images/commands/pull.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git pull</i></div>
     <h4>git pull: What it's supposed to do</h4>
 
-  <p>Pull down remote repo changes for the current branch (if using the first form of the syntax), or pull down most recent remote changes for the specified branch (if using the second form of the syntax) and merge the changes with your local branch.  It can also refuse to merge altogeher and may also merge as-best-as-it-can, depending on the state of your local repo.</p>
-  <p>"git pull" is a command you <i>normally</i> should do often because it keeps you up-to-date with changes that have been applied up on the remote repo.  For example, in a team environment, if you initially cloned the "develop" branch, then created your own "feature" branch, it is best practice to periodically (within reason and according to what you are doing) perform a "git pull" on the develop branch.  This brings down the most recent code for the specified branch that is up on the remote site down to your local repo and merges it into the current branch that you are working on.  New files that have been added to the remote repo will be added to your local repo, files that have been deleted from the remote repo will be deleted from your local repo, and files which have changed, will be merged automatically, usually. If Git detects a problem with an automerge, it will either abort the merging process and give you an error message, or will merge the changes that it can do, and then create a "merge conflict" inside of the offending file.</p>
-
-  <p>It automatically updates and merges changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the ammendments file, if George had added a new ammendment on the remote repo, and you as well had added your own ammendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict will arise for that file.  The ammendments file will be updated with both of the changes and a merge conflict message will be placed into the actual text of the file. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the ammendments file, and what the file actually looks like now in your remote repot.</p>
+  <p>Pull down remote repo changes for the current branch (if using the first form of the syntax), or pull downthe  most recent remote changes for the specified branch (if using the second form of the syntax) and merge the changes with your local branch.  It can also refuse to merge (and thus refuse to pull) altogeher and may also merge as-best-as-it-can, depending on the state of your local repo.</p>
   
+  <p>"git pull" is a command you <i>normally</i> should do often because it keeps you up-to-date with changes that have been applied up on the remote repo.  For example, in a team environment, if you initially cloned the "develop" branch, then created your own "feature" branch, it is best practice to periodically (within reason and according to what you are doing) perform a "git pull" on the develop branch.  This brings down the most recent code for the specified branch that is up on the remote site down to your local repo and merges it into the current branch that you are working on.  New files that have been added to the remote repo will be added to your local repo, files that have been deleted from the remote repo will be deleted from your local repo, and files which have changed, will be merged automatically. <i>Usually</i>. A "git pull" can actually take up to three different courses: a clean merge of changes with your local branch (the nominal case which you hope to encounter); a merge but with conflicts (the annoying case which requires human intervention); and a complete abort of the pull.</p>
+    
+    If Git detects a problem with an automerge, it will either abort the pull process and give you an error message, or will merge the changes that it can do, and then create a "merge conflict" inside of the offending file.</p>
+
+  <p>The example below shows the first, nominal use case where the user has created, made changes, and committed a new local branch, and then the user pulls down the most recent master branch into the new local branch (in order to include the most recent master branch changes into the local branch).  Molly had recently had her changes incorporated into the master branch up on the remote repo.  After the pull, note that the pull process also automatically creates a new commit behind the scenes(!)</p>
+  <h4>git pull: Example use</h4>
+  <pre><span class="inner-pre" style="font-size: 10px">
+    *** Current status: user has committed changes on his new local branch
+    C:\Users\jsmith\constitution&gt;git status
+    On branch my_new_branch
+    nothing to commit, working tree clean
+    C:\Users\jsmith\constitution&gt;git show --name-only HEAD
+    commit c51e62b22f84d6670f834e0c23c96d4066a1609e
+    Author: jsmith &lt;jsmith@acme.com&gt;
+    Date:   Sun Apr 9 17:44:15 2023 -0600
+        create signature block
+    signatures.txt
+    *** User pulls down latest changes (Molly's) from master branch
+    C:\Users\jsmith\constitution&gt;git pull origin main
+    remote: Enumerating objects: 5, done.
+    remote: Counting objects: 100% (5/5), done.
+    remote: Compressing objects: 100% (3/3), done.
+    remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (3/3), done.
+    From github.com:cobinrox/constitution
+    * branch            main       -&gt; FETCH_HEAD
+      b8aa277..01bdef1  main       -&gt; origin/main
+    Merge made by the 'recursive' strategy.
+    README.md | 3 ++-
+    1 file changed, 2 insertions(+), 1 deletion(-)
+
+    *** User gets status of his local branch, which shows that 
+    *** the master changes have been merged, staged,
+    *** and committed
+    C:\Users\jsmith\constitution&gt;git show --name-only HEAD
+    commit 6137b320f87d64402097ae6da9f257697d30105f
+    Merge: 4514f7c 01bdef1
+    Author: jsmith &lt;jsmith@acme.com&gt;
+    Date:   Sun Apr 9 17:30:05 2023 -0600
+        Merge branch 'main' of github.com:cobinrox/constitution into my_new_branch
+  </span></pre>
+
+  <p>On the surface, a "git pull" is intended to download remote repo changes of a specified branch and merge those changes with the current local branch you are working on.  So, for example, if the master branch has been updated with changes to, say, the ammendements file, then those changes are downloaded to your laptop and your branch's copy of the ammendments file will be updated with the new changes.  Usually.</p>
+
+  <p>It can automatically update and merge changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the ammendments file, if Molly had added a new ammendment on the remote repo, and you as well had added your own ammendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict can (and probably will) arise for that file.  The ammendments file will be updated with both of the changes and <i>a merge conflict message will be placed into the actual text of the file</i>. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the ammendments file, and that the pull and merge is aborted completely.
+
   <pre><span class="inner-pre" style="font-size: 10px">
         
-    C:\Users\jsmith>git clone git@github.com:cobinrox/constitution.git
+    C:\Users\jsmith&gt;git clone git@github.com:cobinrox/constitution.git
     Cloning into 'constitution'...
-    Warning: the RSA host key for 'github.com' differs from the key for the IP address '140.82.112.3'
-    Offending key for IP in /c/Users/name/.ssh/known_hosts:10
-    Matching host key in /c/Users/name/.ssh/known_hosts:1
-    Are you sure you want to continue connecting (yes/no)? yes
     remote: Enumerating objects: 29, done.
     remote: Counting objects: 100% (29/29), done.
     remote: Compressing objects: 100% (21/21), done.
@@ -44,34 +81,18 @@
     Receiving objects: 100% (29/29), 5.80 KiB | 0 bytes/s, done.
     Resolving deltas: 100% (7/7), done.
     
-    C:\Users\jsmith>cd constitution
-    
-    C:\Users\jsmith\constitution&gt;dir
-     Volume in drive C is OS
-     Volume Serial Number is 1229-3C9E
-    
-     Directory of C:\Users\jsmith\constitution
-    
-    04/05/2023  06:40 PM                54 ammendments.txt
-    04/05/2023  06:40 PM                28 preamble
-    04/05/2023  06:40 PM                14 README.md
-                   3 File(s)             96 bytes
-                   2 Dir(s)  171,580,715,008 bytes free
-    
+    C:\Users\jsmith&gt;cd constitution
+     
     C:\Users\jsmith\constitution&gt;more ammendments.txt
     First Ammendment: freedom of speech, assembly, press
     
     C:\Users\jsmith\constitution&gt;echo "28. No Robo Calls" &gt;&gt; ammendments.txt
-    
-    C:\Users\jsmith\constitution&gt;*** at this point someone updates ammendments.txt on the remote server ***
-    '***' is not recognized as an internal or external command,
-    operable program or batch file.
-    
+    C:\Users\jsmith\constitution&gt;git add .
+    C:\Users\jsmith\constitution&gt;git commit -m "Add 28th ammendment"
+
+    *** Molly has also made changes to the ammendments file up on the master branch ***
+    *** and results in a merge conflict   
     C:\Users\jsmith\constitution&gt;git pull origin main
-    Warning: the RSA host key for 'github.com' differs from the key for the IP address '140.82.114.4'
-    Offending key for IP in /c/Users/name/.ssh/known_hosts:11
-    Matching host key in /c/Users/name/.ssh/known_hosts:1
-    Are you sure you want to continue connecting (yes/no)? yes
     remote: Enumerating objects: 5, done.
     remote: Counting objects: 100% (5/5), done.
     remote: Compressing objects: 100% (3/3), done.
@@ -88,6 +109,12 @@
 
   </span></pre>
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git pull: What they forgot to mention</h4>
+  <p>Here, in no particular order is a list of the most confusing parts of a git pull</p>
+  <ul>
+    <li>Changes that are downloaded from a "git pull" are automatically merged, but also added to the staging area, and then moved to the committed area.  Behind the scenes.  This is represented in the illustration above.  If you happen to be working on a new branch that has not yet been pushed up to the remote (again, as in the above illustration), a "git status" will not indicate that you have anything in the committed area, even though the pull has actually made changes, moved them to the staging area, and then moved the changes along to the committed area.  Once again, as mentioned in the "git commit" section, you need to do a "git show --name-only HEAD" to remember that you have items that have been committed.</li>
+  </ul>
+  
+
     <p>Again, if you take a look at the output of the first "git status" command above, it says "nothing to commit, working tree clean".  It does not say "you have some things that you committed".  So there is warning number 1: you may forget to push because you forgot you had committed changes.  That's not a fault of the push command itself, but just a pitfall to be aware of.</p>
     <p>Secondly, you should usually do a "git pull" before a push to be safe that you download and include any remote repo changes. Then re-test your code, especially regression tests before you do the "git push".  As part of a workflow, your team may, after having uploaded a change on a branch, have you create a "pull request" (not to be confused with a "git pull" on your laptop) which sends a message to the keeper of the develop/sprint/buffer or even master branch whose job it is to merge your branch into the parent.</p>
     
@@ -99,7 +126,9 @@
   git reset --soft HEAD~
   </span></pre>
   <h4>git pull:  Bottomline</h4>
-
+  <ul>
+    <li>Three results: merged, merge/w conflict; conflict/aborted</li>
+  </ul>
   </div>
 </body>
 </html>

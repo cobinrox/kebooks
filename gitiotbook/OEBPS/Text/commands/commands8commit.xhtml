@@ -19,7 +19,7 @@
     git commit -m "&lt;some description&gt;""
   </span></pre>
     <div style="text-align:center;"><img src="../../Images/commands/commit.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
-    <h4>What it's supposed to do</h4>
+    <h4>git commit: What it's supposed to do</h4>
 
   <p>Moves your changes into the "committed" state.</p>
   <p>The following example shows taking three previously-made changes (a new file, deleting a file, and changing a file) and moving all three changes from the staging area to the committed area: </p>
@@ -70,7 +70,11 @@
   <pre><span class="inner-pre" style="font-size: 10px">
   git reset --soft HEAD~
   </span></pre>
-  
+  <h4>git commit: Bottomline</h4>
+  <ul>
+    <li>Moves your local changes to the "committed" area/state</li>
+    <li>If the changes were made on a newly-created local-only branch, the "git status" command can be confusing, therefore you may want to use the command "git show --name-only HEAD" to actually show what is in the commit area.</li>
+  </ul>
   </div>
 </body>
 </html>

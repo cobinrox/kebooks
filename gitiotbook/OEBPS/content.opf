@@ -98,11 +98,18 @@
         <item id="commandscheckout.j" href="Images/commands/checkout.jpg" media-type="image/jpeg"/>
 
         <item id="commandscommit.j" href="Images/commands/commit.jpg" media-type="image/jpeg"/>
+        <item id="commandscopy.j" href="Images/commands/copy.jpg" media-type="image/jpeg"/>
+        <item id="commandspull.j" href="Images/commands/pull.jpg" media-type="image/jpeg"/>
 
         <item id="commandsremoteupdate.j" href="Images/commands/remoteupdate.jpg" media-type="image/jpeg"/>
         <item id="commandsstatus.j" href="Images/commands/status.jpg" media-type="image/jpeg"/>
         <item id="commandslocalchanges.j" href="Images/commands/localchanges.jpg" media-type="image/jpeg"/>
         
+        <item id="commandsvschanges.j" href="Images/commands/vsc_changes.jpg" media-type="image/jpeg"/>
+        <item id="commandsvsccommitted.j" href="Images/commands/vsc_committed.jpg" media-type="image/jpeg"/>
+        <item id="commandsvscconflict.j" href="Images/commands/vsc_conflict.jpg" media-type="image/jpeg"/>
+        <item id="commandsvscstaged.p" href="Images/commands/vsc_staged.png" media-type="image/png"/>
+
         <item id="seq1.j" href="Images/scenarios/seq1.jpg" media-type="image/jpeg"/>
         <item id="seq1b.j" href="Images/scenarios/seq1b.jpg" media-type="image/jpeg"/>
 

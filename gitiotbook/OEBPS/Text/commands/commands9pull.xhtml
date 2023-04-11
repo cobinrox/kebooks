@@ -22,14 +22,12 @@
     <div style="text-align:center;"><img src="../../Images/commands/pull.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git pull</i></div>
     <h4>git pull: What it's supposed to do</h4>
 
-  <p>Pull down remote repo changes for the current branch (if using the first form of the syntax), or pull downthe  most recent remote changes for the specified branch (if using the second form of the syntax) and merge the changes with your local branch.  It can also refuse to merge (and thus refuse to pull) altogeher and may also merge as-best-as-it-can, depending on the state of your local repo.</p>
+  <p>This is a long discussion, but a "git pull" is used to download remote repo changes for the current branch (if using the first form of the syntax), or pull down the  most recent remote changes for the specified branch (if using the second form of the syntax) and attempt to cleanly merge the changes with your local branch.  It is used to help you keep up-to-date with recent changes that are made up on the remote repo.</p>
   
-  <p>"git pull" is a command you <i>normally</i> should do often because it keeps you up-to-date with changes that have been applied up on the remote repo.  For example, in a team environment, if you initially cloned the "develop" branch, then created your own "feature" branch, it is best practice to periodically (within reason and according to what you are doing) perform a "git pull" on the develop branch.  This brings down the most recent code for the specified branch that is up on the remote site down to your local repo and merges it into the current branch that you are working on.  New files that have been added to the remote repo will be added to your local repo, files that have been deleted from the remote repo will be deleted from your local repo, and files which have changed, will be merged automatically. <i>Usually</i>. A "git pull" can actually take up to three different courses: a clean merge of changes with your local branch (the nominal case which you hope to encounter); a merge but with conflicts (the annoying case which requires human intervention); and a complete abort of the pull.</p>
+  <p>"git pull" is a command you <i>normally</i> should do often because it keeps you up-to-date with changes that have been applied up on the remote repo.  For example, in a team environment, if you initially cloned the "develop" branch, then created your own "feature" branch, it is best practice to periodically (within reason and according to what you are doing) perform a "git pull" on the parent (here, the develop branch).  This brings down the most recent code for the specified branch that is up on the remote site down to your local repo and merges it into the current branch that you are working on.  New files that have been added to the remote repo parent branch will be added to your local repo, files that have been deleted from the remote parent repo will be deleted from your local repo, and files which have changed on the parent will be merged automatically, if possible. </p>
     
-    If Git detects a problem with an automerge, it will either abort the pull process and give you an error message, or will merge the changes that it can do, and then create a "merge conflict" inside of the offending file.</p>
-
-  <p>The example below shows the first, nominal use case where the user has created, made changes, and committed a new local branch, and then the user pulls down the most recent master branch into the new local branch (in order to include the most recent master branch changes into the local branch).  Molly had recently had her changes incorporated into the master branch up on the remote repo.  After the pull, note that the pull process also automatically creates a new commit behind the scenes(!)</p>
-  <h4>git pull: Example use</h4>
+  <p>The example below shows the first, nominal use case where the user has created, made changes, and committed a new local branch, and then the user pulls down the most recent parent branch (the master branch, in this case) into the new local branch (in order to include the most recent master branch changes into the local branch).  Molly had recently had her changes incorporated into the master branch up on the remote repo (here, she just had a change to the README text file).  After the pull, note that the pull process also automatically creates a new commit behind the scenes (more on that a little later).</p>
+  <h4>git pull: Example use, nominal case</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
     *** Current status: user has committed changes on his new local branch
     C:\Users\jsmith\constitution&gt;git status
@@ -67,67 +65,61 @@
   </span></pre>
 
   <p>On the surface, a "git pull" is intended to download remote repo changes of a specified branch and merge those changes with the current local branch you are working on.  So, for example, if the master branch has been updated with changes to, say, the ammendements file, then those changes are downloaded to your laptop and your branch's copy of the ammendments file will be updated with the new changes.  Usually.</p>
-
-  <p>It can automatically update and merge changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the ammendments file, if Molly had added a new ammendment on the remote repo, and you as well had added your own ammendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict can (and probably will) arise for that file.  The ammendments file will be updated with both of the changes and <i>a merge conflict message will be placed into the actual text of the file</i>. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the ammendments file, and that the pull and merge is aborted completely.
-
+  <p> 
+  "Usually" because a "git pull" can actually result in three different states: a clean merge of changes with your local branch (the nominal case which you hope to encounter); a merge but with conflicts (the annoying case which requires human intervention); and a complete abort of the pull.</p>
+  <p>It can automatically update and merge changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the ammendments file, if Molly had added a new ammendment on the remote repo, and you as well had added your own ammendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict can (and probably will) arise for that file.  The ammendments file will be updated with both of the changes and <i>a merge conflict message will be placed into the actual text of the file</i>. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the ammendments file, and how the file is changed and marked with conflict annotations.  Some details of the commands have been removed for brevity.</p>
+  <h4>git pull: Example use, merge conflict</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
         
-    C:\Users\jsmith&gt;git clone git@github.com:cobinrox/constitution.git
-    Cloning into 'constitution'...
-    remote: Enumerating objects: 29, done.
-    remote: Counting objects: 100% (29/29), done.
-    remote: Compressing objects: 100% (21/21), done.
-    remote: Total 29 (delta 7), reused 4 (delta 0), pack-reused 0
-    Receiving objects: 100% (29/29), 5.80 KiB | 0 bytes/s, done.
-    Resolving deltas: 100% (7/7), done.
-    
+    C:\Users\jsmith&gt;git clone git@github.com:cobinrox/constitution.git 
     C:\Users\jsmith&gt;cd constitution
-     
-    C:\Users\jsmith\constitution&gt;more ammendments.txt
-    First Ammendment: freedom of speech, assembly, press
-    
-    C:\Users\jsmith\constitution&gt;echo "28. No Robo Calls" &gt;&gt; ammendments.txt
+    C:\Users\jsmith\constitution&gt;git checkout -b my_new_branch
+    Switched to a new branch 'my_new_branch'
+    C:\Users\jsmith\constitution&gt;echo "28. No robo calls" &gt;&gt; ammendments.txt
     C:\Users\jsmith\constitution&gt;git add .
-    C:\Users\jsmith\constitution&gt;git commit -m "Add 28th ammendment"
-
-    *** Molly has also made changes to the ammendments file up on the master branch ***
-    *** and results in a merge conflict   
+    C:\Users\jsmith\constitution&gt;git commit -m "added 28th ammendment"
+    
     C:\Users\jsmith\constitution&gt;git pull origin main
-    remote: Enumerating objects: 5, done.
-    remote: Counting objects: 100% (5/5), done.
-    remote: Compressing objects: 100% (3/3), done.
-    remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-    Unpacking objects: 100% (3/3), done.
     From github.com:cobinrox/constitution
      * branch            main       -&gt; FETCH_HEAD
-       287f915..ec57b10  main       -&gt; origin/main
-    Updating 287f915..ec57b10
-    error: Your local changes to the following files would be overwritten by merge:
-            ammendments.txt
-    Please commit your changes or stash them before you merge.
-    Aborting
+       ae236f3..f5bb1b8  main       -&gt; origin/main
+    Auto-merging ammendments.txt
+    CONFLICT (content): Merge conflict in ammendments.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+    
+    C:\Users\jsmith\constitution&gt;more ammendments.txt
+    1. Freedom of speech, assembly, press
+    2. Right to carry arms
+    3. No quartering of soldiers
+    4. No unreasonable search and seizures
+    &lt;&lt;&lt;&lt;&lt; HEAD
+    "28. No robo calls"
+    =======
+    28. All ice cream shall be free
+    &gt;&gt;&gt;&gt;&gt; f5bb1b808b0e7227a8cb4a14448d388a5527f5bd
 
   </span></pre>
+  <p>In the above example, Molly had added a new ammendment ("All ice cream shall be free") on the remote main repo, and her change, coupled with the local change ("No robo calls") caused the conflict.  The file was literaly updated with the merge conflict. It is now up to the local developer to edit the file once again, and properly merge the two new ammendments.</p>
+  <h4>git pull: Example VSCode merge conflict</h4>
+  <div style="text-align:center;"><img src="../../Images/commands/vsc_conflict.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git pull that resulted in a merge conflict, as shown in VSCode</i></div>
+
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git pull: What they forgot to mention</h4>
-  <p>Here, in no particular order is a list of the most confusing parts of a git pull</p>
-  <ul>
-    <li>Changes that are downloaded from a "git pull" are automatically merged, but also added to the staging area, and then moved to the committed area.  Behind the scenes.  This is represented in the illustration above.  If you happen to be working on a new branch that has not yet been pushed up to the remote (again, as in the above illustration), a "git status" will not indicate that you have anything in the committed area, even though the pull has actually made changes, moved them to the staging area, and then moved the changes along to the committed area.  Once again, as mentioned in the "git commit" section, you need to do a "git show --name-only HEAD" to remember that you have items that have been committed.</li>
-  </ul>
-  
+  <p>You cannot pull and merge changes to a given file if that file is not in the committed state.  For example, in the ammendments example above, we cannot merge Molly's changes until our ammendments file has been committed.  If you attempt a "git pull" when the file has been changed but not moved to the committed state, the pull will abort and you will be chastised to move the file to the committed state. That can be very very annoying if you are not ready to commit but still would like to get remote changes.</p>
+  <p>Another surprise with a pull is that the result, if successful or partially successful, will create a new commit on top of your commits.  This can be seen in the first example, although it is subtle.  This too can be confusing if you had not made any local changes, then had performed a "git pull" which pulls down new changes from the remote and updates the commit area.  If you do a git status you may not realize that git actually <i>had</i> not only made changes, but had also moved those changes into the commit area.  You'll need to rely on memory to remember to push up your newly updated branch.</p>
+   
 
-    <p>Again, if you take a look at the output of the first "git status" command above, it says "nothing to commit, working tree clean".  It does not say "you have some things that you committed".  So there is warning number 1: you may forget to push because you forgot you had committed changes.  That's not a fault of the push command itself, but just a pitfall to be aware of.</p>
-    <p>Secondly, you should usually do a "git pull" before a push to be safe that you download and include any remote repo changes. Then re-test your code, especially regression tests before you do the "git push".  As part of a workflow, your team may, after having uploaded a change on a branch, have you create a "pull request" (not to be confused with a "git pull" on your laptop) which sends a message to the keeper of the develop/sprint/buffer or even master branch whose job it is to merge your branch into the parent.</p>
-    
-  
-
-    <h4>git pull: Undoing files that have been pulled</h4>
-    <p>This command will move the changed files back to the staged area.</p>
+  <h4>git pull: Undoing files that have been pulled</h4>
+    <p>This command will unmerge and move the files back to the initial commit state.</p>
   <pre><span class="inner-pre" style="font-size: 10px">
   git reset --soft HEAD~
   </span></pre>
   <h4>git pull:  Bottomline</h4>
   <ul>
-    <li>Three results: merged, merge/w conflict; conflict/aborted</li>
+    <li>You should do a git pull of your branch's parent often to keep abreast of changes of the remote parent branch.</li>
+    <li>A pull can result in three situations: merged, merge/w conflict; merge aborted.</li>
+    <li>Local file edits must be in the committed state before a pull will succeed on them.</li>
+    <li>You will need to edit by-hand any merge conflicts.</li>
+    <li>After a successful merge of changes to the local repo, a new commit will be created.</li>
   </ul>
   </div>
 </body>

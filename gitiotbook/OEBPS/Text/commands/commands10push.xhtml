@@ -19,17 +19,15 @@
     git push
     git push -u origin new_branch_name
   </span></pre>
-  <!--
-    <div style="text-align:center;"><img src="../../Images/commands/push.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
-  -->
+    <div style="text-align:center;"><img src="../../Images/commands/push.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git push</i></div>
     <h4>What it's supposed to do</h4>
 
   <p>Pushes your changes out of the commit area and up to the remote repo. If you had been making changes to an existing branch, i.e. one that exists on the remote repo to which other team members may have access, then you should first perform "git pull" to ensure that you have the most recent changes that may have been placed up on the repo since the time that you cloned it. If you are making changes on a new branch that you created locally, then use the second version of the command the first time you push it.</p>
-  <p>Thereafter, you should follow the same basic command/workflow on your branch: make local changes; stage the changes; commit the changes; perform a git pull; then do a git pull.  This will help ensure that your code is up on a safe server, which should be safer than your laptop.  It also allows other team members to download your branch if you happen to have a particularly useful update to it.</p>
+  <p>Thereafter, you should follow the same basic command/workflow on your branch: make local changes; stage the changes; commit the changes; perform a git pull; then do a git push.  This will help ensure that your code is up on a safe server, which should be safer than your laptop.  It also allows other team members to download your branch if you happen to have a particularly useful update to it.</p>
 
-  <p>The following example shows taking three previously-made changes (a new file, deleting a file, and changing a file) and moving all three changes from the commit area to the remote repo. Since it is a brand new branch that was created locally, we know that it does not exist on the remote (remember the "git checkout" and "git checkout -b" only affects the local repo) and therefore do not have to do a "git pull" before pushing. </p>
+  <p>The following example shows taking three previously-made changes (a new file, deleting a file, and changing a file) and moving all three changes from the commit area to the remote repo. Since it is a brand new branch that was created locally, we know that it does not exist on the remote and therefore do not have to do a "git pull" before pushing. </p>
+  <h4>git push: Example use</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
-        
     C:\Users\jsmith\constitution&gt;git status
         On branch my_new_branch
         nothing to commit, working tree clean
@@ -55,12 +53,17 @@
     
   
 
-    <h4>Undoing files that have been pushed</h4>
-    <p>This command will move the changed files back to the staged area.</p>
+    <h4>git pull: Undoing files that have been pushed</h4>
+    <p>Been there done that quite a few times. Ahem. This command .</p>
   <pre><span class="inner-pre" style="font-size: 10px">
-  git reset --soft HEAD~
+  hoo boy
   </span></pre>
-  
+  <h4>git pull: Bottomline</h4>
+  <ul>
+    <li>Do a pull before you do a push</li>
+    <li>Do a regression test before you do a push</li>
+    <li>Depending on where you are in your workflow, you may need to create "a pull request" to let other team members know that your branch has been pushed up and is ready for official merge into the master/parent branch.</li>
+  </ul>
   </div>
 </body>
 </html>

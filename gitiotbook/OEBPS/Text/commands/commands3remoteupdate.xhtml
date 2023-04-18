@@ -22,9 +22,11 @@
   <h4>git remote update: What it's supposed to do</h4>
 
   <p>This command is your buddy.  Sort of. It interacts with the remote repo's ledger and downloads the latest <i>information</i> about the remote repo down to and updates your local ledger.  Think of it like having a copy of a newspaper from three days ago that you had delivered to you.  Obviously, new things have been going on since the last three days, but your "git status" command will know nothing about the outside world.  That is where the "git remote update" command comes in.  It will update the ledger or table of contents of your newspaper (not the actual articles) with what is on the remote repo.  So, in the George example, running "git remote update" will update your local ledger with new information about changes that have been made on the remote.  Again, this is like updating a ledger or table of contents, but does not actually download any file changes to your laptop.  That work is done by the "git pull" command, which will will discuss a little later.</p>
-  <p>An example using this command is below, where, unbeknownst to the user, George has pushed up a change to the branch.  The user first runs "git status" which gives them a false sense of security that they seem to be "up-to-date", but then they run "git remote update" which updates the local repo's ledger/card catalog and then finishes with a final "git status" which shows where he really stands with respect to the remote repo.</p>
+  <p>An example using this command is below, where, unbeknownst to the user, George has pushed up a change to the branch.  The user first runs "git status" which gives them a false sense of security that they seem to be "up-to-date", but then they run "git remote update" which updates the local repo's ledger/card catalog and then finishes with a final "git status" which shows where the user really stands with respect to the remote repo.</p>
   <h4>git remote update: Example use</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
+    *** User has cloned the repo several days ago (not shown)
+    *** George has since made a change on the remote repo (not shown)
     C:\Users\jsmit\constitution&gt;git status
     On branch main
     Your branch is up-to-date with 'origin/main'.

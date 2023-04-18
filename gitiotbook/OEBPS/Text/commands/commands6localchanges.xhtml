@@ -16,15 +16,15 @@
   <p>This is not a git command but this section emphasizes getting used to the local ledger/card catalog/.git directory concept which keeps track of your changes.</p>
   <p><b>Syntax</b> n/a</p>
 
-  <div style="text-align:center;"><img src="../../Images/commands/localchanges.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>Local changes are logged in the .git directory</i></div>
-  <h4>What it's supposed to do</h4>
-  <p>When you make changes to your local repo, little monks in the background make notes about the changes that you've made, including when you create new files, delete existing files, and make changes to existing files in the repo. This is akin to how a relational database tracks changes in its change log.  These change logs or ledger information is stored within the hidden ".git" subdirectory.   In the example below, a developer creates a file and makes a change to an existing file and then runs the "git status" command to display how the local ledger is keeping track of the changes.</p>
+  <div style="text-align:center;"><img src="../../Images/commands/localchanges.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>As you make changes, those changes are logged in the (hidden) .git directory</i></div>
+  <h4>local changes: What it's supposed to do</h4>
+  <p>When you make changes to your local repo, little monks in the background make notes about the changes that you've made, including when you create new files, delete existing files, and make changes to existing files in the repo. This is akin to how a relational database tracks changes in its change log.  These change logs or ledger information is stored within the hidden ".git" subdirectory.   In the example below, a developer creates a file, makes a change to an existing file, deletes an existing file, and then runs the "git status" command to display how the local ledger is keeping track of the changes.</p>
   <h4>local changes: Example</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
     C:\Users\jsmith\constitution&gt;git status
     On branch my_new_branch
     nothing to commit, working tree clean
-    
+
     C:\Users\jsmith\constitution&gt;echo "pay bookie" &gt; deviant_acts.txt
     C:\Users\jsmith\constitution&gt;echo "blackmail enemy Z" &gt;&gt; deviant_acts.txt
     C:\Users\jsmith\constitution&gt;echo "28. No robo calls" &gt;&gt; ammendments.txt
@@ -42,11 +42,11 @@
             deviant_acts.txt
     no changes added to commit (use "git add" and/or "git commit -a")
   </span></pre>
-  <h4>local changes: As seen in VSCode</h4>
+  <h4>local changes: Example as seen in VSCode's Source Control view</h4>
   <!--div style="text-align:center;"><img src="../../Images/commands/vsc_changes.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>Local changes as seen in VSCode</i></div-->
   <div style="text-align:center;"><img src="../../Images/commands/vsc_changes.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Local changes as seen in VSCode</i></div>
 
-  <p>In the example, the user created a new file, added an entry in the ammendments file, and deleted the preamble file.</p>
+  <p>In the example, VSCode's Source Control View shows that the user created a new file and added an entry in the ammendments file. Since the user deleted the preamble</p>
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> local changes: What they forgot to mention</h4>
   <p>Although your changes are kept track of in the .git directory, the .git directory has some special file handling so you will not actually see those modifications, i.e., the date of the files in the .git directory won't actually change. So if you were to swtich over to the .git directory and look for the updates that were recorded, you would not be able to see any date changes therein. That can be confusing; for the most part you need to trust what is kept in the .git directory.</p>
   <p>Another thing to keep in mind when thinking about local changes is whether or not you have moved those changes to the staged or committed area.  In Git-speak, the prior three are very distinct states: "a change", "a change that is staged"; and "a change that is committed", respectively.  So when someone talks about a "change" they made (locally), be aware of which of the three states that change could be in.  The "git status" command will help you identify where your changes are in the local Git flow.</p>

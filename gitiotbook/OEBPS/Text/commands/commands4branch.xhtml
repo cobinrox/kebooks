@@ -19,7 +19,7 @@
     git branch -a
   </span></pre>
   <h4>git branch: What it's supposed to do:</h4>
-  <p>This command lists all of the branches of a repository, <i>as far as the local repo/ledger is aware</i>.  It lists the remote branches that it knows about and any branches that you yourself have either created locally or have checked out (the checkout command is discussed in the next section). An example of using this command is shown here:</p>
+  <p>This command lists all of the branches of a repository, <i>as far as the local repo/ledger is aware</i>.  It lists the remote branches that it knows about and any branches that you yourself have either created locally or have checked out from the remote repo (the checkout command is discussed in the next section). An example of using this command is shown here:</p>
   <h4>git branch: Example use</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
     C:\Users\name\constitution&gt;git branch -a
@@ -30,7 +30,7 @@
     remotes/origin/dexters_feature_add_comments
     remotes/origin/main   
   </span></pre>
-  <p>In the above example, all of the remote branches (prefixed with "remote/origin") that the local repo is aware of are listed, and the "main" branch is the current branch that the user is on.  In the example below, the user had checked out several branches locally and are displayed (again, we'll go over checkout in the next section).</p>
+  <p>In the above example, all of the remote branches (prefixed with "remote/origin") that the local repo is aware of are listed, and the "main" branch is the current branch that the user is on. Remember that when you clone a remote repo, the repo's "main" or "master" branch is normally checked out for you, depending on how the Git server was set up.  The example below shows the command being used after several days and after the user had checked out several branches and performed other work (again, we'll go over checkout in the next section).  </p>
   <pre><span class="inner-pre" style="font-size: 10px">
     C:\Users\name\jsmith\constitution&gt;git branch -a
       dexters_feature_add_comments
@@ -44,9 +44,10 @@
       remotes/origin/my_new_branch
       remotes/origin/test_ok_to_delete
   </span></pre>
+  <p>This shows that the user is currently on the "my_new_branch" and that they had previously checked out the "dexters_feature_add_comments" and "main" at some point.</p>
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git branch: What they forgot to mention</h4>
   <p>I've seen users use this command to list the branches of a given repo (on their laptop), but be unaware that there have been new branches added to the remote repo since the user had performed a clone.  Therefore, it is advised to run the "git remote update" command before running this command. </p>
-  <p>Again, don't be confused when a teammate tells you that there is a branch that you need to checkout (we'll get to that command next) but you cannot "see" the branch when you use the "git branch -a" command.  I saw this situation happen with a very confused QA tester who insisted that a developer's branch "is not there", insisting that the individual never pushed up the branch.  The problem was that the QA tester had cloned the repo several days earlier and the developer had since uploaded his fixes to a new branch which the QA tester did not see until he ran the "git remote update", followed by "git branch -a"</p>
+  <p>Don't be confused when a teammate tells you that there is a branch that you need to checkout (we'll get to that command next), but you cannot "see" the branch when you use the "git branch -a" command.  I saw this situation happen with a very confused QA tester who insisted that a developer's branch "is not there", insisting that the individual never pushed up the branch.  The problem was that the QA tester had cloned the repo several days earlier and the developer had since uploaded his fixes to a new branch on the remote which the QA tester did not see until he ran the "git remote update", followed by "git branch -a".  This also brings up the warning about being vague or sloppy with terminology.  When the tester insisted that the branch was not "there", he needed to say that it was not on his local repo (since "there" could have been referring to his local repo or the team's remote repo).</p>
   <h4>git branch: Bottomline</h4>
   <ul>
     <li>Get in the habbit of running "git remote update" before running "git branch -a"</li>

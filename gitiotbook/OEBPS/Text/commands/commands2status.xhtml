@@ -22,7 +22,7 @@
   <div style="text-align:center;"><img src="../../Images/commands/status.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>git status only shows local status</i></div>
   <h4>git status: What it's supposed to do</h4>
   <p>This command gives you a high (very high) level summary of the basic status of the local repo including local changes, changes that have been moved to the staging state, and changes that have been moved to the committed state.</p>
-  <h4>git status Example use</h4>
+  <h4>git status: Example use</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
 
   C:\Users\jsmith\constitution&gt;dir /a
@@ -41,6 +41,10 @@ C:\Users\jsmith\constitution&gt;git status
  Your branch is up-to-date with 'origin/main'.
  nothing to commit, working tree clean
  </span></pre>
+ <h4>git status: Example status information in VSCode</h4>
+ <div style="text-align:center;"><img src="../../Images/commands/vsc_status.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git status example in VSCode</i></div>
+
+
  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/>git status: What they forgot to mention</h4>
   <p>Take some caution with this command because it is insidious.  If you have made changes to your local repo, it will kindly indicate that you have done so. It will tell you if you have made a local change but have not yet added that change to the staging area.  It will tell you if you have things in the staging area but you have not yet committed those changes to the commit area. If you have commited something it will remind you that you need to push it up to the remote. However, it will not tell you the status of your local repo compared to the version up on the remote.  In other words, if someone, say George, had changed something on this branch up on the remote and then you execute the "git status" command, George's changes will not be reflected and the status results can give you a false sense of security that your local repository is "up to date", implying that it is up-to-date with the remote version.</p>
   <p>In the following excerpt, a developer had made a change to a file on the local repo, had staged it, and had committed it.  The user then uses the "git status" command.</p>

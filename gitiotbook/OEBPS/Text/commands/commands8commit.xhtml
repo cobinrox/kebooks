@@ -16,19 +16,18 @@
   <h3>git commit</h3>
   <p><b>Syntax:</b></p>
   <pre><span class="inner-pre" style="font-size: 10px">
-    git commit -m "&lt;some description&gt;""
+    git commit -m "&lt;some description&gt;"
   </span></pre>
     <div style="text-align:center;"><img src="../../Images/commands/commit.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git commit</i></div>
     <h4>git commit: What it's supposed to do</h4>
 
-  <p>Moves your changes into the "committed" state.</p>
+  <p>Moves your changes into the "committed" state.  When a commit is performed, a unique Simple Hashing Algorithm (SHA) value is assigned to the commit.  Commit SHA's are used all over the Git workflow (including local and remote interactions) and you will hear about them (SHA's) often.</p>
   <p>The following example shows taking three previously-made changes (a new file, deleting a file, and changing a file) and moving all three changes from the staging area to the committed area: </p>
   <pre><span class="inner-pre" style="font-size: 10px">
     C:\Users\jsmith\constitution&gt;git status
       On branch my_new_branch
       Changes to be committed:
       (use "git reset HEAD &lt;file&gt;..." to unstage)
-
         modified:   ammendments.txt
         new file:   deviant_acts.txt
         deleted:    preamble
@@ -43,12 +42,29 @@
         On branch my_new_branch
         nothing to commit, working tree clean
   </span></pre>
+  <p>Note how the "git status" that is performed after the commit indicates that there "is nothing to commit, and the working tree is clean".  More about this in the next sub-section, but be wary of that status if you, like me, have a tiny mind and think that "all is good".</p>
   <h4>git commit: Example in VSCode</h4>
   <div style="text-align:center;"><img src="../../Images/commands/vsc_commitnum.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git commit</i></div>
-  <p>In the status bar of VSCode, the number of commits that have been made and not yet pushed up to the remote can be seen easily.</p>
+  <p>In the status bar of VSCode, the number of commits that have been made and not yet pushed up to the remote can be seen easily.  In the example, two <i>commits</i> were made, not merely two file changes.  So a user had made changes to a file or group of files, had moved those changes to the staging area, and had committed those changes.  And then the user had done the same thing with another file or set of files, resulting in two commits.</p>
+
+  <p>You can use the "git log" command to show the commits and associated SHA's that have been made to the branch, as shown below, which shows that two commits have been made to the branch:</p>
+  <pre><span class="inner-pre" style="font-size: 10px">
+
+  C:\Users\jsmith\constitution&gt;git log
+  commit ce3ecef93da0e712accb3da0dc19126963efba30 (HEAD -&gt; main)
+  Author: jsmith &lt;jsmith@acme.com&gt;
+  Date:   Wed Apr 26 14:14:02 2029 -0600
+    made some fun changes bwah hahaha
+
+  commit 78e68f0cfd83e601d37ff5dc42b59647adbcaff6 (origin/main, origin/HEAD)
+  Author: jsmith &lt;jsmith@acme.com&gt;
+  Date:   Thu Apr 20 19:23:04 2029 -0600
+    Update ammendments.txt
+  </span></pre>
+
 
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git commit: What they forgot to mention</h4>
-    <p>You can probably see the possible issues in the preceeding example: After a commit, the "git status" command shows "nothing to commit, working tree clean", which may lead you to forget that you had even committed anything, let alone changed anything to the branch. If you don't believe this can happen to you because you have a perfect memory, then don't worry about it.  But, if like me, you can't remember every keystroke you've ever made, especially on a Friday at 4:30 and the network is down, then this is something to keep in mind when you do a "git status": don't get lulled into a false sense of security thinking "Oh, I haven't made any changes to this branch."</p>
+    <p>You can probably see one of the possible issues in the preceeding example: After a commit, the "git status" command shows "nothing to commit, working tree clean", which may lead you to forget that you had even committed anything, let alone changed anything to the branch. If you don't believe this can happen to you because you have a perfect memory, then don't worry about it.  But, if like me, you can't remember every keystroke you've ever made, especially on a Friday at 4:30 and the network is down, then this is something to keep in mind when you do a "git status": don't get lulled into a false sense of security thinking "Oh, I haven't made any changes to this branch."</p>
     <p>To display what is in the committed area but has not yet been pushed, you can use this command:</p>
     <pre><span class="inner-pre" style="font-size: 10px">
       git show --name-only HEAD
@@ -61,23 +77,24 @@
     commit 73dffc4343c8c1ccf77e340a690b2833f61e4c9a
     Author: jsmith@email.com
     Date:   Sun Apr 2 17:33:19 2025 -0600
-    
         made some fun changes bwah hahaha
     
     ammendments.txt
     deviant_acts.txt
     preamble
     </span></pre>
+    <p>Also, as shown in the VSCode example above, you can see what has been committed but not yet pushed in the VSCode status bar.  You could (if you are using VSCode) check that field on Monday morning.</p>
 
     <h4>git commit: Undoing files that have been committed</h4>
-    <p>This command will move the (most recently) committed files (and which have not been pushed up to the remote) back to the staged area.  If you had more than one commit (again, and not pushed up), then you can use the command for each commit that you made to unroll the commits.  Remember that this is for undoing commits of local changes, i.e. file groups that are in the committed area.</p>
+    <p>This command will move the (most recently) committed files (and which have not been pushed up to the remote) back to the staged area.  If you had more than one commit (again, and not pushed up), then you can use the command for each commit that you made to unroll the commits.  Remember that this is for undoing commits of local changes, i.e. file groups that are in the committed area and which have not been pushed up to the remote.  As with undoing other Git states, if you cannot remember all of the states and changes, you may be better off just re-cloning the repo.</p>
   <pre><span class="inner-pre" style="font-size: 10px">
   git reset --soft HEAD~
   </span></pre>
   <h4>git commit: Bottomline</h4>
   <ul>
-    <li>Moves your local changes to the "committed" area/state</li>
-    <li>If the changes were made on a newly-created local-only branch, the "git status" command can be confusing, therefore you may want to use the command "git show --name-only HEAD" to actually show what is in the commit area.</li>
+    <li>Moves your local changes to the "committed" area/state.</li>
+    <li>If the changes were made on a newly-created local-only branch, the "git status" command can be confusing, therefore you may want to use the command "git show --name-only HEAD" to actually show what is in the commit area, or use a Git graphical tool.</li>
+    <li>Generates a SHA for each commit.</li>
   </ul>
   </div>
 </body>

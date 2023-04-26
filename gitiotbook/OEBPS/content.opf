@@ -39,6 +39,8 @@
         <item id="archpoststatetable.x" href="Text/architecture/archpoststatetable.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="commands0.x" href="Text/commands/commands0.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commandsflow.x" href="Text/commands/commandsflow.xhtml" media-type="application/xhtml+xml"/>
+
         <item id="commandstable.x" href="Text/commands/commandstable.xhtml" media-type="application/xhtml+xml"/>
         <item id="commands1clone.x" href="Text/commands/commands1clone.xhtml" media-type="application/xhtml+xml"/>
         <item id="commands2status.x" href="Text/commands/commands2status.xhtml" media-type="application/xhtml+xml"/>
@@ -92,6 +94,8 @@
         <item id="threed.j" href="Images/arch/3d.jpg" media-type="image/jpeg"/>
         <item id="ledgers.j" href="Images/arch/ledgers.jpg" media-type="image/jpeg"/>
         <item id="seq.j" href="Images/arch/seq.jpg" media-type="image/jpeg"/>
+
+        <item id="commandsflow.j" href="Images/commands/commandflow.jpg" media-type="image/jpeg"/>
 
         <item id="commandsadd.j" href="Images/commands/add.jpg" media-type="image/jpeg"/>
         <item id="commandscheckout.j" href="Images/commands/checkout.jpg" media-type="image/jpeg"/>
@@ -158,6 +162,8 @@
         <itemref idref="archpoststatetable.x"/>
 
         <itemref idref="commands0.x"/>
+        <itemref idref="commandsflow.x"/>
+        
         <itemref idref="commandstable.x"/>
         <itemref idref="commands1clone.x"/>
         <itemref idref="commands2status.x"/>

@@ -19,7 +19,7 @@
     git pull
     git pull origin &lt;other_branch_name&gt;
   </span></pre>
-    <div style="text-align:center;"><img src="../../Images/commands/pull.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git pull</i></div>
+    <div style="text-align:center;"><img src="../../Images/commands/pull.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git pull, basic concept</i></div>
     <h4>git pull: What it's supposed to do</h4>
 
   <p>This is a long discussion, but a "git pull" is used to download remote repo changes for the current branch (if using the first form of the syntax), or pull down the  most recent remote changes for the specified branch (if using the second form of the syntax) and attempt to cleanly merge the changes with your local branch.  It is used to help you keep up-to-date with recent changes that are made up on the remote repo.</p>
@@ -53,7 +53,7 @@
     README.md | 3 ++-
     1 file changed, 2 insertions(+), 1 deletion(-)
 
-    *** User gets status of his local branch, which shows that 
+    *** User gets status of user's local branch, which shows that 
     *** the master changes have been merged, staged,
     *** and committed
     C:\Users\jsmith\constitution&gt;git show --name-only HEAD
@@ -104,8 +104,12 @@
   <div style="text-align:center;"><img src="../../Images/commands/vsc_conflict.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git pull that resulted in a merge conflict, as shown in VSCode</i></div>
 
   <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git pull: What they forgot to mention</h4>
+  
   <p>You cannot pull and merge changes to a given file if that file is not in the committed state.  For example, in the ammendments example above, we cannot merge Molly's changes until our ammendments file has been committed.  If you attempt a "git pull" when the file has been changed but not moved to the committed state, the pull will abort and you will be chastised to move the file to the committed state. That can be very very annoying if you are not ready to commit but still would like to get remote changes.</p>
-  <p>Another surprise with a pull is that the result, if successful or partially successful, will create a new commit on top of your commits.  This can be seen in the first example, although it is subtle.  This too can be confusing if you had not made any local changes, then had performed a "git pull" which pulls down new changes from the remote and updates the commit area.  If you do a git status you may not realize that git actually <i>had</i> not only made changes, but had also moved those changes into the commit area.  You'll need to rely on memory to remember to push up your newly updated branch.</p>
+
+  <p>Another surprise with a pull is that the result, if successful or partially successful, will create a new commit on top of your commits.  This can be seen in the first example, although it is subtle.  This too can be confusing if you had not made any local changes, then had performed a "git pull" which pulls down new changes from the remote and updates the commit area.  If you do a git status you may not realize that git actually had not only made changes, but had also moved those changes into the commit area.  You'll need to rely on memory to remember to push up your newly updated branch. This may make perfect sense to some, but if you have not been told of that fact, it may come as a surprise.  After doing a successful pull, you can run the "git log" command and/or the "git show --name-only HEAD" command to show that this is so, i.e. that a new commit has been created.  The following diagram attempts to illustrate this concept, where "Your Changes" are on an initial commit, with SHA 1, and after doing a "git pull origin main", "Molly's Changes" are merged in and a new commit and SHA are created, with SHA 2.</p>
+
+  <div style="text-align:center;"><img src="../../Images/commands/pull2.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git pull, new commit and SHA is created</i></div>
    
 
   <h4>git pull: Undoing files that have been pulled</h4>
@@ -119,7 +123,7 @@
     <li>A pull can result in three situations: merged, merge/w conflict; merge aborted.</li>
     <li>Local file edits must be in the committed state before a pull will succeed on them.</li>
     <li>You will need to edit by-hand any merge conflicts.</li>
-    <li>After a successful merge of changes to the local repo, a new commit will be created.</li>
+    <li>After a successful merge of changes to the local repo, a new commit and SHA will be created.</li>
   </ul>
   </div>
 </body>

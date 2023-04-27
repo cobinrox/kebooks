@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>regression test</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+<body>
+<div>
+  <h3>Regression Tesing</h3>
+  <p>This is not a Git command but this section emphasizes the importance of running a regression test locally against your code repo after having pulled the parent (or any remote branch) to ensure the code still works properly.</p>
+  <p>No matter how magical Git is purported to be, it will not prevent bad things from happening.  If you add a 28th ammendment to the constitution, for example, but Molly has already gotten there first and added a 28th ammendment, who wins?  In the branch workflows that were discussed in the Branching chapter, everyone wins <i>if proper testing procedures are observed</i>.  What would be the correct procedure for the 28th ammendment issue?  First, Molly must make sure to provide a test that checks for 28 ammendments and that the 28th is her text ("Free ice cream").  Then, when you pull down Molly's updates into your local repo, you will be required to merge her ammendemnt with yours, creating either a 29th ammendment, or changing the text of the 28th ammendment.  Which resolution to use will be based on the team's requirements. In anycase, you are then responsible for providing a test to ensure the requirements are met, i.e. that the test either checks for 29 ammendments or checks the content of the 28th ammendment.
+    </p>
+
+<h4>Regression Testing: Bottomline</h4>
+    <ul>
+      <li>Be sure to do continuous testing of your code/project after doing a pull of the most recent parent branch.</li>
+      <li>This is what can prevent nasty surprises down the CI/CD pipeline.</li>
+    </ul>
+</div>
+</body>
+</html>

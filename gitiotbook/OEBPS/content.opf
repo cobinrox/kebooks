@@ -51,7 +51,9 @@
         <item id="commands7add.x" href="Text/commands/commands7add.xhtml" media-type="application/xhtml+xml"/>
         <item id="commands8commit.x" href="Text/commands/commands8commit.xhtml" media-type="application/xhtml+xml"/>
         <item id="commands9pull.x" href="Text/commands/commands9pull.xhtml" media-type="application/xhtml+xml"/>
-        <item id="commands10push.x" href="Text/commands/commands10push.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands10regressiontest.x" href="Text/commands/commands10regressiontest.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands11push.x" href="Text/commands/commands11push.xhtml" media-type="application/xhtml+xml"/>
+        <item id="commands12mergerequest.x" href="Text/commands/commands12mergerequest.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="scenario1.x" href="Text/scenarios/scenario1.xhtml" media-type="application/xhtml+xml"/>
 
@@ -105,8 +107,13 @@
         <item id="commandscommit.j" href="Images/commands/commit.jpg" media-type="image/jpeg"/>
         <item id="commandscopy.j" href="Images/commands/copy.jpg" media-type="image/jpeg"/>
         <item id="commandslocalchanges.j" href="Images/commands/localchanges.jpg" media-type="image/jpeg"/>
+        <item id="commandsmergerequest.j" href="Images/commands/mergerequest.jpg" media-type="image/jpeg"/>
 
         <item id="commandspull.j" href="Images/commands/pull.jpg" media-type="image/jpeg"/>
+        <item id="commandspull2.j" href="Images/commands/pull2.jpg" media-type="image/jpeg"/>
+
+        <item id="commandspullrequest.j" href="Images/commands/pullrequest.jpg" media-type="image/jpeg"/>
+
         <item id="commandspush.j" href="Images/commands/push.jpg" media-type="image/jpeg"/>
 
         <item id="commandsremoteupdate.j" href="Images/commands/remoteupdate.jpg" media-type="image/jpeg"/>
@@ -174,7 +181,9 @@
         <itemref idref="commands7add.x"/>
         <itemref idref="commands8commit.x"/>
         <itemref idref="commands9pull.x"/>
-        <itemref idref="commands10push.x"/>
+        <itemref idref="commands10regressiontest.x"/>
+        <itemref idref="commands11push.x"/>
+        <itemref idref="commands12mergerequest.x"/>
 
         <itemref idref="scenario1.x"/>
         <itemref idref="installtools.x"/>

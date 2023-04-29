@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Scenario 2 Disparate Networks</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<h3>Scenario 2: Disparate Networks</h3>
+<p>In some instances, your laptop is connected to the corporate Git remote server and test equipment may also be connected to the same network and you live in peace and harmony.  In other words, you can download the Git code from the corporate server to your laptop, and likewise you (or a QA tester) can download the code to a target test machine.</p>
+<div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/scenario2.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>PROBLEM: Physically isolated networks and rules</i></div>
+</div>
+<p>But there are a couple of other scenarios where the picture is not as cut-and-dried.  In these cases, just two of which are shown in the figure above, either the corporate Git server runs on a VPN that is isolated from the testing network (they are mutually exclusive), or the Git server and target machines are geographically separated, as in a private or secret room and private network.  And, in the latter case, you are not allowed to bring in your laptop and connect it to the secret network.</p>
+
+
+<p>There are a couple of solutions that can work for the first situation, when your laptop can connect to both the Git repo and target networks, but not at the same time:</p>
+<ol>
+  <li>Download the code from the corporate Git repo to your laptop, then switch to the test network, and use secure copy (SCP) or file transfer (FTP) to copy the code to the test machine on the test network.</li>
+  <li>Install an instance of Git on the test machine on the test network, then download the code from the corporate Git repo to your laptop, switch to the test network, set up the test network as a remote Git repo, and then use the Git "push" command to transfer the code to the test machine. I've used this approach before but it can get tricky due to the number of states that Git can find itself in, especially when you are talking about two separate, disparate machines.  It can work, but you really need to know what you are doing.</li>
+</ol>
+<p>For the second situation, where the networks, machines, and rooms are isolated and the target machine is in a secure location, there are also several solutions:</p>
+<ol>
+  <li>Download the code from the corporate Git server, then save the code to a write-once medium (e.g. a DVD) physically bring that medium to the target machine and load it.  This is often referred to as sneaker-net.</li>
+  <li>Use a one-way guard (or "file diode") to allow upload of the code from your laptop to the target system safe zone and then download to the target machine.</li>
+  <li>Install an instance of Git or Git server on the secret network.</li>
+</ol>
+</body>
+</html>

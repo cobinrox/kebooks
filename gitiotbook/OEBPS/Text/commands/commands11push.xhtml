@@ -13,14 +13,14 @@
 
 <body>
 <div>
-  <h3>git push</h3>
+  <h3>Git Workflow Step 11: git push</h3>
   <p><b>Syntax:</b></p>
   <pre><span class="inner-pre" style="font-size: 10px">
     git push
     git push -u origin new_branch_name
   </span></pre>
     <div style="text-align:center;"><img src="../../Images/commands/push.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git push</i></div>
-    <h4>What it's supposed to do</h4>
+  <h4>git push: What it's supposed to do</h4>
 
   <p>Pushes your changes out of the commit area on your laptop and up to the remote repo. If you had been making changes to an existing branch, i.e. one that exists on the remote repo use the first form of the push syntax. If you are pushing up a new branch that you created locally, then use the second version of the command the first time you push it.</p>
 
@@ -48,18 +48,24 @@
         Branch my_new_branch set up to track remote branch my_new_branch from origin.
 
   </span></pre>
-  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> What they forgot to mention</h4>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git push: What they forgot to mention</h4>
     <p>Again, if you take a look at the output of the first "git status" command above, it says "nothing to commit, working tree clean".  It does not say "you have some things that you committed".  So there is warning number one: you may forget to push because you forgot you had committed changes that need to be pushed.  That's not a fault of the push command itself, but just a pitfall to be aware of.</p>
     <p>Secondly, you should usually do a "git pull" before a push to be safe that you download and include any remote repo changes. Then re-test your code, especially regression tests before you do the "git push".</p>
     <p>Finally, as part of a workflow, your team may, after having uploaded a change on a branch, have you create a "merge or pull request" (not to be confused with a "git pull" on your laptop) which sends a message to the keeper of the develop/sprint/buffer or even master branch whose job it is to officially merge your branch into the parent.</p>
     
   
-    <h4>git pull: Undoing files that have been pushed</h4>
-    <p>Been there done that quite a few times. Ahem. This command .</p>
-  <pre><span class="inner-pre" style="font-size: 10px">
-  hoo boy
-  </span></pre>
-  <h4>git pull: Bottomline</h4>
+    <h4>git push: Undoing files that have been pushed</h4>
+    <p>Been there done that quite a few times. Ahem. There are a couple of ways of undoing a push, and the details are documented in the Scenarios chapter, but basically you would want to do a "git reset --hard HEAD~n" command followed by a "git push origin HEAD --force".  A quick example:</p>
+    <pre><span class="inner-pre" style="font-size: 10px">
+      C:\Users\bpanda\constitution&gt;git reset --hard HEAD~1
+      HEAD is now at 3176d48 Update README.md
+
+      C:\Users\bpanda\constitution&gt;git push origin HEAD --force
+      Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+      To github.com:cobinrox/constitution.git
+      + d736d3c...3176d48 HEAD -&gt; main (forced update)
+</span></pre>
+  <h4>git push: Bottomline</h4>
   <ul>
     <li>Do a pull before you do a push.</li>
     <li>Do a regression test before you do a push.</li>

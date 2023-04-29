@@ -1,0 +1,125 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Scenario 3 Undoing a Push</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<h3>Scenario 3: Undoing a Push</h3>
+<div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/bear.jpg" width="350" alt=" " style=" padding-bottom:0.2em"/><br /><i>PROBLEM: You did a bad push</i></div>
+
+<p>This situation usually arises when you are pressed for time, on a Friday afternoon and you push up your changes but have either forgotten to do a pre-pull of the parent branch or have forgotten to test your code before pushing it up or have pushed to the wrong branch.  Or you accidentally pushed up your deviantacts.txt file.</p>
+
+<div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/bessseq1.jpg"  alt=" " style=" padding-bottom:0.2em"/><br /><i>PROBLEM: You did a bad push</i></div>
+<p>Here is an example of this situation, taking place on the command line:</p>
+<div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/besstext1.jpg" width="500"  alt=" " style=" padding-bottom:0.2em"/><br /><i>Doing a bad push.</i></div>
+
+
+<p>There are a couple of ways to remedy this: The first way will revert your push, but will leave historical tracks (i.e., in Bess' example, people on her team will be able to see that she had pushed and reverted her blackmail list).  The second way can be a little tricky but can purge the footprints and leaves a cleaner-looking history.  Both of these are discussed below.</p>
+<h4>Undoing a push, but retaining history</h4>
+<ol>
+  <li>On your laptop, run a "git remote update" and then a "git log".  The log will give you the SHA of the committed change you just pushed up. Example:
+<pre><span class="inner-pre" style="font-size: 10px">
+        C:\Users\bessie\constitution&gt;git remote update
+        C:\Users\bessie\constitution&gt;git log
+        commit 3273f6b2e1fc2ad6ee039486952eddcc36368c56 &lt;--- THIS IS YOUR SHA FOR YOUR COMMIT/PUSH
+        Author: bessie panda &lt;bpanda@acme.com&gt;
+        Date:   Fri Apr 28 11:59:05 2029 -0600
+            my blackmail list                           &lt;--- YOUR COMMIT MESSAGE (BE MORE DISCRETE NEXT TIME)
+        
+
+        commit 3176d48f92ba16b485b6ffeb75370221fa4b06cc 
+        Author: aepsinod &lt;aepsinod@acme.com&gt;
+        Date:   Wed Apr 26 14:51:35 2029 -0600
+            Updated the README.md to include purpose of the constitution.
+                .
+                .
+                .
+</span></pre>
+  </li>
+  <li>Not totally necessary, but recommended, log on to the Git server management web site and just double-check that the SHA up on the remote does indeed match the value that you see on your laptop.  Example view on GitHub:
+    <div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/bessghub1.jpg" width="500"  alt=" " style=" padding-bottom:0.2em"/><br /><i>Double-check your commit SHA on the remote repo.</i></div><br/>
+  </li>
+  <li>Run "git revert" with the first several characters of the SHA of your commit, then a "git push". The "revert" command will actually create another commit where this new commit is a reversal of what you did.  The "push" is then necessary to push up the revert.  Confusing?  Here is an example:
+    <pre><span class="inner-pre" style="font-size: 10px">
+          C:\Users\bpanda\constitution&gt;git revert 3273
+          [main e4fd941] Revert "my blackmail list"
+          1 file changed, 2 deletions(-)
+          delete mode 100644 blackmail.txt
+          
+          *** behind the scenes, a new commit is created that must be pushed up
+          
+          C:\Users\bpanda\constitution&gt;git push
+          Enumerating objects: 3, done.
+          Counting objects: 100% (3/3), done.
+          Delta compression using up to 4 threads
+          Compressing objects: 100% (2/2), done.
+          Writing objects: 100% (2/2), 248 bytes | 248.00 KiB/s, done.
+          Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+          remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+          To github.com:acme/constitution.git
+            3273f6b..e4fd941  main -&gt; main
+          </span></pre>
+  </li>
+  <li>Again, not necessary, but you may want to go out to the Git server management site and double-check that your hit list, er, your previous push has been reverted.  In the example screen shot note that the revert itself is logged as part of the projects's history, so if you don't mind that people see your blackmail or hit list, then your are good to go.  If, however, you'd prefer not to divulge your mistake, try the approach in the next sub-section.
+    <div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/bessghub2.jpg" width="500"  alt=" " style=" padding-bottom:0.2em"/><br /><i>A revert leaves residual commit history information.</i></div>
+  </li>
+</ol>
+<h4>Undoing a push, cleaning history</h4>
+<ol>
+  <li>On your laptop, run a "git remote update" and then a "git log".  The log will give you the SHA of the committed change you just pushed up. Example:
+    <pre><span class="inner-pre" style="font-size: 10px">
+      C:\Users\bessie\constitution&gt;git remote update
+      C:\Users\bessie\constitution&gt;git log
+      commit 3273f6b2e1fc2ad6ee039486952eddcc36368c56 &lt;--- THIS IS YOUR SHA FOR YOUR COMMIT/PUSH
+      Author: bessie panda &lt;bpanda@acme.com&gt;
+      Date:   Fri Apr 28 11:59:05 2029 -0600
+          my blackmail list                           &lt;--- YOUR COMMIT MESSAGE (BE MORE DISCRETE NEXT TIME)
+
+      commit 3176d48f92ba16b485b6ffeb75370221fa4b06cc &lt;--- This is the SHA and commit message
+      Author: aepsinod &lt;aepsinod@acme.com&gt;      &lt;---   before you did your push: by Amy
+      Date:   Wed Apr 26 14:51:35 2029 -0600
+          Updated the README.md to include purpose of the constitution.
+              .
+              .
+              .
+    </span></pre>
+  </li>
+  <li>Not totally necessary, but recommended, log on to the Git server management web site and just double-check that the SHA up on the remote does indeed match the value that you see on your laptop.  Example view on GitHub:
+    <div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/bessghub1.jpg" width="500"  alt=" " style=" padding-bottom:0.2em"/><br /><i>Double-check your commit SHA on the remote repo.</i></div>
+  </li>  
+  <li>On your laptop, run a "git reset hard HEAD~n", where "n" represents the number of commits that you want to get rid of.  In this example, we only committed one boo-boo so we can use "git reset hard HEAD~1", but if you had had multiple commits and/or pushes that you need to roll back, you can run the same command several times or replace the "n" with the number of boo-boos you need to get rid of.  Following the reset command, you then need to follow up with a "git push", as shown in this example.
+    <pre><span class="inner-pre" style="font-size: 10px">
+          C:\Users\bpanda\constitution&gt;git reset --hard HEAD~1
+          HEAD is now at 3176d48 Update README.md
+
+          C:\Users\bpanda\constitution&gt;git push origin HEAD --force
+          Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+          To github.com:cobinrox/constitution.git
+          + d736d3c...3176d48 HEAD -&gt; main (forced update)
+    </span></pre>
+  Another approach that gets the same results is to perform a "git reset hard SHA", where SHA is the SHA of the commit that you want to roll back to. For example in Bess' case, she probably would want to roll back to Amy's README file commit, using SHA 3176d...  In this case, Bess could use this form of the command:
+  <pre><span class="inner-pre" style="font-size: 10px">
+    C:\Users\bpanda\constitution&gt;git reset --hard 3176d
+    HEAD is now at 3176d48 Update README.md
+
+    C:\Users\bpanda\constitution&gt;git push origin HEAD --force
+    Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+    To github.com:cobinrox/constitution.git
+    + d736d3c...3176d48 HEAD -&gt; main (forced update)
+  </span></pre>
+  </li>
+  <li>Again, not necessary, but you may want to go out to the Git server management site and double-check that your hit list, er, your previous push has been reverted.  In the example screen shot note that the hit list commit has been removed and the tip of the branch is now back to Amy's README file update.
+    <div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/bessghub3.jpg" width="500"  alt=" " style=" padding-bottom:0.2em"/><br /><i>Double-check your commit SHA on the remote repo.</i></div></li>
+</ol>
+</div>
+</body>
+</html>

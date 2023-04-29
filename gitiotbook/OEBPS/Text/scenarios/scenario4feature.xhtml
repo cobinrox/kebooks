@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Scenarios</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<h3>Scenario 4: Create and Work on Feature Branch</h3>
+<p>This will be the typical work flow you will most likely see at the office where your team uses a "develop" branch to act as the "sprint" master.  The steps are listed below, followed by a sequence diagram to show the scenario visually. </p>
+<ol>
+  <li>Clone the master repo from the remote Git server down to your laptop.</li>
+  <li>Checkout the "develop" branch.  This is your parent.</li>
+  <li>Create a new "feature" branch with a branch name according to your team's naming convention.</li>
+  <li>Make and test your changes.</li>
+  <li>When you are at a good stopping point, stage and commit your changes.</li>
+  <li>Push your branch up to the remote repo.  Since you have just created the branch on your laptop, you will have to use the "git push -u origin yourBranchName" syntax the first time that you push it up.  Your branch is now safe on the server so if your laptop gets run over by a bus, the work that you have done and pushed is safely stored.</li>
+  <li>Continue to make and test changes, then stage and commit as you continue your work.</li>
+  <li>At another good stopping point, after a commit, do a pull on the parent branch occasionally to make sure that your keeping up to date with any other of your colleagues' changes to the parent.  You would need to use the syntax "git pull origin develop" to pull down the parent branch's changes into your new branch on your laptop.</li>
+  <li>After your last push, you may be required by your team to create a "merge" or "pull" request.  This lets the team members know that your feature is ready to be merged into the parent (develop) branch by a configuration management or QA person. And they assume that you have tested your code changes with the most recent stuff in the develop branch.</li>
+</ol>
+<div style="text-align:center;"><img src="../../Images/scenarios/scenariofeature.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>Typical Feature Branch/Developer Workflow</i></div>
+
+
+</div>
+
+</body>
+</html>

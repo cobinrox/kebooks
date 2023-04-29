@@ -56,6 +56,9 @@
         <item id="commands12mergerequest.x" href="Text/commands/commands12mergerequest.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="scenario1.x" href="Text/scenarios/scenario1.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenario2networks.x" href="Text/scenarios/scenario2networks.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenario3badpush.x" href="Text/scenarios/scenario3badpush.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenario4feature.x" href="Text/scenarios/scenario4feature.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="installtools.x" href="Text/tools/installtools.xhtml" media-type="application/xhtml+xml"/>
 
@@ -106,6 +109,7 @@
 
         <item id="commandscommit.j" href="Images/commands/commit.jpg" media-type="image/jpeg"/>
         <item id="commandscopy.j" href="Images/commands/copy.jpg" media-type="image/jpeg"/>
+        <item id="commandsghubmergereq.j" href="Images/commands/ghubmergereq.jpg" media-type="image/jpeg"/>
         <item id="commandslocalchanges.j" href="Images/commands/localchanges.jpg" media-type="image/jpeg"/>
         <item id="commandsmergerequest.j" href="Images/commands/mergerequest.jpg" media-type="image/jpeg"/>
 
@@ -133,6 +137,15 @@
 
         <item id="seq1.j" href="Images/scenarios/seq1.jpg" media-type="image/jpeg"/>
         <item id="seq1b.j" href="Images/scenarios/seq1b.jpg" media-type="image/jpeg"/>
+        <item id="bear.j" href="Images/scenarios/bear.jpg" media-type="image/jpeg"/>
+        <item id="bessghub1.j" href="Images/scenarios/bessghub1.jpg" media-type="image/jpeg"/>
+        <item id="bessghub2.j" href="Images/scenarios/bessghub2.jpg" media-type="image/jpeg"/>
+        <item id="bessghub3.j" href="Images/scenarios/bessghub3.jpg" media-type="image/jpeg"/>
+        <item id="bessseq1.j" href="Images/scenarios/bessseq1.jpg" media-type="image/jpeg"/>
+        <item id="bessstick.j" href="Images/scenarios/bessstick.jpg" media-type="image/jpeg"/>
+        <item id="besstext1.j" href="Images/scenarios/besstext1.jpg" media-type="image/jpeg"/>
+        <item id="scenario2.j" href="Images/scenarios/scenario2.jpg" media-type="image/jpeg"/>
+        <item id="scenariofeature.j" href="Images/scenarios/scenariofeature.jpg" media-type="image/jpeg"/>
 
         <item id="ghubssh1.j" href="Images/ghubssh/ghubssh1.jpg" media-type="image/jpeg"/>
         <item id="ghubssh2.j" href="Images/ghubssh/ghubssh2.jpg" media-type="image/jpeg"/>
@@ -186,6 +199,10 @@
         <itemref idref="commands12mergerequest.x"/>
 
         <itemref idref="scenario1.x"/>
+        <itemref idref="scenario2networks.x"/>
+        <itemref idref="scenario3badpush.x"/>
+        <itemref idref="scenario4feature.x"/>
+
         <itemref idref="installtools.x"/>
 
     

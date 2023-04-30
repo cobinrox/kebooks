@@ -1,0 +1,60 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Scenario Showing History</title>
+  <!--link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" /-->
+  <link rel="stylesheet" href="../../Styles/table.css" type="text/css" />
+
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<h3>Scenario: Showing History</h3>
+<div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/graph.jpg" alt=" " width="500" style="padding-bottom:0.2em"/><br /><i>This is what Git graphs look like to me</i></div>
+
+<p>Perhaps nothing in the Git world disturbs my gitlexia more than trying to peel apart the history of a repo based on its graphical representation.  The problem is compounded because different tools show the graphs differently.</p>
+<p>You can install a graphical tool or just use the built-in Git "log" command, as shown below, to generate a commit graph that is just as confusing as one created by a fancy graphical tool.</p>
+<pre><span class="inner-pre" style="font-size: 10px">
+C:\Users\jsmith\constitution&gt;git log --graph --abbrev-commit --decorate --date=relative --all
+*   commit da13a73 (refs/stash)
+|\  Merge: 3176d48 3c92f3d
+| | Author: bpanda bpanda@acme.com
+| | Date:   41 minutes ago
+| |
+| |     WIP on main: 3176d48 Update README.md
+| |
+| * commit 3c92f3d
+|/  Author: aepsinod aepsinod@acme.com
+|   Date:   41 minutes ago
+|
+|       index on main: 3176d48 Update README.md
+|
+* commit 3176d48 (HEAD -&gt; main, origin/main, origin/HEAD)
+| Author: dexterdawg dexterdawg@acme.com
+| Date:   4 days ago
+|
+|     Update README.md
+|
+* commit ea90312
+| Author: aepsinod aepsinod@acme.com
+| Date:   4 days ago
+|
+|     Update ammendments.txt
+|
+* commit 78e68f0
+| Author: jsmith jsmith@acme.com
+| Date:   10 days ago
+|
+</span></pre>
+
+<p>Note that you can also pipe the output of the log command to a file that you can view; just append the "&gt; gitlog.txt" redirect at the end of the command.</p>
+<p>I cannot reccommend a consistent and accurate view of a Git repo, but when I am investigating changes to files, I usually rely on VSCode's "timeline" view, an example of which is shown below.</p>
+<div style="font-size:80%; text-align:center;"><img src="../../Images/scenarios/timeline.jpg" alt=" " width="500" style="padding-bottom:0.2em"/><br /><i>VSCode's "TIMELINE" view</i></div>
+
+</div>
+</body>
+</html>

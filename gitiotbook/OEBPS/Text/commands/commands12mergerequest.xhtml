@@ -13,7 +13,7 @@
 <body>
 <div>
   <h3>Git Workflow Step 12: Making a Merge/Pull Request</h3>
-  <p>A merge or pull request is a feature of Git managment servers that is used to message team members to let them know that your branch has been finished and pushed up to the remote site and is ready to be officially merged with a parent branch on the remote.  Your team may or may not use these requests, but just be advised that some teams may require this.</p>
+  <p>A merge or pull request is a feature of Git managment servers that is used to message team members to let them know that your branch has been finished and pushed up to the remote site and is ready to be officially merged with a parent branch.  Your team may or may not use these requests, but just be advised that it is considered a best practice and some teams may require this.</p>
   <p><b>Syntax</b></p>
 
   <div style="text-align:center;"><img src="../../Images/commands/mergerequest.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>Creating a Merge Request in GitLab</i></div>
@@ -21,11 +21,12 @@
   <div style="text-align:center;"><img src="../../Images/commands/pullrequest.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>Creating a Pull Request in GitHub</i></div>
 
   <h4>merge/pull request: What it's supposed to do</h4>
-  <p></p>
- 
+  <p>Notifies team members that a child branch is ready to be merged into a parent branch.  This also gives team members a chance to code review the child branch, make comments, and either approve or reject the child branch.</p>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> merge/pull request: What they don't teach to gitlexics</h4>
+<p>Throwing around the terms "merge", "fetch", "pull", and then compounded with "merge request" and "pull request" is pretty confusing.  The merge/pull request terminology depends on which Git service implementation your team uses.  Just be sure to recognize that ahead of time.</p>
 <h4>merge/pull request: Bottomline</h4>
     <ul>
-      <li></li>
+      <li>Don't git confused by the terminology.  A "git pull" is to pull down and merge changes to your local repo.  A "merge/pull request" is to notify your team members that you have finished a branch and it is up on the remote ready to be merged into a parent branch.</li>
       <li></li>
     </ul>
 </div>

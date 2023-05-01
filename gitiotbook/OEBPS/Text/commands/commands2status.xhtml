@@ -29,7 +29,7 @@
  04/02/2023  07:22 AM    &lt;DIR&gt;          .
  04/02/2023  07:22 AM    &lt;DIR&gt;          ..
  04/02/2023  07:22 AM    &lt;DIR&gt;          .git
- 04/02/2023  07:22 AM                 7 ammendments.txt
+ 04/02/2023  07:22 AM                 7 amendments.txt
  04/02/2023  07:22 AM                15 preamble
  04/02/2023  07:22 AM                14 README.md
  04/02/2023  07:22 AM                24 sorting.js
@@ -45,7 +45,7 @@ C:\Users\jsmith\constitution&gt;git status
  <div style="text-align:center;"><img src="../../Images/commands/vsc_status.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git status example in VSCode</i></div>
 
 
- <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/>git status: What they forgot to mention</h4>
+ <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/>git status: What they don't teach to gitlexics</h4>
   <p>Take some caution with this command because it is insidious.  If you have made changes to your local repo, it will kindly indicate that you have done so. It will tell you if you have made a local change but have not yet added that change to the staging area.  It will tell you if you have things in the staging area but you have not yet committed those changes to the commit area. If you have commited something it will remind you that you need to push it up to the remote. However, it will not tell you the status of your local repo compared to the version up on the remote.  In other words, if someone, say George, had changed something on this branch up on the remote and then you execute the "git status" command, George's changes will not be reflected and the status results can give you a false sense of security that your local repository is "up to date", implying that it is up-to-date with the remote version.</p>
   <p>In the following excerpt, a developer had made a change to a file on the local repo, had staged it, and had committed it.  The user then uses the "git status" command.</p>
     <pre><span class="inner-pre" style="font-size: 10px">
@@ -69,12 +69,12 @@ C:\Users\jsmith\constitution&gt;git status
     C:\Users\jsmith\constitution&gt;git checkout -b some_new_branch
     Switched to a new branch 'some_new_branch'
     
-    C:\Users\jsmith\constitution&gt;echo "some edit string" > ammendments.txt
+    C:\Users\jsmith\constitution&gt;echo "some edit string" > amendments.txt
     
     C:\Users\jsmith\constitution&gt;git add .
     
-    C:\Users\jsmith\constitution&gt;git commit -m "added a line to ammendments file"
-    [some_new_branch b7a8af4] added a line to ammendments file
+    C:\Users\jsmith\constitution&gt;git commit -m "added a line to amendments file"
+    [some_new_branch b7a8af4] added a line to amendments file
      1 file changed, 1 insertion(+), 3 deletions(-)
     
     C:\Users\jsmith\constitution&gt;git status

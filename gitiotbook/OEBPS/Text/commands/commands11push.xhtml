@@ -48,7 +48,7 @@
         Branch my_new_branch set up to track remote branch my_new_branch from origin.
 
   </span></pre>
-  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git push: What they forgot to mention</h4>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git push: What they don't teach to gitlexics</h4>
     <p>Again, if you take a look at the output of the first "git status" command above, it says "nothing to commit, working tree clean".  It does not say "you have some things that you committed".  So there is warning number one: you may forget to push because you forgot you had committed changes that need to be pushed.  That's not a fault of the push command itself, but just a pitfall to be aware of.</p>
     <p>Secondly, you should usually do a "git pull" before a push to be safe that you download and include any remote repo changes. Then re-test your code, especially regression tests before you do the "git push".</p>
     <p>Finally, as part of a workflow, your team may, after having uploaded a change on a branch, have you create a "merge or pull request" (not to be confused with a "git pull" on your laptop) which sends a message to the keeper of the develop/sprint/buffer or even master branch whose job it is to officially merge your branch into the parent.</p>

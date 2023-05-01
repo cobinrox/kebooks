@@ -1,0 +1,99 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Cheatsheet</title>
+  <link rel="stylesheet" href="../Styles/stylesheet.css" type="text/css" />
+  <link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="../Styles/page-template.xpgt" />
+</head>
+
+<body>
+<div>
+<h1>Cheatsheet</h1>
+<table>
+  <tr>
+    <td><b>How To</b></td>
+    <td><b>Solution</b></td>
+  </tr>
+  <tr>
+    <td><a href="commands/commands1clone.xhtml">Download a repo from a remote Git server</a></td>
+    <td><pre><span class="inner-pre" style="font-size: 10px">
+      git clone &lt;remote_repo&gt;
+      git cd &lt;repo name&gt;
+    </span></pre></td>
+  </tr>
+  <tr>
+    <td><a href="commands/commands2status.xhtml">Get status of a local repo</a></td>
+    <td><pre><span class="inner-pre" style="font-size: 10px">
+      git remote update
+      git status
+      git show --name-only HEAD
+    </span></pre></td>    
+  </tr>
+  <tr>
+    <td><a href="commands/commands4branch.xhtml">Display available branches</a></td>
+    <td><pre><span class="inner-pre" style="font-size: 10px">
+      git remote update
+      git branch -a
+    </span></pre></td>    
+  </tr>  
+  <tr>
+    <td><a href="commands/commands5checkout.xhtml">Create a new branch</a></td>
+    <td><pre><span class="inner-pre" style="font-size: 10px">
+      git checkout &lt;the parent_for_your_new_branch&gt;
+      git pull
+      git checkout -b &lt;name_of_your_new_branch&gt;
+    </span></pre></td> 
+  </tr>
+  <tr>
+    <td><a href="commands/commands5checkout.xhtml">Checkout a branch</a></td>
+    <td>First, save/commit/stash your current branch's local changes, if any.  Then:
+      <pre><span class="inner-pre" style="font-size: 10px">
+        git checkout &lt;the branch_you_are_interested_in&gt;
+        git pull
+      </span></pre>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="commands/commands9pull.xhtml">Pull latest changes from a branch on the remote repo</a></td>
+    <td>First, save/commit/stash your current branch's local changes.  Then do your pull:
+      <pre><span class="inner-pre" style="font-size: 10px">
+        git pull &lt;origin&gt; &lt;the branch_you_are_interested_in&gt;
+      </span></pre>
+      Then resolve any merge conflicts and re-run tests.
+    </td>
+  </tr>  
+  <tr>
+    <td><a href="commands/commands9pull.xhtml">Undo a pull</a></td>
+    <td>
+      <pre><span class="inner-pre" style="font-size: 10px">
+        git reset --soft HEAD~
+        git merge --abort
+      </span></pre>
+      Then resolve any merge conflicts and re-run tests.
+    </td>
+  </tr>  
+
+  <tr>
+    <td><a href="commands/commands11push.xhtml">Push a brand-new current branch to remote</a></td>
+    <td>First, save/commit/stash your current branch's local changes.  Then:
+      <pre><span class="inner-pre" style="font-size: 10px">
+        git push -u origin &lt;your_new_branchs_name&gt;
+      </span></pre>
+    </td></tr>
+  <tr>
+      <td><a href="commands/commands11push.xhtml">Push a feature branch to the feature's branch on the remote</a></td>
+      <td>First, save/commit/stash your current branch's local changes and pull the master into your branch.  Then:
+        <pre><span class="inner-pre" style="font-size: 10px">
+          git pull &lt;origin&gt; &lt;parent_branch_name&gt;
+          (resolve any merge conflicts, re-run tests)
+          git push
+        </span></pre>
+      </td>  
+</tr>
+</table>
+</div>
+</body>
+</html>

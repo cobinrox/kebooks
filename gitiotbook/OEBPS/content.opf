@@ -55,12 +55,18 @@
         <item id="commands11push.x" href="Text/commands/commands11push.xhtml" media-type="application/xhtml+xml"/>
         <item id="commands12mergerequest.x" href="Text/commands/commands12mergerequest.xhtml" media-type="application/xhtml+xml"/>
 
-        <item id="scenariofeature.x" href="Text/scenarios/scenariofeature.xhtml" media-type="application/xhtml+xml"/>
-        <item id="scenario1clash.x" href="Text/scenarios/scenario1clash.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenario0.x" href="Text/scenarios/scenario0.xhtml" media-type="application/xhtml+xml"/>
         <item id="scenariobadpush.x" href="Text/scenarios/scenariobadpush.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenarioclash.x" href="Text/scenarios/scenarioclash.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenariofeature.x" href="Text/scenarios/scenariofeature.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenariofeature2.x" href="Text/scenarios/scenariofeature2.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenariomergerequest.x" href="Text/scenarios/scenariomergerequest.xhtml" media-type="application/xhtml+xml"/>
         <item id="scenarionetworks.x" href="Text/scenarios/scenarionetworks.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenarioshowhistory.x" href="Text/scenarios/scenarioshowhistory.xhtml" media-type="application/xhtml+xml"/>
 
+        <item id="glossary.x" href="Text/glossary.xhtml" media-type="application/xhtml+xml"/>
         <item id="installtools.x" href="Text/tools/installtools.xhtml" media-type="application/xhtml+xml"/>
+        <item id="cheat.x" href="Text/cheat.xhtml" media-type="application/xhtml+xml"/>
 
         <!-- Image files -->
         
@@ -144,8 +150,11 @@
         <item id="bessseq1.j" href="Images/scenarios/bessseq1.jpg" media-type="image/jpeg"/>
         <item id="bessstick.j" href="Images/scenarios/bessstick.jpg" media-type="image/jpeg"/>
         <item id="besstext1.j" href="Images/scenarios/besstext1.jpg" media-type="image/jpeg"/>
+        <item id="feature2.j" href="Images/scenarios/feature2.jpg" media-type="image/jpeg"/>
+        <item id="graph.j" href="Images/scenarios/graph.jpg" media-type="image/jpeg"/>
         <item id="scenario2.j" href="Images/scenarios/scenario2.jpg" media-type="image/jpeg"/>
         <item id="scenariofeature.j" href="Images/scenarios/scenariofeature.jpg" media-type="image/jpeg"/>
+        <item id="timeline.j" href="Images/scenarios/timeline.jpg" media-type="image/jpeg"/>
 
         <item id="ghubssh1.j" href="Images/ghubssh/ghubssh1.jpg" media-type="image/jpeg"/>
         <item id="ghubssh2.j" href="Images/ghubssh/ghubssh2.jpg" media-type="image/jpeg"/>
@@ -198,11 +207,17 @@
         <itemref idref="commands11push.x"/>
         <itemref idref="commands12mergerequest.x"/>
 
-        <itemref idref="scenario1clash.x"/>
-        <itemref idref="scenarionetworks.x"/>
-        <itemref idref="scenariobadpush.x"/>
+        <itemref idref="scenario0.x"/>
         <itemref idref="scenariofeature.x"/>
+        <itemref idref="scenariomergerequest.x"/>
+        <itemref idref="scenariofeature2.x"/>
+        <itemref idref="scenarioclash.x"/>
+        <itemref idref="scenariobadpush.x"/>
+        <itemref idref="scenarioshowhistory.x"/>
+        <itemref idref="scenarionetworks.x"/>
 
+        <itemref idref="glossary.x"/>
+        <itemref idref="cheat.x"/>
         <itemref idref="installtools.x"/>
 
     

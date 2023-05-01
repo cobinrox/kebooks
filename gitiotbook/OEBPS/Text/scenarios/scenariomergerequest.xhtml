@@ -17,10 +17,13 @@
 <p>This scenario description gives a little context and detail to a "merge/pull request".</p>
 <ol>
   <li>Developer finishes up a feature branch, e.g. Feature X, has downloaded and merged the most-recent parent, and has re-run regression tests.</li>
-  <li>Developer pushes last changes up to the remote repo.</li>
-  <li>Developer logs on to the Git management system and creates a merge request for Feature X.</li>
+  <li>Developer pushes Feature X branch's last changes up to the remote repo.</li>
+  <li>Developer logs on to the Git management system and creates a merge/pull request for Feature X.</li>
   <li>Team members are notified that Feature X is ready to be merged into the parent, e.g. a "develop" branch.</li>
   <li>A team lead, configuration manager, QA tester, another team member, or maybe even the original developer, depending on the team's workflow, uses the Git management system to merge the feature branch into the parent.</li>
+  <li>A team lead/member checks the content of the Feature X branch, maybe code reviews it, comments on it, and approves or rejects the branch.  One or more team members can be assigned to the workflow to be required to approve the request</li>
+  <li>A team lead/member merges the Feature X branch into the parent branch.</li>
+  <li>The new Feature X is available in the parent branch.</li>
 </ol>
 </div>
 </body>

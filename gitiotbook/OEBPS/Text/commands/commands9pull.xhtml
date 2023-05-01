@@ -64,10 +64,10 @@
         Merge branch 'main' of github.com:cobinrox/constitution into my_new_branch
   </span></pre>
 
-  <p>On the surface, a "git pull" is intended to download remote repo changes of a specified branch and merge those changes with the current local branch you are working on.  So, for example, if the master branch has been updated with changes to, say, the ammendements file, then those changes are downloaded to your laptop and your branch's copy of the ammendments file will be updated with the new changes.  Usually.</p>
+  <p>On the surface, a "git pull" is intended to download remote repo changes of a specified branch and merge those changes with the current local branch you are working on.  So, for example, if the master branch has been updated with changes to, say, the ammendements file, then those changes are downloaded to your laptop and your branch's copy of the amendments file will be updated with the new changes.  Usually.</p>
   <p> 
   "Usually" because a "git pull" can actually result in three different states: a clean merge of changes with your local branch (the nominal case which you hope to encounter); a merge but with conflicts (the annoying case which requires human intervention); and a complete abort of the pull.</p>
-  <p>It can automatically update and merge changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the ammendments file, if Molly had added a new ammendment on the remote repo, and you as well had added your own ammendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict can (and probably will) arise for that file.  The ammendments file will be updated with both of the changes and <i>a merge conflict message will be placed into the actual text of the file</i>. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the ammendments file, and how the file is changed and marked with conflict annotations.  Some details of the commands have been removed for brevity.</p>
+  <p>It can automatically update and merge changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the amendments file, if Molly had added a new amendment on the remote repo, and you as well had added your own amendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict can (and probably will) arise for that file.  The amendments file will be updated with both of the changes and <i>a merge conflict message will be placed into the actual text of the file</i>. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the amendments file, and how the file is changed and marked with conflict annotations.  Some details of the commands have been removed for brevity.</p>
   <h4>git pull: Example use, merge conflict</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
         
@@ -75,19 +75,19 @@
     C:\Users\jsmith&gt;cd constitution
     C:\Users\jsmith\constitution&gt;git checkout -b my_new_branch
     Switched to a new branch 'my_new_branch'
-    C:\Users\jsmith\constitution&gt;echo "28. No robo calls" &gt;&gt; ammendments.txt
+    C:\Users\jsmith\constitution&gt;echo "28. No robo calls" &gt;&gt; amendments.txt
     C:\Users\jsmith\constitution&gt;git add .
-    C:\Users\jsmith\constitution&gt;git commit -m "added 28th ammendment"
+    C:\Users\jsmith\constitution&gt;git commit -m "added 28th amendment"
     
     C:\Users\jsmith\constitution&gt;git pull origin main
     From github.com:cobinrox/constitution
      * branch            main       -&gt; FETCH_HEAD
        ae236f3..f5bb1b8  main       -&gt; origin/main
-    Auto-merging ammendments.txt
-    CONFLICT (content): Merge conflict in ammendments.txt
+    Auto-merging amendments.txt
+    CONFLICT (content): Merge conflict in amendments.txt
     Automatic merge failed; fix conflicts and then commit the result.
     
-    C:\Users\jsmith\constitution&gt;more ammendments.txt
+    C:\Users\jsmith\constitution&gt;more amendments.txt
     1. Freedom of speech, assembly, press
     2. Right to carry arms
     3. No quartering of soldiers
@@ -99,25 +99,58 @@
     &gt;&gt;&gt;&gt;&gt; f5bb1b808b0e7227a8cb4a14448d388a5527f5bd
 
   </span></pre>
-  <p>In the above example, Molly had added a new ammendment ("All ice cream shall be free") on the remote main repo, and her change, coupled with the local change ("No robo calls") caused the conflict.  The file was literaly updated with the merge conflict. It is now up to the local developer to edit the file once again, and properly merge the two new ammendments.</p>
+  <p>In the above example, Molly had added a new amendment ("All ice cream shall be free") on the remote main repo, and her change, coupled with the local change ("No robo calls") caused the conflict.  The file was literaly updated with the merge conflict. It is now up to the local developer to edit the file once again, and properly merge the two new amendments.</p>
   <h4>git pull: Example VSCode merge conflict</h4>
   <div style="text-align:center;"><img src="../../Images/commands/vsc_conflict.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git pull that resulted in a merge conflict, as shown in VSCode</i></div>
 
-  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git pull: What they forgot to mention</h4>
+  <h4><img src="../../Images/small/w4.jpg" alt=" " class="heading-icon"/> git pull: What they don't teach to gitlexics</h4>
   
-  <p>You cannot pull and merge changes to a given file if that file is not in the committed state.  For example, in the ammendments example above, we cannot merge Molly's changes until our ammendments file has been committed.  If you attempt a "git pull" when the file has been changed but not moved to the committed state, the pull will abort and you will be chastised to move the file to the committed state. That can be very very annoying if you are not ready to commit but still would like to get remote changes.</p>
+  <p>You cannot pull and merge changes to a given file if that file is not in the committed state.  For example, in the amendments example above, we cannot merge Molly's changes until our amendments file has been committed.  If you attempt a "git pull" when the file has been changed but not moved to the committed state, the pull will abort and you will be chastised to move the file to the committed state. That can be very very annoying if you are not ready to commit but still would like to get remote changes.</p>
 
   <p>Another surprise with a pull is that the result, if successful or partially successful, will create a new commit on top of your commits.  This can be seen in the first example, although it is subtle.  This too can be confusing if you had not made any local changes, then had performed a "git pull" which pulls down new changes from the remote and updates the commit area.  If you do a git status you may not realize that git actually had not only made changes, but had also moved those changes into the commit area.  You'll need to rely on memory to remember to push up your newly updated branch. This may make perfect sense to some, but if you have not been told of that fact, it may come as a surprise.  After doing a successful pull, you can run the "git log" command and/or the "git show --name-only HEAD" command to show that this is so, i.e. that a new commit has been created.  The following diagram attempts to illustrate this concept, where "Your Changes" are on an initial commit, with SHA 1, and after doing a "git pull origin main", "Molly's Changes" are merged in and a new commit and SHA are created, with SHA 2.</p>
-
-  <p>One more oddity about "git pull" is that it will sometimes force you to put the "origin" (usually referring to the remote repo) as an adjective to the branch you want to pull from.  You'll see this in the example above, i.e. instead of just "git pull someBranchName", the command is "git pull origin someBr</p>
-
+  
   <div style="text-align:center;"><img src="../../Images/commands/pull2.jpg" alt=" " style="width: 500px;;padding-bottom:0.2em"/><br /><i>git pull, new commit and SHA is created</i></div>
+  
+  <p>One more oddity about "git pull" is that it will sometimes force you to put the "origin" (usually referring to the remote repo) as an adjective to the branch you want to pull from.  You'll see this in the example above and the example below, i.e. instead of just "git pull someBranchName", the command is "git pull <b>origin</b> someBranchName"</p>
+  <h4>git pull: Example use, requiring "origin"</h4>
+
+  <pre><span class="inner-pre" style="font-size: 10px">
+  C:\Users\jsmith\constitution&gt;git branch -a
+  * main
+    remotes/origin/HEAD -&gt; origin/main
+    remotes/origin/amys_feature_change_gui_name
+    remotes/origin/bills_feature_remove_dead_code
+    remotes/origin/dexters_feature_add_comments
+    remotes/origin/main
+    remotes/origin/my_new_branch
+  
+    C:\Users\jsmith\constitution&gt;git checkout dexters_feature_add_comments
+    Switched to a new branch 'dexters_feature_add_comments'
+    branch 'dexters_feature_add_comments' set up to track 'origin/dexters_feature_add_comments'.
+    
+    C:\Users\jsmith\constitution&gt;git pull amys_feature_change_gui_name
+    fatal: 'amys_feature_change_gui_name' does not appear to be a git repository
+    fatal: Could not read from remote repository.
+    
+    Please make sure you have the correct access rights
+    and the repository exists.
    
+    C:\Users\jsmith\constitution&gt;git pull origin amys_feature_change_gui_name
+    From github.com:cobinrox/constitution
+     * branch            amys_feature_change_gui_name -&gt; FETCH_HEAD
+    Updating 8ce9602..9663855
+    Fast-forward
+     gui_constants.js | 1 +
+     1 file changed, 1 insertion(+)
+     create mode 100644 gui_constants.js
+  </span></pre>
+
 
   <h4>git pull: Undoing files that have been pulled</h4>
-    <p>This command will unmerge and move the files back to the initial commit state.</p>
+    <p>These commands will unmerge and move the files back to the initial commit state.</p>
   <pre><span class="inner-pre" style="font-size: 10px">
   git reset --soft HEAD~
+  git merge --abort
   </span></pre>
   <h4>git pull:  Bottomline</h4>
   <ul>

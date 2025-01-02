@@ -64,7 +64,7 @@
         Merge branch 'main' of github.com:cobinrox/constitution into my_new_branch
   </span></pre>
 
-  <p>On the surface, a "git pull" is intended to download remote repo changes of a specified branch and merge those changes with the current local branch you are working on.  So, for example, if the master branch has been updated with changes to, say, the ammendements file, then those changes are downloaded to your laptop and your branch's copy of the amendments file will be updated with the new changes.  Usually.</p>
+  <p>On the surface, a "git pull" is intended to download remote repo changes of a specified branch and merge those changes with the current local branch you are working on.  So, for example, if the master branch has been updated with changes to, say, the ammendments file, then those changes are downloaded to your laptop and your branch's copy of the amendments file will be updated with the new changes.  Usually.</p>
   <p> 
   "Usually" because a "git pull" can actually result in three different states: a clean merge of changes with your local branch (the nominal case which you hope to encounter); a merge but with conflicts (the annoying case which requires human intervention); and a complete abort of the pull.</p>
   <p>It can automatically update and merge changes that do not create a conflict, but if it detects a conflict, it will alert you and place merge conflict messages right inside the file that had the conflict. A merge conflict occurs when git cannot cleanly merge in the remote repo's version of the specified branch down into your local branch.  For example, in the amendments file, if Molly had added a new amendment on the remote repo, and you as well had added your own amendment locally to the file, when you perform a "git pull" to incorporate remote changes, a merge conflict can (and probably will) arise for that file.  The amendments file will be updated with both of the changes and <i>a merge conflict message will be placed into the actual text of the file</i>. The syntax below shows how a git pull is performed to pull down changes from the remote repo (that other team members may have made), how a merge conflict arises on the amendments file, and how the file is changed and marked with conflict annotations.  Some details of the commands have been removed for brevity.</p>
@@ -99,7 +99,7 @@
     &gt;&gt;&gt;&gt;&gt; f5bb1b808b0e7227a8cb4a14448d388a5527f5bd
 
   </span></pre>
-  <p>In the above example, Molly had added a new amendment ("All ice cream shall be free") on the remote main repo, and her change, coupled with the local change ("No robo calls") caused the conflict.  The file was literaly updated with the merge conflict. It is now up to the local developer to edit the file once again, and properly merge the two new amendments.</p>
+  <p>In the above example, Molly had added a new amendment ("All ice cream shall be free") on the remote main repo, and her change, coupled with the local change ("No robo calls") caused the conflict.  The file was literally updated with the merge conflict. It is now up to the local developer to edit the file once again, and properly merge the two new amendments.</p>
   <h4>git pull: Example VSCode merge conflict</h4>
   <div style="text-align:center;"><img src="../../Images/commands/vsc_conflict.jpg" alt=" " style="padding-bottom:0.2em"/><br /><i>git pull that resulted in a merge conflict, as shown in VSCode</i></div>
 

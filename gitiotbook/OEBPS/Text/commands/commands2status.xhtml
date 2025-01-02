@@ -21,7 +21,7 @@
   </span></pre>
   <div style="text-align:center;"><img src="../../Images/commands/status.jpg" alt=" " style="width: 500px;padding-bottom:0.2em"/><br /><i>git status only shows local status</i></div>
   <h4>git status: What it's supposed to do</h4>
-  <p>This command gives you a high (very high) level summary of the basic status of the local repo including local changes, changes that have been moved to the staging state, and changes that have been moved to the committed state.</p>
+  <p>This command gives you a high (very high) level summary of the basic status of the <i>local</i> repo including local changes, changes that have been moved to the staging state, and changes that have been moved to the committed state.</p>
   <h4>git status: Example use</h4>
   <pre><span class="inner-pre" style="font-size: 10px">
 
@@ -84,10 +84,11 @@ C:\Users\jsmith\constitution&gt;git status
     C:\Users\jsmith\constitution&gt;
    </span></pre>
   <p>Again this gives you the <i>sense</i> that your work has been committed, <i>if you happen to remember that you did do a commit</i>, or, may give you the easily-misunderstood-idea that you have already pushed up your new branch and changes to the remote.  The commit and push commands are discussed later, but I wanted to mention how "git status" can git you into trouble if you don't take heed with it.</p>
+  <p>There is one more subtle gotcha with git status that I'd like to mention and it is covered in a little more detail in the <i>Scenarios</i> chapter.  Git, like several software libraries, includes an optional "ignore" file, <i>.gitignore</i>, that explicitly tells Git to ignore any file that has the extension defined in the .gitignore file.  So, for example, if you were to add "*.obj" or maybe "*.class" to a .gitignore file, you are essentially telling Git that if changes are made to those types of files, do <i>not</i> keep track of those changes.  This can get you into confusing situations yes, been there, done that.  You can refer to the <i>Scenarios</i> chapter for uhm, well out takes when writing this book.</p>
   <h4>git status: Bottomline</h4>
   <ul>
-    <li>Get in the habbit of running "git remote update" before running "git status"</li>
-   
+    <li>Get in the habit of running "git remote update" before running "git status"</li>
+    <li>Remember that a <i>.gitignore</i> file may be present in your repository and the "git status" command will ignore files mentioned in the ignore file.</li>
   </ul>
 </div>
 </body>

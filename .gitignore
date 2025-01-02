@@ -1,3 +1,5 @@
 gitiotbook/deleteme.zip
 gitiotbook/gitiotbook-conversionLog.csv
 gitiotbook/gitiotbook.epub
+*.log
+kcreate/

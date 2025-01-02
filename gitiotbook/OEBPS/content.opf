@@ -63,6 +63,7 @@
         <item id="scenariomergerequest.x" href="Text/scenarios/scenariomergerequest.xhtml" media-type="application/xhtml+xml"/>
         <item id="scenarionetworks.x" href="Text/scenarios/scenarionetworks.xhtml" media-type="application/xhtml+xml"/>
         <item id="scenarioshowhistory.x" href="Text/scenarios/scenarioshowhistory.xhtml" media-type="application/xhtml+xml"/>
+        <item id="scenariocopperfield.x" href="Text/scenarios/scenariocopperfield.xhtml" media-type="application/xhtml+xml"/>
 
         <item id="glossary.x" href="Text/glossary.xhtml" media-type="application/xhtml+xml"/>
         <item id="installtools.x" href="Text/tools/installtools.xhtml" media-type="application/xhtml+xml"/>
@@ -162,6 +163,10 @@
         <item id="ghubssh4.j" href="Images/ghubssh/ghubssh4.jpg" media-type="image/jpeg"/>
         <item id="ghubssh5.j" href="Images/ghubssh/ghubssh5.jpg" media-type="image/jpeg"/>
        
+        <item id="sigh.j" href="Images/sigh.jpg" media-type="image/jpeg"/>
+        <!-- <item id="tired.j" href="Images/tired.jpg" media-type="image/jpeg"/> -->
+        <item id="tired.j" href="Images/tired_rotated.jpg" media-type="image/jpeg"/>
+
    
         
     </manifest>
@@ -215,6 +220,7 @@
         <itemref idref="scenariobadpush.x"/>
         <itemref idref="scenarioshowhistory.x"/>
         <itemref idref="scenarionetworks.x"/>
+        <itemref idref="scenariocopperfield.x"/>
 
         <itemref idref="glossary.x"/>
         <itemref idref="cheat.x"/>

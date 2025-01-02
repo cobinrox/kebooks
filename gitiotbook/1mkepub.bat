@@ -1,3 +1,6 @@
+@REM  create *.epub document
+@REM  be sure to run 2chkepub.bat afterwards to double-check validity
+
 for %%* in (.) do set CurrDirName=%%~n*
 echo %CurrDirName%
 

@@ -27,7 +27,7 @@
       </span></pre>
     </li>
   </ol>
-  <h3>2. (Optional) Check for and create an ssh keyy</h3>
+  <h3>2. (Optional) Check for and create an ssh key</h3>
     <ol>
       <li>Navigate to your users/yourName directory on your laptop (or /home/yourName, depending on your operating system), and look for a directory called <i><b>.ssh</b></i>.  If you are using FileManager or some other graphical file manager, be sure that it has its "show hidden files" option turned on.  On the command line, use <i><b>dir -a</b></i> if you are on a Windows laptop, or use <i><b>ls -al</b></i> if on a Mac/Linux. If you do not have that directory, then create it in the <i><b>/users/yourName</b></i> (or <i><b>/home/yourName</b></i> if on Linux).  For example, in Windows, under the user "jsmith", creating the directory may look similar to this:<br/>
         <pre><span class="inner-pre" style="font-size: 10px">
@@ -44,7 +44,7 @@
                         </span></pre></li>
       <li>Change to the <i><b>.ssh</b></i> directory and display the contents of the directory, look for a file called <i><b>"id_rsa.pub"</b></i>.</li>
       <li>If that file exists, then you are done, skip to the next section.</li>
-      <li>If the file does not exist, then you need to create one using the <i><b>sshkey</b></i> generation command for your operating system.  For example, creating an ssh key on a Windows laptop under the user jsmith may look similar to this: (If prompted for a passphrase, you can skip that for now unless you know what you are doing.)
+      <li>If the file does not exist, then you need to create one using the <i><b>sshkey</b></i> generation command for your operating system.  For example, creating an ssh key on a Windows laptop under the user jsmith may look similar to this: (If prompted for a passphrase, you can skip that for now unless you know what you are doing <i>and</i> you know that you will remember the passphrase the next time the system prompts for it.)
       <pre><span class="inner-pre" style="font-size: 10px">
         C:\Users\jsmith\ssh&gt;ssh-keygen
         Generating public/private rsa key pair.
